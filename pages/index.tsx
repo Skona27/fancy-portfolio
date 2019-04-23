@@ -1,14 +1,11 @@
 import * as React from 'react';
-import {Layout} from "../components/Layout";
 
-function Home() {
+const Home = React.memo(() => {
   return (
-    <Layout>
-      <h1>
-        Welcome to Next.js!
-      </h1>
-    </Layout>
+      <>
+      </>
   )
-}
+});
 
-export default Home
+Home.displayName = "Home";
+export default Home;

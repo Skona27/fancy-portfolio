@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
+import { Global, css, jsx } from "@emotion/core";
 
 import Document, { Main, NextScript } from "next/document";
 
@@ -11,20 +11,31 @@ class MyDocument extends Document {
 
   render() {
     return (
-        <html>
+      <html>
+        <Global
+          styles={css`
+            * {
+             @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&subset=latin-ext');
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+          `}
+        />
+
         <body css={{
-          fontFamily: "Helvetica, sans-serif",
-          lineHeight: 1.6,
-          color: "#222",
-          maxWidth: "40rem",
-          padding: "2rem",
-          margin: "auto",
-          background: "#fafafa"
+          fontFamily: "Montserrat, sans-serif",
+          lineHeight: 1.4,
+          color: "#444",
+          background: "#fafafa",
+          padding: "4rem 2rem",
+          maxWidth: "50rem",
+          margin: "auto"
         }}>
-        <Main />
-        <NextScript />
+          <Main />
+          <NextScript />
         </body>
-        </html>
+      </html>
     );
   }
 }
