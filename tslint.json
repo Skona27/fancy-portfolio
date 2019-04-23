@@ -1,0 +1,15 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "jsRules": true,
+  "rules": {
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "variable-name": false,
+    "no-shadowed-variable": false,
+    "ordered-imports": false
+  },
+  "linterOptions": {
+    "exclude": ["./next/**/*"]
+  }
+}
