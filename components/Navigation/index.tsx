@@ -1,6 +1,13 @@
 import * as React from 'react';
+import Switch from '@material-ui/core/Switch';
 
 export const Navigation = React.memo(() => {
+  const [isChecked, setIsChecked] = React.useState(false);
+
+  const toggle = React.useCallback(() => {
+    setIsChecked(!isChecked);
+  }, [isChecked]);
+
   const liStyle = {
     fontWeight: 500,
     fontSize: "1.2rem",
@@ -14,8 +21,12 @@ export const Navigation = React.memo(() => {
       marginLeft: "2.5rem"
     },
     "&:hover": {
-      borderColor: "#555"
+      borderColor: "#e84f7a"
     }
+  };
+
+  const aStyle = {
+    color: "#e84f7a"
   };
 
   return (
@@ -32,19 +43,32 @@ export const Navigation = React.memo(() => {
           <span>javascript developer</span>
         </h1>
 
-        <div css={{marginLeft: "auto"}}>
-          TOGGLE
-        </div>
+        <nav css={{marginLeft: "auto"}}>
+          <ul css={{ listStyle: "none", display: "flex", justifyContent: "space-between", width: "7rem", fontSize: "1.3rem"}}>
+            <li><a href="#" css={aStyle}><i className="fab fa-github"></i></a></li>
+            <li><a href="#" css={aStyle}><i className="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#" css={aStyle}><i className="far fa-envelope"></i></a></li>
+          </ul>
+        </nav>
+
       </div>
 
       <nav css={{ display: "flex", alignItems: "center", marginTop: "4rem" }}>
         <ul css={{ listStyle: "none", display: "flex" }}>
-          <li css={liStyle}>About</li>
-          <li css={liStyle}>Commercial work</li>
-          <li css={liStyle}>Projects</li>
-          <li css={liStyle}>Blog</li>
+          <li css={{...liStyle, borderColor: "#e84f7a"}}>o mnie</li>
+          <li css={liStyle}>realizacje</li>
+          <li css={liStyle}>projekty</li>
+          <li css={liStyle}>blog</li>
         </ul>
       </nav>
+
+      <div css={{position: "fixed", top: "0", right: 0, padding: "1.5rem 3rem"}}>
+        <Switch
+          checked={isChecked}
+          onChange={toggle}
+          css={{ transform: "translate(25%)", "span": {color: "#e84f7a"}}}
+        />
+      </div>
     </header>
   )
 });

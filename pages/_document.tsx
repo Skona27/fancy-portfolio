@@ -28,12 +28,16 @@ class MyDocument extends Document {
           lineHeight: 1.4,
           color: "#444",
           background: "#fafafa",
-          padding: "4rem 2rem",
+          padding: "4rem 3rem",
           maxWidth: "50rem",
           margin: "auto"
         }}>
           <Main />
           <NextScript />
+
+          <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+                  integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+                  crossOrigin="anonymous"></script>
         </body>
       </html>
     );
