@@ -1,42 +1,10 @@
 import * as React from 'react';
-import Switch from '@material-ui/core/Switch';
-import {useTheme} from "../../hooks/Theme";
+import {NavLink} from "./NavLink";
+import {NavIcon} from "./NavIcon";
+import {ThemeSwitch} from "./ThemeSwitch";
+import {navigationMock} from "./mock";
 
 export const Navigation = React.memo(() => {
-  const {colors, bp, dispatch} = useTheme();
-  const [isChecked, setIsChecked] = React.useState(false);
-
-  const toggle = React.useCallback(() => {
-    setIsChecked(!isChecked);
-
-    if (isChecked) {
-      dispatch({type: "setLightTheme"});
-    }
-    if (!isChecked) {
-      dispatch({type: "setDarkTheme"});
-    }
-  }, [isChecked]);
-
-  const liStyle = {
-    fontWeight: 500,
-    fontSize: "1.2rem",
-    letterSpacing: 2,
-    padding: "0 2px",
-    borderBottom: "3px solid transparent",
-    cursor: "pointer",
-    transition: "border-color .15s ease-in",
-    "&:not(:first-of-type)": {
-      marginLeft: "2.5rem"
-    },
-    "&:hover": {
-      borderColor: colors.pink
-    }
-  };
-
-  const aStyle = {
-    color: colors.pink
-  };
-
   return (
     <header>
       <div css={{
@@ -45,7 +13,7 @@ export const Navigation = React.memo(() => {
         height: "5rem"
       }}>
         <img
-          src={"https://scontent.fwaw3-1.fna.fbcdn.net/v/t1.0-9/49800228_2432794613457256_8343369272679989248_n.jpg?_nc_cat=111&_nc_ht=scontent.fwaw3-1.fna&oh=a05039e963661dc3304dd0ecbf66ab28&oe=5D3D86D8"}
+          src={navigationMock.imageURL}
           css={{
             borderRadius: "50%",
             height: "100%",
@@ -59,9 +27,9 @@ export const Navigation = React.memo(() => {
           letterSpacing: 1,
           fontWeight: 700
         }}>
-          <span>Jakub Skoneczny</span>
+          <span>{navigationMock.title}</span>
           <br/>
-          <span>javascript developer</span>
+          <span>{navigationMock.subtitle}</span>
         </h1>
 
         <nav css={{marginLeft: "auto"}}>
@@ -72,12 +40,17 @@ export const Navigation = React.memo(() => {
             width: "7rem",
             fontSize: "1.3rem"
           }}>
-            <li><a href="#" css={aStyle}><i className="fab fa-github"></i></a></li>
-            <li><a href="#" css={aStyle}><i className="fab fa-linkedin-in"></i></a></li>
-            <li><a href="#" css={aStyle}><i className="far fa-envelope"></i></a></li>
+            <NavIcon href="https://github.com/Skona27" blank={true}>
+              <i className="fab fa-github"></i>
+            </NavIcon>
+            <NavIcon href="https://www.linkedin.com/in/jskoneczny/" blank={true}>
+              <i className="fab fa-linkedin-in"></i>
+            </NavIcon>
+            <NavIcon href="mailto:skoneczny.j@gmail.com">
+              <i className="far fa-envelope"></i>
+            </NavIcon>
           </ul>
         </nav>
-
       </div>
 
       <nav css={{
@@ -89,39 +62,15 @@ export const Navigation = React.memo(() => {
           listStyle: "none",
           display: "flex"
         }}>
-          <li css={liStyle}>o mnie</li>
-          <li css={liStyle}>realizacje</li>
-          <li css={liStyle}>projekty</li>
-          <li css={liStyle}>blog</li>
+          {navigationMock.links.map(link =>
+            <NavLink href={link.href} active={link.href === navigationMock.activePage}>
+              {link.title}
+            </NavLink>
+          )}
         </ul>
       </nav>
 
-      <div css={{
-        position: "absolute",
-        top: "0",
-        right: 0,
-        padding: "1.75rem 3rem",
-        [bp.fromTablet]: {
-          padding: "1.5rem 3rem",
-        },
-        [bp.fromDesktop]: {
-          position: "fixed"
-        }
-      }}>
-        <Switch
-          checked={isChecked}
-          onChange={toggle}
-          css={{
-            transform: "translate(50%)",
-            "span": {
-              color: colors.pink
-            },
-            [bp.fromDesktop]: {
-              transform: "translate(25%)",
-            }
-          }}
-        />
-      </div>
+      <ThemeSwitch />
     </header>
   )
 });
