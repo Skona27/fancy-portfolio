@@ -25,7 +25,7 @@ class MyDocument extends Document {
               padding: 0;
               box-sizing: border-box;
               font-family: Montserrat, sans-serif;
-              line-height: 1.5;
+              line-height: 1.6;
             }
             
             html {
@@ -44,30 +44,63 @@ class MyDocument extends Document {
              margin-top: 1.5rem;
              margin-bottom: .75rem;
              padding-top: 1.5rem;
-
+             font-size: 2rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1.75rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 1.5rem;
+              }
             }
             
             h3 {  
              margin-top: 1rem;
              margin-bottom: .5rem;
              padding-top: 1rem;
+             font-size: 1.45rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1.3rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 1.17rem;
+              }
             }
             
             h4 {  
              margin-top: .5rem;
              margin-bottom: .5rem;
              padding-top: .5rem;
+             font-size: 1.2rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1.15rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 1.1rem;
+              }
             }
             
             p {  
              margin-top: .25rem;
              padding-top: .25rem;
+             font-size: 1.3rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1.2rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 1.1rem;
+              }
             }
             
             code,
             pre {
-              font-size: .875rem;
               font-weight: 400;
+              font-size: 1.15rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: .875rem;
+              }
             }
             
             code {

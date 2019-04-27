@@ -1,8 +1,9 @@
 import React from "react";
 import App, {Container, NextAppContext} from "next/app";
 import {Theme} from "../hooks/Theme";
-import Navigation from "../components/Navigation";
+import {Header} from "../components/Header";
 import {Layout} from "../components/Layout";
+import {headerData} from "../data/header";
 
 class MyApp extends App {
   static async getInitialProps({Component, ctx}: NextAppContext) {
@@ -21,7 +22,7 @@ class MyApp extends App {
       <Container>
         <Theme>
           <Layout>
-            <Navigation/>
+            <Header {...headerData} />
             <Component {...pageProps} />
           </Layout>
         </Theme>

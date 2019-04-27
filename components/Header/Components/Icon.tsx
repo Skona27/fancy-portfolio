@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import {useTheme} from "../../hooks/Theme";
+import {useTheme} from "../../../hooks/Theme";
 
 interface IProps {
   href: string;
@@ -8,17 +8,24 @@ interface IProps {
   children: ReactNode;
 }
 
-export const NavIcon: React.FC<IProps> = React.memo((
+export const Icon: React.FC<IProps> = React.memo((
   {children, ...props}) => {
-  const {colors} = useTheme();
+  const {colors, bp} = useTheme();
 
   return (
     <li>
       <a css={{
         color: colors.pink,
+        fontSize: "1.6rem",
         transition: "color .1s ease-in",
         "&:hover": {
           color: colors.secondary
+        },
+        [bp.fromMobile]: {
+          fontSize: "1.5rem",
+        },
+        [bp.fromTablet]: {
+          fontSize: "1.3rem"
         }
       }} {...props}>
         {children}
@@ -27,4 +34,4 @@ export const NavIcon: React.FC<IProps> = React.memo((
   )
 });
 
-NavIcon.displayName = "NavIcon";
+Icon.displayName = "NavIcon";

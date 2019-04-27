@@ -1,11 +1,13 @@
-import {INavigation} from "../components/Navigation/types";
+import {IHeader} from "../components/Header/types";
 
-export const navigationMock: INavigation = {
-  imageURL: "http://localhost:3000/static/img/profile-photo.jpg",
+export const headerData: IHeader = {
   title: "Jakub Skoneczny",
   subtitle: "javascript developer",
-  activePage: "/",
-  links: [
+  image: {
+    url: "http://192.168.1.34:3000/static/img/profile-photo.jpg",
+    alt: "Moje zdjęcie profilowe"
+  },
+  elements: [
     {
       href: "/",
       title: "o mnie"

@@ -1,7 +1,11 @@
-import  React, {ReactElement} from "react";
-import {useTheme} from "../hooks/Theme";
+import React, {ReactElement} from "react";
+import {useTheme} from "../../hooks/Theme";
 
-export const Layout: React.FC<{children: ReactElement[]}> = React.memo(({children}) => {
+interface IProps {
+  children: ReactElement[]
+}
+
+export const Layout: React.FC<IProps> = React.memo(({children}) => {
   const {colors, bp} = useTheme();
 
   return (

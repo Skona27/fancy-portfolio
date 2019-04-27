@@ -27,20 +27,28 @@ const Blog = React.memo(() => {
     <main>
       {groupedPosts.map((group, ind) => (
         <section key={ind}>
-          <h2 css={{fontSize: "2rem"}}>{group.year}</h2>
+          <h2 css={{
+            fontSize: "2rem",
+            [bp.fromTablet]: {
+              fontSize: "1.75rem"
+            },
+            [bp.fromMobile]: {
+              fontSize: "1.5rem"
+            }
+          }}>{group.year}</h2>
 
           <ul css={{
             marginLeft: 20
           }}>
             {group.posts.map(post => (
               <li key={post.id}
-                css={{
-                color: colors.pink,
-                margin: ".5rem 0",
-                [bp.fromTablet]: {
-                  margin: ".3rem 0"
-                }
-              }}>
+                  css={{
+                    color: colors.pink,
+                    margin: ".6rem 0",
+                    [bp.fromTablet]: {
+                      margin: ".3rem 0"
+                    }
+                  }}>
                 <article css={{color: colors.secondary}}>
                   <h3 css={{
                     display: "inline",

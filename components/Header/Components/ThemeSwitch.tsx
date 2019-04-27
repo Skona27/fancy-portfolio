@@ -1,5 +1,5 @@
 import React from "react";
-import {useTheme} from "../../hooks/Theme";
+import {useTheme} from "../../../hooks/Theme";
 import Switch from "@material-ui/core/Switch";
 import {InterpolationWithTheme} from "@emotion/core";
 
