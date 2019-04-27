@@ -9,8 +9,14 @@ export const Header: React.FC<IHeader> = React.memo(({image, title, subtitle, el
 
   return (
     <header css={{
+      position: "sticky",
+      top: "-5rem",
       marginBottom: "2rem",
+      [bp.fromTablet]: {
+        top: "-5.75rem"
+      },
       [bp.fromDesktop]: {
+        position: "static",
         marginBottom: "3.5rem"
       }
     }}>

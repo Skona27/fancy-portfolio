@@ -31,14 +31,23 @@ export const ThemeSwitch = React.memo(() => {
       position: "absolute",
       top: "0",
       right: 0,
+      transform: "translate(17.5%,-80%)",
       display: "flex",
       alignItems: "center",
       padding: "1.75rem 3rem",
+      [bp.max380]: {
+        transform: "translate(15%, -75%)"
+      },
+      [bp.fromMobile]: {
+        transform: "translate(20%,-80%)"
+      },
       [bp.fromTablet]: {
         padding: "1.5rem 3rem",
+        transform: "translate(30%, -75%)"
       },
       [bp.fromDesktop]: {
-        position: "fixed"
+        position: "fixed",
+        transform: "translate(0)",
       }
     }}>
 

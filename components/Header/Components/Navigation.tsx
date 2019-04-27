@@ -9,21 +9,31 @@ interface IProps {
 }
 
 const Navigation: React.FC<IProps & WithRouterProps> = React.memo(({elements, router}) => {
-  const {bp} = useTheme();
+  const {bp, colors} = useTheme();
 
   if (!router) {
     return null
   }
 
   return (
-    <nav css={{
-      display: "flex",
-      alignItems: "center",
-      marginTop: "2.5rem",
-      [bp.fromDesktop]: {
-        marginTop: "4rem",
-      }
-    }}>
+    <nav
+      css={{
+        position: "relative",
+        zIndex: 1,
+        backgroundColor: colors.primary,
+        display: "flex",
+        alignItems: "center",
+        paddingTop: "2.5rem",
+        paddingBottom: "2.6rem",
+        transition: "background-color .1s ease-in",
+        [bp.fromTablet]: {
+          paddingBottom: "1.75rem"
+        },
+        [bp.fromDesktop]: {
+          paddingTop: "4rem",
+          paddingBottom: 0
+        }
+      }}>
       <ul css={{
         listStyle: "none",
         width: "100%",
