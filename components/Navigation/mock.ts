@@ -7,19 +7,19 @@ export const navigationMock: INavigation = {
   activePage: "o-mnie",
   links: [
     {
-      href: "o-mnie",
+      href: "/",
       title: "o mnie"
     },
     {
-      href: "realizacje",
+      href: "/realizacje",
       title: "realizacje"
     },
     {
-      href: "projekty",
+      href: "/projekty",
       title: "projekty"
     }, {
-    href: "blog",
-    title: "blog"
-  }
-    ]
+      href: "/blog",
+      title: "blog"
+    }
+  ]
 };

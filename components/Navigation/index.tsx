@@ -9,7 +9,7 @@ export const Navigation = React.memo(() => {
   const {bp} = useTheme();
 
   return (
-    <header>
+    <header css={{ marginBottom: "3.5rem" }}>
       <div css={{
         display: "flex",
         alignItems: "center",
@@ -50,10 +50,12 @@ export const Navigation = React.memo(() => {
             width: "7rem",
             fontSize: "1.3rem"
           }}>
-            <NavIcon href="https://github.com/Skona27" blank={true} aria-label="Profil Github">
+            <NavIcon href="https://github.com/Skona27" target="_blank"
+               aria-label="Profil Github" rel="noreferrer">
               <i className="fab fa-github"></i>
             </NavIcon>
-            <NavIcon href="https://www.linkedin.com/in/jskoneczny/" blank={true} aria-label="Profil LinkedIn">
+            <NavIcon href="https://www.linkedin.com/in/jskoneczny/" target="_blank"
+               aria-label="Profil LinkedIn" rel="noreferrer">
               <i className="fab fa-linkedin-in"></i>
             </NavIcon>
             <NavIcon href="mailto:skoneczny.j@gmail.com" aria-label="Skontaktuj się ze mną">

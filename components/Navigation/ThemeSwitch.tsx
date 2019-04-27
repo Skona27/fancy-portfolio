@@ -60,11 +60,19 @@ export const ThemeSwitch = React.memo(() => {
         </i>
       </div>
 
+      <label htmlFor="themeSwitch" aria-hidden="false" css={{
+        position: "absolute",
+        left: -10000
+      }}>
+        Zmień motyw
+      </label>
+
       <Switch
         checked={isChecked}
         onChange={toggle}
         role="switch"
         aria-checked="false"
+        id="themeSwitch"
         css={{
           transform: "translate(50%)",
           "span": {

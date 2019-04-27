@@ -2,7 +2,7 @@ export interface INavigation {
   imageURL: string;
   title: string;
   subtitle: string;
-  activePage: "o-mnie"
+  activePage: string;
   links: ILink[];
 }
 
