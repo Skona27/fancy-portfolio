@@ -53,6 +53,12 @@ class MyDocument extends Document {
              padding-top: 1rem;
             }
             
+            h4 {  
+             margin-top: .5rem;
+             margin-bottom: .5rem;
+             padding-top: .5rem;
+            }
+            
             p {  
              margin-top: .25rem;
              padding-top: .25rem;

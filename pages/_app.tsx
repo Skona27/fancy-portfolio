@@ -1,7 +1,7 @@
 import React from "react";
 import App, {Container, NextAppContext} from "next/app";
 import {Theme} from "../hooks/Theme";
-import {Navigation} from "../components/Navigation";
+import Navigation from "../components/Navigation";
 import {Layout} from "../components/Layout";
 
 class MyApp extends App {

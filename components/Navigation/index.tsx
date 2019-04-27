@@ -1,15 +1,21 @@
 import * as React from 'react';
+import {WithRouterProps, withRouter} from 'next/router';
 import {NavLink} from "./NavLink";
 import {NavIcon} from "./NavIcon";
 import {ThemeSwitch} from "./ThemeSwitch";
-import {navigationMock} from "./mock";
+import {navigationMock} from "../../mocks/navigation";
 import {useTheme} from "../../hooks/Theme";
 
-export const Navigation = React.memo(() => {
+
+const Navigation: React.FC<WithRouterProps> = React.memo(({router}) => {
   const {bp} = useTheme();
 
+  if (!router) {
+    return null;
+  }
+
   return (
-    <header css={{ marginBottom: "3.5rem" }}>
+    <header css={{marginBottom: "3.5rem"}}>
       <div css={{
         display: "flex",
         alignItems: "center",
@@ -51,15 +57,18 @@ export const Navigation = React.memo(() => {
             fontSize: "1.3rem"
           }}>
             <NavIcon href="https://github.com/Skona27" target="_blank"
-               aria-label="Profil Github" rel="noreferrer">
-              <i className="fab fa-github"></i>
+                     aria-label="Profil Github" rel="noreferrer">
+              <i className="fab fa-github">
+              </i>
             </NavIcon>
             <NavIcon href="https://www.linkedin.com/in/jskoneczny/" target="_blank"
-               aria-label="Profil LinkedIn" rel="noreferrer">
-              <i className="fab fa-linkedin-in"></i>
+                     aria-label="Profil LinkedIn" rel="noreferrer">
+              <i className="fab fa-linkedin-in">
+              </i>
             </NavIcon>
             <NavIcon href="mailto:skoneczny.j@gmail.com" aria-label="Skontaktuj się ze mną">
-              <i className="far fa-envelope"></i>
+              <i className="far fa-envelope">
+              </i>
             </NavIcon>
           </ul>
         </nav>
@@ -78,7 +87,7 @@ export const Navigation = React.memo(() => {
           display: "flex"
         }}>
           {navigationMock.links.map(link =>
-            <NavLink href={link.href} active={link.href === navigationMock.activePage} key={link.href}>
+            <NavLink href={link.href} active={link.href === router.asPath} key={link.href}>
               {link.title}
             </NavLink>
           )}
@@ -91,3 +100,4 @@ export const Navigation = React.memo(() => {
 });
 
 Navigation.displayName = "Navigation";
+export default withRouter(Navigation);

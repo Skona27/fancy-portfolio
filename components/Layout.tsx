@@ -24,6 +24,7 @@ export const Layout: React.FC<{children: ReactElement[]}> = React.memo(({childre
     }}>
       <div css={{
         maxWidth: "50rem",
+        minHeight: "calc(100vh - 8rem)",
         margin: "auto"
       }}>
         {children}

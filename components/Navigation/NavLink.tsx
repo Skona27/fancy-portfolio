@@ -13,15 +13,8 @@ export const NavLink: React.FC<IProps> = React.memo(({href, active, children, ..
 
   return (
     <li css={{
-      borderBottom: `3px solid ${active ? colors.pink : "transparent"}`,
-      cursor: "pointer",
-      padding: 2,
-      transition: "borderColor .15s ease-in",
       "&:not(:first-of-type)": {
         marginLeft: "1.25rem"
-      },
-      "&:hover": {
-        borderColor: colors.pink
       },
       [bp.fromTablet]: {
         "&:not(:first-of-type)": {
@@ -39,7 +32,13 @@ export const NavLink: React.FC<IProps> = React.memo(({href, active, children, ..
           border: "none",
           background: "none",
           fontFamily: "inherit",
-          color: "inherit"
+          color: "inherit",
+          borderBottom: `3px solid ${active ? colors.pink : "transparent"}`,
+          padding: 2,
+          transition: "borderColor .15s ease-in",
+          "&:hover": {
+            borderColor: colors.pink
+          }
         }} tabIndex={0}>
           {children}
         </button>
