@@ -4,11 +4,15 @@ import {IPost} from "./types";
 import {Group} from "./Components";
 
 interface IProps {
-  elements: IPost[]
+  elements: IPost[] | null;
 }
 
 export const Blog: React.FC<IProps> = React.memo(({elements}) => {
   const groupedPosts = React.useMemo(() => {
+    if (!elements) {
+      return
+    }
+
     const postsWithYear = elements.map(post => {
       const year = moment(post.date).format("YYYY");
       const dayMonth = moment(post.date).format("DD/MM");
@@ -24,6 +28,10 @@ export const Blog: React.FC<IProps> = React.memo(({elements}) => {
       return {year, elements: postsFromYear};
     });
   }, [elements]);
+
+  if (!groupedPosts) {
+    return null
+  }
 
   return (
     <>
