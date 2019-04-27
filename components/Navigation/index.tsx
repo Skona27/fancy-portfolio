@@ -3,8 +3,11 @@ import {NavLink} from "./NavLink";
 import {NavIcon} from "./NavIcon";
 import {ThemeSwitch} from "./ThemeSwitch";
 import {navigationMock} from "./mock";
+import {useTheme} from "../../hooks/Theme";
 
 export const Navigation = React.memo(() => {
+  const {bp} = useTheme();
+
   return (
     <header>
       <div css={{
@@ -18,7 +21,9 @@ export const Navigation = React.memo(() => {
           css={{
             borderRadius: "50%",
             height: "100%",
-            transform: "translateX(-40%)"
+            [bp.fromDesktop]: {
+              transform: "translateX(-40%)"
+            }
           }}
         />
 
@@ -26,7 +31,11 @@ export const Navigation = React.memo(() => {
           lineHeight: 1.2,
           fontSize: "1rem",
           letterSpacing: 1,
-          fontWeight: 700
+          fontWeight: 700,
+          marginLeft: 16,
+          [bp.fromDesktop]: {
+            marginLeft: 0
+          }
         }}>
           <span>{navigationMock.title}</span>
           <br/>
@@ -57,7 +66,10 @@ export const Navigation = React.memo(() => {
       <nav css={{
         display: "flex",
         alignItems: "center",
-        marginTop: "4rem"
+        marginTop: "2.5rem",
+        [bp.fromDesktop]: {
+          marginTop: "4rem",
+        }
       }}>
         <ul css={{
           listStyle: "none",

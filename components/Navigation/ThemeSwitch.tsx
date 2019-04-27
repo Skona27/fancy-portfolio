@@ -70,8 +70,8 @@ export const ThemeSwitch = React.memo(() => {
           "span": {
             color: colors.pink
           },
-          [bp.fromDesktop]: {
-            transform: "translate(25%)",
+          [bp.fromTablet]: {
+            transform: "translate(25%)"
           }
         }}
       />

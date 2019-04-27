@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import {Global, css, jsx} from "@emotion/core";
 import Document, {Head, Main, NextScript} from "next/document";
+import {breakpoints} from "../hooks/Theme";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -23,6 +24,16 @@ class MyDocument extends Document {
               margin: 0;
               padding: 0;
               box-sizing: border-box;
+            }
+            
+            html {
+              font-size: 75%;
+               ${breakpoints.fromMobile} {
+                font-size: 87.5%;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 100%;
+              }
             }
           `}
       />

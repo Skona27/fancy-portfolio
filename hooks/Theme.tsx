@@ -3,12 +3,13 @@ import React, {ReactElement} from "react";
 export type IColor = "white" | "black" | "pink";
 type IColors = { [Key in IColor]: string };
 
-type IBreakpoint = "fromTablet" | "fromDesktop";
+type IBreakpoint = "fromMobile" | "fromTablet" | "fromDesktop";
 type IBreakpoints = { [Key in IBreakpoint]: string };
 
-const breakpoints: IBreakpoints = {
-  fromTablet: "@media (min-width: 768px)",
-  fromDesktop: "@media (min-width: 992px)"
+export const breakpoints: IBreakpoints = {
+  fromMobile:"@media (min-width: 430px)",
+  fromTablet: "@media (min-width: 600px)",
+  fromDesktop: "@media (min-width: 950px)"
 };
 
 const lightColors: IColors = {

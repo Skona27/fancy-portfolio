@@ -9,19 +9,24 @@ interface IProps {
 }
 
 export const NavLink: React.FC<IProps> = React.memo(({href, active, children, ...props}) => {
-  const {colors} = useTheme();
+  const {colors, bp} = useTheme();
 
   return (
     <li css={{
-      padding: 2,
       borderBottom: `3px solid ${active ? colors.pink : "transparent"}`,
       cursor: "pointer",
+      padding: 2,
       transition: "borderColor .15s ease-in",
       "&:not(:first-of-type)": {
-        marginLeft: "2.5rem"
+        marginLeft: "1.25rem"
       },
       "&:hover": {
         borderColor: colors.pink
+      },
+      [bp.fromTablet]: {
+        "&:not(:first-of-type)": {
+          marginLeft: "2.5rem"
+        },
       }
     }}>
       <Link href={href} {...props}>

@@ -12,9 +12,11 @@ export const Layout: React.FC<{children: ReactElement[]}> = React.memo(({childre
       lineHeight: 1.4,
       color: colors.black,
       background: colors.white,
-      padding: "4.5rem 3rem",
+      padding: "4rem 2rem",
+      paddingTop: "5.5rem",
       transition: ".1s all ease-in",
       [bp.fromTablet]: {
+        paddingTop: 0,
         padding: "4rem 3rem",
       }
     }}>
