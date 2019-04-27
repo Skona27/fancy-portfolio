@@ -1,4 +1,4 @@
-import {IPost} from "../types";
+import {IPost} from "../components/Blog/types";
 
 export const posts: IPost[] = [
   {

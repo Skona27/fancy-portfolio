@@ -1,3 +1,8 @@
+export interface IPostGroup {
+  year: string;
+  elements: IPost[];
+}
+
 export interface IPost {
   id: string;
   title: string;
