@@ -7,7 +7,8 @@ interface IProps {
   children: ReactNode;
 }
 
-export const NavIcon: React.FC<IProps> = React.memo(({href, blank, children}) => {
+export const NavIcon: React.FC<IProps> = React.memo((
+  {href, blank, children, ...props}) => {
   const {colors} = useTheme();
 
   return (
@@ -18,7 +19,7 @@ export const NavIcon: React.FC<IProps> = React.memo(({href, blank, children}) =>
         "&:hover": {
           color: colors.black
         }
-      }}>
+      }} {...props}>
         {children}
       </a>
     </li>

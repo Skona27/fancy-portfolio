@@ -14,6 +14,7 @@ export const Navigation = React.memo(() => {
       }}>
         <img
           src={navigationMock.imageURL}
+          alt="Moje zdjęcie profilowe"
           css={{
             borderRadius: "50%",
             height: "100%",
@@ -40,13 +41,13 @@ export const Navigation = React.memo(() => {
             width: "7rem",
             fontSize: "1.3rem"
           }}>
-            <NavIcon href="https://github.com/Skona27" blank={true}>
+            <NavIcon href="https://github.com/Skona27" blank={true} aria-label="Profil Github">
               <i className="fab fa-github"></i>
             </NavIcon>
-            <NavIcon href="https://www.linkedin.com/in/jskoneczny/" blank={true}>
+            <NavIcon href="https://www.linkedin.com/in/jskoneczny/" blank={true} aria-label="Profil LinkedIn">
               <i className="fab fa-linkedin-in"></i>
             </NavIcon>
-            <NavIcon href="mailto:skoneczny.j@gmail.com">
+            <NavIcon href="mailto:skoneczny.j@gmail.com" aria-label="Skontaktuj się ze mną">
               <i className="far fa-envelope"></i>
             </NavIcon>
           </ul>
@@ -63,14 +64,14 @@ export const Navigation = React.memo(() => {
           display: "flex"
         }}>
           {navigationMock.links.map(link =>
-            <NavLink href={link.href} active={link.href === navigationMock.activePage}>
+            <NavLink href={link.href} active={link.href === navigationMock.activePage} key={link.href}>
               {link.title}
             </NavLink>
           )}
         </ul>
       </nav>
 
-      <ThemeSwitch />
+      <ThemeSwitch/>
     </header>
   )
 });

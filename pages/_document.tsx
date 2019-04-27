@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import {Global, css, jsx} from "@emotion/core";
-import Document, {Main, NextScript} from "next/document";
+import Document, {Head, Main, NextScript} from "next/document";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -10,7 +10,12 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <html>
+      <html lang="pl">
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+        <title>Jakub Skoneczny</title>
+        <meta name="description" content="yoyo"/>
+      </Head>
       <Global
         styles={css`
             * {
@@ -22,13 +27,12 @@ class MyDocument extends Document {
           `}
       />
       <body>
-        <Main/>
-        <NextScript/>
-
-        <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
-                integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
-                crossOrigin="anonymous"></script>
-        </body>
+      <Main/>
+      <NextScript/>
+      <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+              integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+              crossOrigin="anonymous"></script>
+      </body>
       </html>
     );
   }
