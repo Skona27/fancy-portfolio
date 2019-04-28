@@ -14,6 +14,7 @@ const Blog = React.memo(() => {
         const result = await api.get("/posts");
         const mappedPosts = result.data.documents.map((el: any) => {
           return {
+            id: el.name.split("/posts/")[1],
             title: el.fields.title.stringValue,
             date: el.fields.date.timestampValue,
             content: el.fields.content.stringValue
