@@ -4,11 +4,13 @@ import {IPost} from "../components/Blog/types";
 import {withRouter, WithRouterProps} from "next/router";
 import Error from "../pages/_error";
 import {SinglePost} from "../components/SinglePost";
+import {Spinner} from "../components/Spinner";
 
 const Post: React.FC<WithRouterProps> = React.memo(({router}) => {
   const [postID, setPostID] = React.useState<string | undefined>(undefined);
   const [post, setPost] = React.useState<IPost | null>(null);
   const [isError, setIsError] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     if (!router || !router.query) {
@@ -19,8 +21,11 @@ const Post: React.FC<WithRouterProps> = React.memo(({router}) => {
     setPostID(postID);
 
     const fetch = async () => {
+      setIsError(false);
+      setIsLoading(true);
+      setPost(null);
+
       try {
-        setIsError(false);
         const result = await api.get(`/posts/${postID}`);
         const mappedPost = {
           id: result.data.name.split("/posts/")[1],
@@ -30,6 +35,7 @@ const Post: React.FC<WithRouterProps> = React.memo(({router}) => {
         };
 
         setPost(mappedPost);
+        setIsLoading(false);
       } catch (err) {
         setIsError(true);
       }
@@ -40,7 +46,8 @@ const Post: React.FC<WithRouterProps> = React.memo(({router}) => {
 
   return (
     <main>
-      {isError || !post ? <Error/> : <SinglePost {...post} />}
+      {isError && <Error/>}
+      {!isError && !isLoading && post ? <SinglePost {...post} /> : <Spinner/> }
     </main>
   )
 });

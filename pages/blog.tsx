@@ -3,15 +3,19 @@ import {api} from "../api";
 import {Blog as BlogComponent} from "../components/Blog";
 import {IPost} from "../components/Blog/types";
 import Error from "./_error";
+import {Spinner} from "../components/Spinner";
 
 const Blog = React.memo(() => {
   const [posts, setPosts] = React.useState<IPost[] | null>(null);
   const [isError, setIsError] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   // Dane z Firebase przychodzą w dziwnym JSON-nie
   // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
   React.useEffect(() => {
     const fetch = async () => {
+      setIsLoading(true);
+
       try {
         setIsError(false);
         const result = await api.get("/posts");
@@ -25,6 +29,7 @@ const Blog = React.memo(() => {
         });
 
         setPosts(mappedPosts);
+        setIsLoading(false);
       } catch (err) {
         setIsError(true);
       }
@@ -35,7 +40,8 @@ const Blog = React.memo(() => {
 
   return (
     <main>
-      {isError ? <Error/> : <BlogComponent elements={posts}/>}
+      {isError && <Error/>}
+      {!isError && !isLoading && posts ? <BlogComponent elements={posts}/> : <Spinner/>}
     </main>
   )
 });
