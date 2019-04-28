@@ -4,7 +4,7 @@ export const headerData: IHeader = {
   title: "Jakub Skoneczny",
   subtitle: "javascript developer",
   image: {
-    url: "http://192.168.1.34:3000/static/img/profile-photo.jpg",
+    url: "http://jskoneczny.pl:3003/static/img/profile-photo.jpg",
     alt: "Moje zdjęcie profilowe"
   },
   elements: [
@@ -19,7 +19,8 @@ export const headerData: IHeader = {
     {
       href: "/projekty",
       title: "projekty"
-    }, {
+    },
+    {
       href: "/blog",
       title: "blog"
     }
