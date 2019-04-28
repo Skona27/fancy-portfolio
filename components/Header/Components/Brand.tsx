@@ -21,13 +21,14 @@ export const Brand: React.FC<IProps> = React.memo(({title, subtitle, image}) => 
         css={{
           borderRadius: "50%",
           height: "100%",
+          width: "auto",
           [bp.fromDesktop]: {
             transform: "translateX(-40%)"
           }
         }}
       />
 
-      <h1 css={{
+      <p css={{
         lineHeight: 1.2,
         fontSize: "1rem",
         letterSpacing: 1,
@@ -51,7 +52,7 @@ export const Brand: React.FC<IProps> = React.memo(({title, subtitle, image}) => 
         }}>
         {subtitle}
       </span>
-      </h1>
+      </p>
     </>
   )
 });

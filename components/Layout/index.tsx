@@ -24,6 +24,15 @@ export const Layout: React.FC<IProps> = React.memo(({children}) => {
       "code, pre": {
         backgroundColor: colors.secondary,
         color: colors.primary
+      },
+      "a": {
+        color: colors.pink,
+        borderColor: colors.pink,
+        transition: "all .1s ease-in",
+        "&:hover": {
+          color: colors.pink2,
+          borderColor: colors.pink2
+        }
       }
     }}>
       <div css={{

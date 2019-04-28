@@ -2,15 +2,18 @@ import * as React from 'react';
 import {api} from "../api";
 import {Blog as BlogComponent} from "../components/Blog";
 import {IPost} from "../components/Blog/types";
+import Error from "./_error";
 
 const Blog = React.memo(() => {
   const [posts, setPosts] = React.useState<IPost[] | null>(null);
+  const [isError, setIsError] = React.useState(false);
 
+  // Dane z Firebase przychodzą w dziwnym JSON-nie
+  // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
   React.useEffect(() => {
     const fetch = async () => {
       try {
-        // Dane z Firebase przychodzą w dziwnym JSON-nie
-        // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
+        setIsError(false);
         const result = await api.get("/posts");
         const mappedPosts = result.data.documents.map((el: any) => {
           return {
@@ -23,9 +26,7 @@ const Blog = React.memo(() => {
 
         setPosts(mappedPosts);
       } catch (err) {
-        // tslint:disable-next-line:no-console
-        console.log(err);
-        throw new Error("GET POSTS ERROR")
+        setIsError(true);
       }
     };
 
@@ -34,7 +35,7 @@ const Blog = React.memo(() => {
 
   return (
     <main>
-      <BlogComponent elements={posts}/>
+      {isError ? <Error/> : <BlogComponent elements={posts}/>}
     </main>
   )
 });

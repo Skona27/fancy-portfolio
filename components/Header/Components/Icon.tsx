@@ -18,8 +18,10 @@ export const Icon: React.FC<IProps> = React.memo((
         color: colors.pink,
         fontSize: "1.6rem",
         transition: "color .1s ease-in",
+        textDecoration: "none",
+        border: "none",
         "&:hover": {
-          color: colors.secondary
+          color: `${colors.secondary} !important`
         },
         [bp.fromMobile]: {
           fontSize: "1.5rem",

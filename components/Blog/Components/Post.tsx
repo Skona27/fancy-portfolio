@@ -22,7 +22,7 @@ export const Post: React.FC<IProps> = React.memo(({id, title, dayMonth}) => {
       <article css={{
         color: colors.secondary
       }}>
-        <Link href={`/post/${id}`}>
+        <Link href={`/post?id=${id}`}  as={`/post/${id}`}>
           <h3 css={{
             display: "inline",
             letterSpacing: 1,

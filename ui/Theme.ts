@@ -1,4 +1,4 @@
-export type IColor = "primary" | "secondary" | "pink";
+export type IColor = "primary" | "secondary" | "pink" | "pink2";
 export type IBreakpoint = "max360" | "max380" | "fromMobile" | "fromTablet" | "fromDesktop";
 export type IThemeVariant = "light" | "dark";
 
@@ -18,11 +18,13 @@ export const themeVariants: IThemeVariants = {
   light: {
     primary: "#fafafa",
     secondary: "#444",
-    pink: "#e84f7a"
+    pink: "#e84f7a",
+    pink2: "#bd0a31"
   },
   dark: {
     primary: "#2d2b2b",
     secondary: "#e4e4e4",
-    pink: "#f54e7d"
+    pink: "#f54e7d",
+    pink2: "#ff9595"
   }
 };

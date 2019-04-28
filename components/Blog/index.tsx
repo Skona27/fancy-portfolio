@@ -35,6 +35,7 @@ export const Blog: React.FC<IProps> = React.memo(({elements}) => {
 
   return (
     <>
+      <h1>Moje wpisy</h1>
       {groupedPosts.map((group, ind) => (
         <Group key={`group-${ind}`} year={group.year} elements={group.elements}/>
       ))}
