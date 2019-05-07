@@ -8,8 +8,6 @@ export const ThemeSwitch = React.memo(() => {
   const [isChecked, setIsChecked] = React.useState(false);
 
   React.useEffect(() => {
-    console.log(variant);
-
     if (variant === "dark") {
       setIsChecked(true);
     }

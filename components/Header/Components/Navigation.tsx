@@ -15,6 +15,14 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(({elements, ro
     return null
   }
 
+  const isElementActive = (href: string) => {
+    if (href === router.route) {
+      return true;
+    }
+    return !!(href === "/blog" && router.route === "/post");
+
+  };
+
   return (
     <nav
       css={{
@@ -49,7 +57,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(({elements, ro
         },
       }}>
         {elements.map(link =>
-          <NavigationItem href={link.href} active={link.href === router.asPath} key={link.href}>
+          <NavigationItem href={link.href} active={isElementActive(link.href)} key={link.href}>
             {link.title}
           </NavigationItem>
         )}
