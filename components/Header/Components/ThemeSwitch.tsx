@@ -4,8 +4,16 @@ import Switch from "@material-ui/core/Switch";
 import {InterpolationWithTheme} from "@emotion/core";
 
 export const ThemeSwitch = React.memo(() => {
-  const {colors, bp, dispatch} = useTheme();
+  const {colors, bp, dispatch, variant} = useTheme();
   const [isChecked, setIsChecked] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log(variant);
+
+    if (variant === "dark") {
+      setIsChecked(true);
+    }
+  }, [variant]);
 
   const toggle = React.useCallback(() => {
     setIsChecked(!isChecked);
