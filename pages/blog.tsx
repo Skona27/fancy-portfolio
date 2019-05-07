@@ -13,6 +13,13 @@ const Blog = React.memo(() => {
   // Dane z Firebase przychodzą w dziwnym JSON-nie
   // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
   React.useEffect(() => {
+    const posts = sessionStorage.getItem("posts");
+    if (posts) {
+      setIsLoading(false);
+      setPosts(JSON.parse(posts));
+      return
+    }
+
     const fetch = async () => {
       setIsLoading(true);
 
@@ -29,6 +36,7 @@ const Blog = React.memo(() => {
         });
 
         setPosts(mappedPosts);
+        sessionStorage.setItem("posts", JSON.stringify(mappedPosts));
         setIsLoading(false);
       } catch (err) {
         setIsError(true);
