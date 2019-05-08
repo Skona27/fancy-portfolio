@@ -9,14 +9,21 @@ const Blog = React.memo(() => {
   const [posts, setPosts] = React.useState<IPost[] | null>(null);
   const [isError, setIsError] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoaderDelayed, setIsLoaderDelayed] = React.useState(true);
+
+  const delayLoader = React.useCallback(() => {
+    setTimeout(() => setIsLoaderDelayed(false), 500);
+  }, []);
 
   // Dane z Firebase przychodzą w dziwnym JSON-nie
   // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
   React.useEffect(() => {
+    delayLoader();
+
     const posts = sessionStorage.getItem("posts");
     if (posts) {
-      setIsLoading(false);
       setPosts(JSON.parse(posts));
+      setIsLoading(false);
       return;
     }
 
@@ -46,14 +53,12 @@ const Blog = React.memo(() => {
     fetch();
   }, []);
 
+  const isContentReady = !isError && !isLoading && posts && !isLoaderDelayed;
+
   return (
     <main>
       {isError && <Error />}
-      {!isError && !isLoading && posts ? (
-        <BlogComponent elements={posts} />
-      ) : (
-        <Spinner />
-      )}
+      {isContentReady ? <BlogComponent elements={posts} /> : <Spinner />}
     </main>
   );
 });

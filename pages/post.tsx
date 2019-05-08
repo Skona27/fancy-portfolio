@@ -11,11 +11,18 @@ const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
   const [post, setPost] = React.useState<IPost | null>(null);
   const [isError, setIsError] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoaderDelayed, setIsLoaderDelayed] = React.useState(true);
+
+  const delayLoader = React.useCallback(() => {
+    setTimeout(() => setIsLoaderDelayed(false), 500);
+  }, []);
 
   React.useEffect(() => {
     if (!router || !router.query) {
       return;
     }
+    delayLoader();
+
     // Shut up Typescript... I know what I'm doing!
     const postID = router.query.id as string | undefined;
     setPostID(postID);
@@ -44,10 +51,12 @@ const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
     fetch();
   }, [postID]);
 
+  const isContentReady = !isError && !isLoading && post && !isLoaderDelayed;
+
   return (
     <main>
       {isError && <Error />}
-      {!isError && !isLoading && post ? <SinglePost {...post} /> : <Spinner />}
+      {isContentReady && post ? <SinglePost {...post} /> : <Spinner />}
     </main>
   );
 });
