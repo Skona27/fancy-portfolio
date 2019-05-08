@@ -5,7 +5,7 @@ export interface IHeader {
   image: {
     url: string;
     alt: string;
-  }
+  };
 }
 
 export interface INavigationItem {

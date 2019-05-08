@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {api} from "../api";
-import {Blog as BlogComponent} from "../components/Blog";
-import {IPost} from "../components/Blog/types";
+import * as React from "react";
+import { api } from "../api";
+import { Blog as BlogComponent } from "../components/Blog";
+import { IPost } from "../components/Blog/types";
 import Error from "./_error";
-import {Spinner} from "../components/Spinner";
+import { Spinner } from "../components/Spinner";
 
 const Blog = React.memo(() => {
   const [posts, setPosts] = React.useState<IPost[] | null>(null);
@@ -17,7 +17,7 @@ const Blog = React.memo(() => {
     if (posts) {
       setIsLoading(false);
       setPosts(JSON.parse(posts));
-      return
+      return;
     }
 
     const fetch = async () => {
@@ -32,7 +32,7 @@ const Blog = React.memo(() => {
             title: el.fields.title.stringValue,
             date: el.fields.date.timestampValue,
             content: el.fields.content.stringValue
-          }
+          };
         });
 
         setPosts(mappedPosts);
@@ -48,10 +48,14 @@ const Blog = React.memo(() => {
 
   return (
     <main>
-      {isError && <Error/>}
-      {!isError && !isLoading && posts ? <BlogComponent elements={posts}/> : <Spinner/>}
+      {isError && <Error />}
+      {!isError && !isLoading && posts ? (
+        <BlogComponent elements={posts} />
+      ) : (
+        <Spinner />
+      )}
     </main>
-  )
+  );
 });
 
 Blog.displayName = "Blog";

@@ -1,15 +1,20 @@
 export type IColor = "primary" | "secondary" | "pink" | "pink2";
-export type IBreakpoint = "max360" | "max380" | "fromMobile" | "fromTablet" | "fromDesktop";
+export type IBreakpoint =
+  | "max360"
+  | "max380"
+  | "fromMobile"
+  | "fromTablet"
+  | "fromDesktop";
 export type IThemeVariant = "light" | "dark";
 
 export type IColors = { [Key in IColor]: string };
 export type IBreakpoints = { [Key in IBreakpoint]: string };
-export type IThemeVariants = { [Key in IThemeVariant] : IColors};
+export type IThemeVariants = { [Key in IThemeVariant]: IColors };
 
 export const breakpoints: IBreakpoints = {
   max360: "@media (max-width: 360px)",
   max380: "@media (max-width: 380px)",
-  fromMobile:"@media (min-width: 450px)",
+  fromMobile: "@media (min-width: 450px)",
   fromTablet: "@media (min-width: 600px)",
   fromDesktop: "@media (min-width: 950px)"
 };

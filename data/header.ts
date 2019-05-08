@@ -1,4 +1,4 @@
-import {IHeader} from "../components/Header/types";
+import { IHeader } from "../components/Header/types";
 
 export const headerData: IHeader = {
   title: "Jakub Skoneczny",
