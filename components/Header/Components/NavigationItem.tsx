@@ -15,9 +15,6 @@ export const NavigationItem: React.FC<IProps> = React.memo(
     return (
       <li
         css={{
-          [bp.max380]: {
-            margin: "0 8px"
-          },
           [bp.fromTablet]: {
             margin: 0,
             "&:not(:first-of-type)": {
@@ -43,6 +40,12 @@ export const NavigationItem: React.FC<IProps> = React.memo(
               transition: "borderColor .15s ease-in",
               "&:hover": {
                 borderColor: colors.pink
+              },
+              [bp.max380]: {
+                fontSize: "1.3rem",
+              },
+              [bp.max360]: {
+                fontSize: "1.14rem",
               },
               [bp.fromTablet]: {
                 fontSize: "1.3rem"

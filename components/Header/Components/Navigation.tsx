@@ -50,9 +50,6 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             display: "flex",
             flexWrap: "wrap",
             marginLeft: 0,
-            [bp.max360]: {
-              justifyContent: "flex-start"
-            },
             justifyContent: "space-between",
             [bp.fromTablet]: {
               justifyContent: "flex-start"
