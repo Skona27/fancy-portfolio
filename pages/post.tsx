@@ -14,7 +14,7 @@ const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
   const [isLoaderDelayed, setIsLoaderDelayed] = React.useState(true);
 
   const delayLoader = React.useCallback(() => {
-    setTimeout(() => setIsLoaderDelayed(false), 500);
+    setTimeout(() => setIsLoaderDelayed(false), 300);
   }, []);
 
   React.useEffect(() => {

@@ -12,7 +12,7 @@ const Blog = React.memo(() => {
   const [isLoaderDelayed, setIsLoaderDelayed] = React.useState(true);
 
   const delayLoader = React.useCallback(() => {
-    setTimeout(() => setIsLoaderDelayed(false), 500);
+    setTimeout(() => setIsLoaderDelayed(false), 300);
   }, []);
 
   // Dane z Firebase przychodzą w dziwnym JSON-nie
