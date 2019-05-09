@@ -11,6 +11,21 @@ interface IProps {
 const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
   ({ elements, router }) => {
     const { bp, colors } = useTheme();
+    const navigationRef = React.useRef<HTMLElement | null>(null);
+    const [isStickyToTop, setIsStickyToTop] = React.useState(false);
+
+    const handleScroll = React.useCallback(() => {
+      if (!navigationRef || !navigationRef.current) {
+        return;
+      }
+      setIsStickyToTop(navigationRef.current.getBoundingClientRect().top < 0);
+    }, [navigationRef]);
+
+    React.useEffect(() => {
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     if (!router) {
       return null;
@@ -25,6 +40,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
 
     return (
       <nav
+        ref={navigationRef}
         css={{
           position: "relative",
           zIndex: 1,
@@ -32,11 +48,8 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
           display: "flex",
           alignItems: "center",
           paddingTop: "2.5rem",
-          paddingBottom: "2.6rem",
+          paddingBottom: "1.75rem",
           transition: "background-color .1s ease-in",
-          [bp.fromTablet]: {
-            paddingBottom: "1.75rem"
-          },
           [bp.fromDesktop]: {
             paddingTop: "4rem",
             paddingBottom: 0
@@ -51,6 +64,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             flexWrap: "wrap",
             marginLeft: 0,
             justifyContent: "space-between",
+            position: "relative",
             [bp.fromTablet]: {
               justifyContent: "flex-start"
             }
@@ -66,6 +80,25 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             </NavigationItem>
           ))}
         </ul>
+
+        <div
+          css={{
+            opacity: isStickyToTop ? 1 : 0,
+            transition: "opacity .15s ease-in",
+            width: "100vw",
+            height: 2,
+            backgroundColor: colors.secondary,
+            position: "absolute",
+            bottom: 0,
+            left: "-2rem",
+            [bp.max380]: {
+              left: "-1.5rem"
+            },
+            [bp.fromTablet]: {
+              display: "none"
+            }
+          }}
+        />
       </nav>
     );
   }
