@@ -88,10 +88,13 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             transition: "opacity .15s ease-in",
             width: "100vw",
             height: 1,
-            boxShadow: variant === "light" ? "0 0 1px black" : "0 0 1px white",
+            boxShadow:
+              variant === "light"
+                ? "0 0 1px rgba(0, 0, 0, .75)"
+                : "0 0 1px white",
             backgroundColor:
               variant === "light"
-                ? darken(0.2, colors.primary)
+                ? darken(0.17, colors.primary)
                 : lighten(0.2, colors.primary),
             position: "absolute",
             bottom: 0,
