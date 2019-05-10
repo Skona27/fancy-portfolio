@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3003",
     "test:tsc": "tsc",
     "analyze": "cross-env BUNDLE_ANALYZE=both next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
