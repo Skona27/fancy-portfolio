@@ -1,4 +1,5 @@
 import React from "react";
+import { darken, lighten } from "polished";
 import { WithRouterProps, withRouter } from "next/router";
 import { useTheme } from "../../../hooks/Theme";
 import { NavigationItem } from "./NavigationItem";
@@ -10,7 +11,7 @@ interface IProps {
 
 const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
   ({ elements, router }) => {
-    const { bp, colors } = useTheme();
+    const { bp, colors, variant } = useTheme();
     const navigationRef = React.useRef<HTMLElement | null>(null);
     const [isStickyToTop, setIsStickyToTop] = React.useState(false);
 
@@ -86,8 +87,12 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             opacity: isStickyToTop ? 1 : 0,
             transition: "opacity .15s ease-in",
             width: "100vw",
-            height: 2,
-            backgroundColor: colors.secondary,
+            height: 1,
+            boxShadow: variant === "light" ? "0 0 1px black" : "0 0 1px white",
+            backgroundColor:
+              variant === "light"
+                ? darken(0.2, colors.primary)
+                : lighten(0.2, colors.primary),
             position: "absolute",
             bottom: 0,
             left: "-2rem",
