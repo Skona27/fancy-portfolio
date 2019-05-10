@@ -164,6 +164,11 @@ class MyDocument extends Document {
               font-weight: 500;
               font-size: 1.12rem;
             }
+            
+            body:not(.enable-outline) button:focus,
+            body:not(.enable-outline) a:focus {
+              outline: none;
+            }
           `}
         />
         <body>

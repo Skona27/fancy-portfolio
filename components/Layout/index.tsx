@@ -32,8 +32,9 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         a: {
           color: colors.pink,
           borderColor: colors.pink,
+          outlineColor: colors.pink2,
           transition: "all .1s ease-in",
-          "&:hover": {
+          ":hover, :focus": {
             color: colors.pink2,
             borderColor: colors.pink2
           }

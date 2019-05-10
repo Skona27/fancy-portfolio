@@ -33,12 +33,13 @@ export const NavigationItem: React.FC<IProps> = React.memo(
               letterSpacing: 2,
               border: "none",
               background: "none",
+              outlineColor: colors.pink,
               fontFamily: "inherit",
               color: "inherit",
               borderBottom: `3px solid ${active ? colors.pink : "transparent"}`,
               padding: 2,
               transition: "borderColor .15s ease-in",
-              "&:hover": {
+              ":hover, :focus": {
                 borderColor: colors.pink
               },
               [bp.max380]: {

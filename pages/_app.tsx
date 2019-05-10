@@ -15,6 +15,29 @@ class MyApp extends App {
     return { pageProps };
   }
 
+  onTabPress = (event: KeyboardEvent) => {
+    if (event.key === "Tab") {
+      document.body.classList.add("enable-outline");
+      window.removeEventListener("keydown", this.onTabPress);
+      window.addEventListener("mousemove", this.onMouseMove);
+    }
+  };
+
+  onMouseMove = () => {
+    document.body.classList.remove("enable-outline");
+    window.removeEventListener("mousemove", this.onMouseMove);
+    window.addEventListener("keydown", this.onTabPress);
+  };
+
+  componentDidMount(): void {
+    window.addEventListener("keydown", this.onTabPress);
+  }
+
+  componentWillUnmount(): void {
+    window.removeEventListener("keydown", this.onTabPress);
+    window.removeEventListener("mousemove", this.onMouseMove);
+  }
+
   render() {
     const { Component, pageProps } = this.props;
 

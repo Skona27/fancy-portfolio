@@ -20,7 +20,8 @@ export const Icon: React.FC<IProps> = React.memo(({ children, ...props }) => {
           transition: "color .1s ease-in",
           textDecoration: "none",
           border: "none",
-          "&:hover": {
+          outlineColor: colors.pink,
+          ":hover, :focus": {
             color: `${colors.secondary} !important`
           },
           [bp.fromMobile]: {
