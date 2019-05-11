@@ -1,15 +1,26 @@
 import * as React from "react";
-import { api } from "../api";
 import { IPost } from "../components/Blog/types";
 import { withRouter, WithRouterProps } from "next/router";
 import Error from "../pages/_error";
 import { SinglePost } from "../components/SinglePost";
 import { Spinner } from "../components/Spinner";
+import { getSinglePost } from "../api/post";
 
-const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
-  const [postID, setPostID] = React.useState<string | undefined>(undefined);
-  const [post, setPost] = React.useState<IPost | null>(null);
-  const [isError, setIsError] = React.useState(false);
+interface IResponse {
+  postFromServer: IPost | null;
+  postIDFromServer: string | undefined;
+  error: boolean;
+}
+
+const Post: React.FC<WithRouterProps & IResponse> = ({
+  router,
+  postFromServer,
+  postIDFromServer,
+  error
+}) => {
+  const [postID, setPostID] = React.useState(postIDFromServer);
+  const [post, setPost] = React.useState(postFromServer);
+  const [isError, setIsError] = React.useState(error);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLoaderDelayed, setIsLoaderDelayed] = React.useState(true);
 
@@ -18,13 +29,19 @@ const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
   }, []);
 
   React.useEffect(() => {
-    if (!router || !router.query) {
+    if (!router || !router.query || isError) {
       return;
     }
+
+    if (post && postID) {
+      setIsLoaderDelayed(false);
+      setIsLoading(false);
+      return;
+    }
+
     delayLoader();
 
-    // Shut up Typescript... I know what I'm doing!
-    const postID = router.query.id as string | undefined;
+    const postIDFromRouter = router.query.id as string;
     setPostID(postID);
 
     const fetch = async () => {
@@ -33,14 +50,7 @@ const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
       setPost(null);
 
       try {
-        const result = await api.get(`/posts/${postID}`);
-        const mappedPost = {
-          id: result.data.name.split("/posts/")[1],
-          title: result.data.fields.title.stringValue,
-          date: result.data.fields.date.timestampValue,
-          content: result.data.fields.content.stringValue
-        };
-
+        const mappedPost = await getSinglePost(postIDFromRouter);
         setPost(mappedPost);
         setIsLoading(false);
       } catch (err) {
@@ -59,7 +69,26 @@ const Post: React.FC<WithRouterProps> = React.memo(({ router }) => {
       {isContentReady && post ? <SinglePost {...post} /> : <Spinner />}
     </main>
   );
-});
+};
+
+// @ts-ignore
+Post.getInitialProps = async ({ req, query }) => {
+  const response: IResponse = {
+    postFromServer: null,
+    postIDFromServer: undefined,
+    error: false
+  };
+
+  if (req) {
+    try {
+      response.postFromServer = await getSinglePost(query.id);
+      response.postIDFromServer = query.id;
+    } catch {
+      response.error = true;
+    }
+  }
+  return response;
+};
 
 Post.displayName = "Post";
 export default withRouter(Post);

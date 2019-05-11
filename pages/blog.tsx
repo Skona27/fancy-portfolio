@@ -1,13 +1,18 @@
 import * as React from "react";
-import { api } from "../api";
-import { Blog as BlogComponent } from "../components/Blog";
-import { IPost } from "../components/Blog/types";
 import Error from "./_error";
+import { Blog as BlogComponent } from "../components/Blog";
+import { getAllPosts } from "../api/blog";
+import { IPost } from "../components/Blog/types";
 import { Spinner } from "../components/Spinner";
 
-const Blog = React.memo(() => {
-  const [posts, setPosts] = React.useState<IPost[] | null>(null);
-  const [isError, setIsError] = React.useState(false);
+interface IResponse {
+  postsFromServer: IPost[] | null;
+  error: boolean;
+}
+
+const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
+  const [posts, setPosts] = React.useState(postsFromServer);
+  const [isError, setIsError] = React.useState(error);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLoaderDelayed, setIsLoaderDelayed] = React.useState(true);
 
@@ -15,14 +20,23 @@ const Blog = React.memo(() => {
     setTimeout(() => setIsLoaderDelayed(false), 300);
   }, []);
 
-  // Dane z Firebase przychodzą w dziwnym JSON-nie
-  // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
   React.useEffect(() => {
+    if (isError) {
+      return;
+    }
+
+    if (posts) {
+      setPosts(posts);
+      sessionStorage.setItem("posts", JSON.stringify(posts));
+      setIsLoaderDelayed(false);
+      setIsLoading(false);
+      return;
+    }
     delayLoader();
 
-    const posts = sessionStorage.getItem("posts");
-    if (posts) {
-      setPosts(JSON.parse(posts));
+    const postsFromStorage = sessionStorage.getItem("posts");
+    if (postsFromStorage) {
+      setPosts(JSON.parse(postsFromStorage));
       setIsLoading(false);
       return;
     }
@@ -32,16 +46,7 @@ const Blog = React.memo(() => {
 
       try {
         setIsError(false);
-        const result = await api.get("/posts");
-        const mappedPosts = result.data.documents.map((el: any) => {
-          return {
-            id: el.name.split("/posts/")[1],
-            title: el.fields.title.stringValue,
-            date: el.fields.date.timestampValue,
-            content: el.fields.content.stringValue
-          };
-        });
-
+        const mappedPosts = await getAllPosts();
         setPosts(mappedPosts);
         sessionStorage.setItem("posts", JSON.stringify(mappedPosts));
         setIsLoading(false);
@@ -61,7 +66,22 @@ const Blog = React.memo(() => {
       {isContentReady ? <BlogComponent elements={posts} /> : <Spinner />}
     </main>
   );
-});
+};
+
+// @ts-ignore
+Blog.getInitialProps = async ({ req }) => {
+  const response: IResponse = { postsFromServer: null, error: false };
+
+  if (req) {
+    try {
+      const posts = await getAllPosts();
+      response.postsFromServer = [...posts];
+    } catch {
+      response.error = true;
+    }
+  }
+  return response;
+};
 
 Blog.displayName = "Blog";
 export default Blog;
