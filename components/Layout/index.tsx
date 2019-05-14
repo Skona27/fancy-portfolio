@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import { useTheme } from "../../hooks/Theme";
+import { ProgressBar } from "../ProgressBar";
 
 interface IProps {
   children: ReactElement[];
@@ -19,7 +20,7 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         paddingTop: "5.5rem",
         transition: ".1s all ease-in",
         [bp.max380]: {
-          padding: "4rem 1.5rem",
+          padding: "4rem 1.5rem"
         },
         [bp.fromTablet]: {
           paddingTop: 0,
@@ -41,6 +42,7 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         }
       }}
     >
+      <ProgressBar />
       <div
         css={{
           maxWidth: "50rem",
