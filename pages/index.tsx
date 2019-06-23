@@ -1,7 +1,9 @@
 import * as React from "react";
-import { SkillsSection } from "../components/Skills/SkillsSection";
 import { useTheme } from "../hooks/Theme";
 import { skillsSections } from "../data/skills";
+import { Experience } from "../components/Experience";
+import { experienceItems } from "../data/experience";
+import { Skills } from "../components/Skills";
 
 const Home = React.memo(() => {
   const { colors } = useTheme();
@@ -22,28 +24,8 @@ const Home = React.memo(() => {
         mi się zagrać w pokera lub gry planszowe ze znajomymi.
       </p>
 
-      <h2>Moje umiejętności</h2>
-      <p>
-        Poniżej znajduje się lista zdobytych przeze mnie umiejętności wraz z
-        krótkim opisem prezentującym moje rozeznanie w danej technologii.{" "}
-      </p>
-
-      {skillsSections.map((section, index) => (
-        <SkillsSection {...section} key={"skillSection-" + index} />
-      ))}
-
-      <h2>Doświadczenie</h2>
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis
-        diam, consequat sit amet lectus eget, tincidunt tempor massa. Sed non
-        nunc nisl. Aliquam suscipit neque vel lobortis aliquet. Sed ac sem vitae
-        mauris volutpat viverra. Vestibulum vestibulum quam quis dolor blandit,
-        sed scelerisque dui dictum. Donec hendrerit tellus enim, in luctus nibh
-        iaculis vel. Quisque sed justo eu elit vulputate porta vitae rutrum
-        nulla. Vestibulum laoreet mi eu leo euismod efficitur. Pellentesque nunc
-        massa, sollicitudin sed euismod at, consectetur eget sem.
-      </p>
+      <Skills skillsSections={skillsSections} />
+      <Experience experienceItems={experienceItems} />
     </>
   );
 });
