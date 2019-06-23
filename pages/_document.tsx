@@ -46,6 +46,7 @@ class MyDocument extends Document {
 
             body {
               overflow-y: scroll;
+              overflow-x: hidden;
             }
 
             h1 {
@@ -158,13 +159,25 @@ class MyDocument extends Document {
 
             strong {
               font-weight: 600;
-              font-size: 1.12rem;
+              font-size: 1.32rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1.22rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 1.12rem;
+              }
             }
             em {
               font-weight: 500;
-              font-size: 1.12rem;
+              font-size: 1.32rem;
+              ${breakpoints.fromMobile} {
+                font-size: 1.22rem;
+              }
+              ${breakpoints.fromTablet} {
+                font-size: 1.12rem;
+              }
             }
-            
+
             body:not(.enable-outline) button:focus,
             body:not(.enable-outline) a:focus {
               outline: none;
