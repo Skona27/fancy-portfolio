@@ -12,11 +12,14 @@ export const ExperienceItem: React.FC<IExperienceItem> = React.memo(
           <time css={{ color: colors.pink, fontSize: 18, fontWeight: 600 }}>
             {duration}
           </time>
+
           <span css={{ padding: "0 10px", verticalAlign: 1 }}>|</span>
           <strong>{companyName}</strong>
           <em css={{ display: "block", margin: "1px 0" }}>{positionName}</em>
+
           <p css={{ marginTop: 0, "&, *": { lineHeight: "26px" } }}>
             {description}
+
             {techStack && (
               <span css={{ display: "inline-block" }}>
                 <span> Używane technologie: </span>

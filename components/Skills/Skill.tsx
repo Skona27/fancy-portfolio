@@ -6,6 +6,7 @@ export const Skill: React.FC<ISkill> = React.memo(
   ({ skillName, fullStars, description, halfStars = 0, emptyStars = 0 }) => {
     const { colors, bp } = useTheme();
 
+    // @TODO - Apply useMemo here
     const fullStarIcons: JSX.Element[] = [];
     const halfStarIcons: JSX.Element[] = [];
     const emptyStarIcons: JSX.Element[] = [];
@@ -14,7 +15,9 @@ export const Skill: React.FC<ISkill> = React.memo(
       fullStarIcons.push(<i className="fas fa-star" key={"full-" + i} />);
     }
     for (let i = 1; i <= halfStars; i++) {
-      halfStarIcons.push(<i className="fas fa-star-half-alt" key={"half-" + i} />);
+      halfStarIcons.push(
+        <i className="fas fa-star-half-alt" key={"half-" + i} />
+      );
     }
     for (let i = 1; i <= emptyStars; i++) {
       emptyStarIcons.push(<i className="far fa-star" key={"empty-" + i} />);
@@ -24,9 +27,7 @@ export const Skill: React.FC<ISkill> = React.memo(
       <li
         css={{
           padding: "3px 0",
-          [bp.fromTablet]: {
-            padding: 0
-          }
+          [bp.fromTablet]: { padding: 0 }
         }}
       >
         <div
@@ -44,12 +45,8 @@ export const Skill: React.FC<ISkill> = React.memo(
               color: colors.pink,
               display: "inline",
               marginLeft: 10,
-              svg: {
-                margin: "0 1px"
-              },
-              [bp.fromTablet]: {
-                fontSize: 20
-              }
+              svg: { margin: "0 1px" },
+              [bp.fromTablet]: { fontSize: 20 }
             }}
           >
             {fullStarIcons}

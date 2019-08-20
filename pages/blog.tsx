@@ -1,3 +1,5 @@
+// @TODO - Analyze `momentJS` usage, replace it with something lighter
+// @TODO - Analyze spinners, maybe just import one of them?
 import * as React from "react";
 import Error from "./_error";
 import { Blog as BlogComponent } from "../components/Blog";
@@ -35,6 +37,7 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
     delayLoader();
 
     const postsFromStorage = sessionStorage.getItem("posts");
+
     if (postsFromStorage) {
       setPosts(JSON.parse(postsFromStorage));
       setIsLoading(false);

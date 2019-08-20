@@ -21,15 +21,9 @@ export const Icon: React.FC<IProps> = React.memo(({ children, ...props }) => {
           textDecoration: "none",
           border: "none",
           outlineColor: colors.pink,
-          ":hover, :focus": {
-            color: `${colors.secondary} !important`
-          },
-          [bp.fromMobile]: {
-            fontSize: "1.5rem"
-          },
-          [bp.fromTablet]: {
-            fontSize: "1.3rem"
-          }
+          ":hover, :focus": { color: `${colors.secondary} !important` },
+          [bp.fromMobile]: { fontSize: "1.5rem" },
+          [bp.fromTablet]: { fontSize: "1.3rem" }
         }}
         {...props}
       >

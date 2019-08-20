@@ -11,9 +11,7 @@ export const SkillsSection: React.FC<ISkillSection> = React.memo(
       <section
         css={{
           marginTop: 15,
-          [bp.fromTablet]: {
-            display: "flex"
-          }
+          [bp.fromTablet]: { display: "flex" }
         }}
       >
         {skillList.map((singleList, index) => (
@@ -33,14 +31,12 @@ export const SkillsSection: React.FC<ISkillSection> = React.memo(
           >
             <strong
               css={{
-                [bp.fromTablet]: {
-                  display: "block",
-                  height: 30
-                }
+                [bp.fromTablet]: { display: "block", height: 30 }
               }}
             >
               {singleList.title}
             </strong>
+
             <ul css={{ li: { margin: "10px 0", lineHeight: 1.4 } }}>
               {singleList.skills.map((singleSkill, index) => (
                 <Skill {...singleSkill} key={"singleSkill-" + index} />

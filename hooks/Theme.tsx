@@ -1,3 +1,4 @@
+// @TODO - Change `Theme` to be in seperate folder with types etc...
 import React, { ReactElement } from "react";
 import {
   IColors,
@@ -24,7 +25,6 @@ const theme: ITheme = {
   variant: "light",
   colors: themeVariants.light,
   bp: breakpoints,
-  // tslint:disable-next-line:no-empty
   dispatch: () => {}
 };
 
@@ -49,6 +49,7 @@ export const useTheme = () => {
 
 export const Theme: React.FC<{ children: ReactElement }> = React.memo(
   ({ children }) => {
+    // @TODO - Argument of type 'ITheme' is not assignable to parameter of type 'never'
     // @ts-ignore
     const [state, dispatch] = React.useReducer(themeReducer, theme);
     const [variant, setVariant] = React.useState<IThemeVariant>("light");

@@ -14,10 +14,7 @@ export const Header: React.FC<IHeader> = React.memo(
           position: "sticky",
           top: "-5.75rem",
           marginBottom: "2rem",
-          [bp.fromDesktop]: {
-            position: "static",
-            marginBottom: "3.5rem"
-          }
+          [bp.fromDesktop]: { position: "static", marginBottom: "3.5rem" }
         }}
       >
         <div
@@ -28,16 +25,13 @@ export const Header: React.FC<IHeader> = React.memo(
           }}
         >
           <Brand title={title} subtitle={subtitle} image={image} />
-
           <Socials />
         </div>
 
         <Navigation elements={elements} />
-
         <ThemeSwitch />
       </header>
     );
   }
 );
-
 Header.displayName = "Header";

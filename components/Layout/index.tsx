@@ -19,13 +19,8 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         padding: "4rem 2rem",
         paddingTop: "5.5rem",
         transition: ".1s all ease-in",
-        [bp.max380]: {
-          padding: "4rem 1.5rem"
-        },
-        [bp.fromTablet]: {
-          paddingTop: 0,
-          padding: "4rem 3rem"
-        },
+        [bp.max380]: { padding: "4rem 1.5rem" },
+        [bp.fromTablet]: { paddingTop: 0, padding: "4rem 3rem" },
         "code, pre": {
           backgroundColor: colors.secondary,
           color: colors.primary
@@ -35,10 +30,7 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
           borderColor: colors.pink,
           outlineColor: colors.pink2,
           transition: "all .1s ease-in",
-          ":hover, :focus": {
-            color: colors.pink2,
-            borderColor: colors.pink2
-          }
+          ":hover, :focus": { color: colors.pink2, borderColor: colors.pink2 }
         }
       }}
     >

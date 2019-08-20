@@ -14,9 +14,7 @@ export const Socials = React.memo(() => {
           justifyContent: "space-between",
           width: "7.5rem",
           fontSize: "1.3rem",
-          [bp.fromTablet]: {
-            width: "7rem"
-          }
+          [bp.fromTablet]: { width: "7rem" }
         }}
       >
         <Icon
@@ -27,6 +25,7 @@ export const Socials = React.memo(() => {
         >
           <i className="fab fa-github" />
         </Icon>
+
         <Icon
           href="https://www.linkedin.com/in/jskoneczny/"
           target="_blank"
@@ -35,6 +34,7 @@ export const Socials = React.memo(() => {
         >
           <i className="fab fa-linkedin-in" />
         </Icon>
+
         <Icon
           href="mailto:skoneczny.j@gmail.com"
           aria-label="Skontaktuj się ze mną"

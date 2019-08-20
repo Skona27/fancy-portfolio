@@ -5,6 +5,7 @@ import { useTheme } from "../../hooks/Theme";
 
 export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
   const { bp } = useTheme();
+
   return (
     <>
       <article>
@@ -17,10 +18,7 @@ export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
           marginTop: "2rem",
           textAlign: "right",
           fontSize: "1.25rem",
-          [bp.fromDesktop]: {
-            marginTop: "3rem",
-            textAlign: "left"
-          }
+          [bp.fromDesktop]: { marginTop: "3rem", textAlign: "left" }
         }}
       >
         <Link href="/blog">

@@ -14,6 +14,7 @@ export const ThemeSwitch = React.memo(() => {
   }, [variant]);
 
   const toggle = React.useCallback(() => {
+    // @TODO - this may cause a problem if state will change quickly
     setIsChecked(!isChecked);
 
     if (isChecked) {
@@ -24,6 +25,7 @@ export const ThemeSwitch = React.memo(() => {
     }
   }, [isChecked]);
 
+  // @TODO - change to Interpolation
   const iStyle: InterpolationWithTheme<any> = {
     position: "absolute",
     fontSize: "1.2rem",
@@ -42,20 +44,13 @@ export const ThemeSwitch = React.memo(() => {
         display: "flex",
         alignItems: "center",
         padding: "1.75rem 3rem",
-        [bp.max380]: {
-          transform: "translate(15%, -75%)"
-        },
-        [bp.fromMobile]: {
-          transform: "translate(20%,-80%)"
-        },
+        [bp.max380]: { transform: "translate(15%, -75%)" },
+        [bp.fromMobile]: { transform: "translate(20%,-80%)" },
         [bp.fromTablet]: {
           padding: "1.5rem 3rem",
           transform: "translate(30%, -75%)"
         },
-        [bp.fromDesktop]: {
-          position: "fixed",
-          transform: "translate(0)"
-        }
+        [bp.fromDesktop]: { position: "fixed", transform: "translate(0)" }
       }}
     >
       <div
@@ -63,12 +58,8 @@ export const ThemeSwitch = React.memo(() => {
           position: "relative",
           width: 4,
           height: 48,
-          ".fa-moon": {
-            opacity: isChecked ? 1 : 0
-          },
-          ".fa-sun": {
-            opacity: isChecked ? 0 : 1
-          }
+          ".fa-moon": { opacity: isChecked ? 1 : 0 },
+          ".fa-sun": { opacity: isChecked ? 0 : 1 }
         }}
       >
         <i className="fas fa-moon" css={iStyle} />
@@ -79,10 +70,7 @@ export const ThemeSwitch = React.memo(() => {
       <label
         htmlFor="themeSwitch"
         aria-hidden="false"
-        css={{
-          position: "absolute",
-          left: -10000
-        }}
+        css={{ position: "absolute", left: -10000 }}
       >
         Zmień motyw
       </label>
@@ -95,12 +83,8 @@ export const ThemeSwitch = React.memo(() => {
         id="themeSwitch"
         css={{
           transform: "translate(50%)",
-          span: {
-            color: colors.pink
-          },
-          [bp.fromTablet]: {
-            transform: "translate(25%)"
-          }
+          span: { color: colors.pink },
+          [bp.fromTablet]: { transform: "translate(25%)" }
         }}
       />
     </div>

@@ -1,28 +1,33 @@
 # fancy-portfolio
-Portfolio for Jakub Skoneczny, best website in the f*** world.
+
+Portfolio for Jakub Skoneczny, best website in the f\*\*\* world.
 [dev.jskoneczny.pl](http://dev.jskoneczny.pl)
 
 ## Development
+
 During development, try one of following commands:
+
 ```
-npm run analyze
-npm run analyze:browser
-npm run analyze:client
-npm run test:tsc
+yarn analyze
+yarn analyze:browser
+yarn analyze:client
+yarn tsc
 ```
 
 ## Production
+
 ```
-npm run build
+yarn build
 ```
 
 ## Dependencies
-* React.js
-* Next.js
-* Typescript
-* Emotion.js
-* Webpack
 
+- React.js
+- Next.js
+- Typescript
+- Emotion.js
+- Webpack
 
 ## Author
-* **Jakub Skoneczny** - *Initial work* - [Portfolio](https://jskoneczny.pl)
+
+- **Jakub Skoneczny** - _Initial work_ - [Portfolio](https://jskoneczny.pl)

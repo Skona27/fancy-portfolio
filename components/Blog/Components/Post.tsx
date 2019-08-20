@@ -15,16 +15,10 @@ export const Post: React.FC<IProps> = React.memo(({ id, title, dayMonth }) => {
       css={{
         color: colors.pink,
         margin: ".6rem 0",
-        [bp.fromTablet]: {
-          margin: ".3rem 0"
-        }
+        [bp.fromTablet]: { margin: ".3rem 0" }
       }}
     >
-      <article
-        css={{
-          color: colors.secondary
-        }}
-      >
+      <article css={{ color: colors.secondary }}>
         <Link href={`/post?id=${id}`} as={`/post/${id}`}>
           <h3
             css={{
@@ -35,23 +29,14 @@ export const Post: React.FC<IProps> = React.memo(({ id, title, dayMonth }) => {
               cursor: "pointer",
               padding: 2,
               marginRight: 20,
-              "&:hover": {
-                borderColor: colors.pink
-              }
+              ":hover": { borderColor: colors.pink }
             }}
           >
             {title}
           </h3>
         </Link>
 
-        <span
-          css={{
-            fontSize: ".875rem",
-            letterSpacing: 1
-          }}
-        >
-          {dayMonth}
-        </span>
+        <span css={{ fontSize: ".875rem", letterSpacing: 1 }}>{dayMonth}</span>
       </article>
     </li>
   );

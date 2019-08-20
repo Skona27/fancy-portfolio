@@ -23,9 +23,7 @@ export const Brand: React.FC<IProps> = React.memo(
             borderRadius: "50%",
             height: "100%",
             width: "auto",
-            [bp.fromDesktop]: {
-              transform: "translateX(-40%)"
-            }
+            [bp.fromDesktop]: { transform: "translateX(-40%)" }
           }}
         />
 
@@ -36,12 +34,8 @@ export const Brand: React.FC<IProps> = React.memo(
             letterSpacing: 1,
             fontWeight: 700,
             marginLeft: 16,
-            [bp.max380]: {
-              maxWidth: 100
-            },
-            [bp.fromDesktop]: {
-              marginLeft: 0
-            }
+            [bp.max380]: { maxWidth: 100 },
+            [bp.fromDesktop]: { marginLeft: 0 }
           }}
         >
           <span>{title}</span>
@@ -50,9 +44,7 @@ export const Brand: React.FC<IProps> = React.memo(
 
           <span
             css={{
-              [bp.max380]: {
-                display: "none"
-              }
+              [bp.max380]: { display: "none" }
             }}
           >
             {subtitle}

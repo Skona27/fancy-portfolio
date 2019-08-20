@@ -1,10 +1,11 @@
 import * as React from "react";
 import { IPost } from "../components/Blog/types";
-import { withRouter, WithRouterProps } from "next/router";
 import Error from "../pages/_error";
 import { SinglePost } from "../components/SinglePost";
 import { Spinner } from "../components/Spinner";
 import { getSinglePost } from "../api/post";
+import { WithRouterProps } from "next/dist/client/with-router";
+import { withRouter } from "next/router";
 
 interface IResponse {
   postFromServer: IPost | null;

@@ -1,9 +1,10 @@
 import React from "react";
 import { darken, lighten } from "polished";
-import { WithRouterProps, withRouter } from "next/router";
 import { useTheme } from "../../../hooks/Theme";
 import { NavigationItem } from "./NavigationItem";
 import { INavigationItem } from "../types";
+import { WithRouterProps } from "next/dist/client/with-router";
+import { withRouter } from "next/router";
 
 interface IProps {
   elements: INavigationItem[];
@@ -12,6 +13,7 @@ interface IProps {
 const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
   ({ elements, router }) => {
     const { bp, colors, variant } = useTheme();
+
     const navigationRef = React.useRef<HTMLElement | null>(null);
     const [isStickyToTop, setIsStickyToTop] = React.useState(false);
 
@@ -25,6 +27,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
     React.useEffect(() => {
       handleScroll();
       window.addEventListener("scroll", handleScroll);
+
       return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -51,10 +54,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
           paddingTop: "2.5rem",
           paddingBottom: "1.75rem",
           transition: "background-color .1s ease-in",
-          [bp.fromDesktop]: {
-            paddingTop: "4rem",
-            paddingBottom: 0
-          }
+          [bp.fromDesktop]: { paddingTop: "4rem", paddingBottom: 0 }
         }}
       >
         <ul
@@ -66,9 +66,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             marginLeft: 0,
             justifyContent: "space-between",
             position: "relative",
-            [bp.fromTablet]: {
-              justifyContent: "flex-start"
-            }
+            [bp.fromTablet]: { justifyContent: "flex-start" }
           }}
         >
           {elements.map(link => (
@@ -99,12 +97,8 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             position: "absolute",
             bottom: 0,
             left: "-2rem",
-            [bp.max380]: {
-              left: "-1.5rem"
-            },
-            [bp.fromTablet]: {
-              display: "none"
-            }
+            [bp.max380]: { left: "-1.5rem" },
+            [bp.fromTablet]: { display: "none" }
           }}
         />
       </nav>

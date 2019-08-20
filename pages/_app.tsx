@@ -1,12 +1,12 @@
 import React from "react";
-import App, { Container, NextAppContext } from "next/app";
+import App, { Container, AppContext } from "next/app";
 import { Theme } from "../hooks/Theme";
 import { Header } from "../components/Header";
 import { Layout } from "../components/Layout";
 import { headerData } from "../data/header";
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }: NextAppContext) {
+  static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -15,6 +15,7 @@ class MyApp extends App {
     return { pageProps };
   }
 
+  // @TODO - React event
   onTabPress = (event: KeyboardEvent) => {
     if (event.key === "Tab") {
       document.body.classList.add("enable-outline");
@@ -29,11 +30,11 @@ class MyApp extends App {
     window.addEventListener("keydown", this.onTabPress);
   };
 
-  componentDidMount(): void {
+  componentDidMount() {
     window.addEventListener("keydown", this.onTabPress);
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     window.removeEventListener("keydown", this.onTabPress);
     window.removeEventListener("mousemove", this.onMouseMove);
   }

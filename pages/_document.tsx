@@ -20,6 +20,7 @@ class MyDocument extends Document {
           <title>Jakub Skoneczny</title>
           <meta name="description" content="yoyo" />
         </Head>
+
         <Global
           styles={css`
             * {
@@ -184,6 +185,7 @@ class MyDocument extends Document {
             }
           `}
         />
+
         <body>
           <Main />
           <NextScript />

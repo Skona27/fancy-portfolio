@@ -1,4 +1,4 @@
-import {ISkillSection} from "../components/Skills/types";
+import { ISkillSection } from "../components/Skills/types";
 
 export const skillsSections: ISkillSection[] = [
   {

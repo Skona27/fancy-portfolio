@@ -5,6 +5,7 @@ import { Global } from "@emotion/core";
 import { useTheme } from "../../hooks/Theme";
 
 NProgress.configure({ showSpinner: false });
+
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());

@@ -17,9 +17,7 @@ export const NavigationItem: React.FC<IProps> = React.memo(
         css={{
           [bp.fromTablet]: {
             margin: 0,
-            "&:not(:first-of-type)": {
-              marginLeft: "2.5rem"
-            }
+            "&:not(:first-of-type)": { marginLeft: "2.5rem" }
           }
         }}
       >
@@ -39,21 +37,11 @@ export const NavigationItem: React.FC<IProps> = React.memo(
               borderBottom: `3px solid ${active ? colors.pink : "transparent"}`,
               padding: 2,
               transition: "borderColor .15s ease-in",
-              ":hover, :focus": {
-                borderColor: colors.pink
-              },
-              [bp.max380]: {
-                fontSize: "1.3rem",
-              },
-              [bp.max360]: {
-                fontSize: "1.14rem",
-              },
-              [bp.fromTablet]: {
-                fontSize: "1.3rem"
-              },
-              [bp.fromTablet]: {
-                fontSize: "1.2rem"
-              }
+              ":hover, :focus": { borderColor: colors.pink },
+              [bp.max380]: { fontSize: "1.3rem" },
+              [bp.max360]: { fontSize: "1.14rem" },
+              [bp.fromTablet]: { fontSize: "1.3rem" },
+              [bp.fromTablet]: { fontSize: "1.2rem" }
             }}
             tabIndex={0}
           >

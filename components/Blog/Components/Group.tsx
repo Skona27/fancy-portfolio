@@ -15,12 +15,8 @@ export const Group: React.FC<IPostGroup> = React.memo(({ year, elements }) => {
       <h2
         css={{
           fontSize: "2rem",
-          [bp.fromTablet]: {
-            fontSize: "1.75rem"
-          },
-          [bp.fromMobile]: {
-            fontSize: "1.5rem"
-          }
+          [bp.fromTablet]: { fontSize: "1.75rem" },
+          [bp.fromMobile]: { fontSize: "1.5rem" }
         }}
       >
         {year}
