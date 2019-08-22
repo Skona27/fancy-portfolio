@@ -1,25 +1,6 @@
-// @TODO - Change `Theme` to be in seperate folder with types etc...
 import React, { ReactElement } from "react";
-import {
-  IColors,
-  IBreakpoints,
-  themeVariants,
-  breakpoints,
-  IThemeVariant
-} from "../ui";
-
-interface ITheme {
-  variant: IThemeVariant;
-  colors: IColors;
-  bp: IBreakpoints;
-  dispatch: (action: IAction) => void;
-}
-
-interface IAction {
-  type: IThemeAction;
-}
-
-type IThemeAction = "setLightTheme" | "setDarkTheme";
+import { themeVariants, breakpoints, IThemeVariant } from "../../ui";
+import { ITheme, IAction } from "./types";
 
 const theme: ITheme = {
   variant: "light",
@@ -28,7 +9,7 @@ const theme: ITheme = {
   dispatch: () => {}
 };
 
-const themeReducer = (state: ITheme, action: IAction) => {
+const themeReducer = (state: ITheme, action: IAction): ITheme => {
   switch (action.type) {
     case "setLightTheme":
       sessionStorage.setItem("themeVariant", "light");
@@ -49,8 +30,6 @@ export const useTheme = () => {
 
 export const Theme: React.FC<{ children: ReactElement }> = React.memo(
   ({ children }) => {
-    // @TODO - Argument of type 'ITheme' is not assignable to parameter of type 'never'
-    // @ts-ignore
     const [state, dispatch] = React.useReducer(themeReducer, theme);
     const [variant, setVariant] = React.useState<IThemeVariant>("light");
 

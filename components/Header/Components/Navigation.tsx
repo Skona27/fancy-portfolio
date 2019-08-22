@@ -1,5 +1,4 @@
 import React from "react";
-import { darken, lighten } from "polished";
 import { useTheme } from "../../../hooks/Theme";
 import { NavigationItem } from "./NavigationItem";
 import { IAction } from "../types";
@@ -12,24 +11,9 @@ interface IProps {
 
 const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
   ({ elements, router }) => {
-    const { bp, colors, variant } = useTheme();
+    const { bp, colors } = useTheme();
 
     const navigationRef = React.useRef<HTMLElement | null>(null);
-    const [isStickyToTop, setIsStickyToTop] = React.useState(false);
-
-    const handleScroll = React.useCallback(() => {
-      if (!navigationRef || !navigationRef.current) {
-        return;
-      }
-      setIsStickyToTop(navigationRef.current.getBoundingClientRect().top < 0);
-    }, [navigationRef]);
-
-    React.useEffect(() => {
-      handleScroll();
-      window.addEventListener("scroll", handleScroll);
-
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     if (!router) {
       return null;
@@ -64,9 +48,14 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             display: "flex",
             flexWrap: "wrap",
             marginLeft: 0,
-            justifyContent: "space-between",
             position: "relative",
-            [bp.fromTablet]: { justifyContent: "flex-start" }
+            li: {
+              ":not(:first-of-type)": {
+                marginLeft: 20,
+                [bp.fromTablet]: { marginLeft: 30 },
+                [bp.fromDesktop]: { marginLeft: "2rem" }
+              }
+            }
           }}
         >
           {elements.map(link => (
@@ -80,28 +69,6 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             </NavigationItem>
           ))}
         </ul>
-
-        <div
-          css={{
-            opacity: isStickyToTop ? 1 : 0,
-            transition: "opacity .15s ease-in",
-            width: "100vw",
-            height: 1,
-            boxShadow:
-              variant === "light"
-                ? "0 0 1px rgba(0, 0, 0, .75)"
-                : "0 0 1px white",
-            backgroundColor:
-              variant === "light"
-                ? darken(0.17, colors.primary)
-                : lighten(0.2, colors.primary),
-            position: "absolute",
-            bottom: 0,
-            left: "-2rem",
-            [bp.max380]: { left: "-1.5rem" },
-            [bp.fromTablet]: { display: "none" }
-          }}
-        />
       </nav>
     );
   }

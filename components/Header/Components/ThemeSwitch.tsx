@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "../../../hooks/Theme";
 import Switch from "@material-ui/core/Switch";
-import { InterpolationWithTheme } from "@emotion/core";
+import { Interpolation } from "@emotion/core";
 
 export const ThemeSwitch = React.memo(() => {
   const { colors, bp, dispatch, variant } = useTheme();
@@ -14,19 +14,16 @@ export const ThemeSwitch = React.memo(() => {
   }, [variant]);
 
   const toggle = React.useCallback(() => {
-    // @TODO - this may cause a problem if state will change quickly
-    setIsChecked(!isChecked);
-
     if (isChecked) {
       dispatch({ type: "setLightTheme" });
-    }
-    if (!isChecked) {
+    } else {
       dispatch({ type: "setDarkTheme" });
     }
+
+    setIsChecked(!isChecked);
   }, [isChecked]);
 
-  // @TODO - change to Interpolation
-  const iStyle: InterpolationWithTheme<any> = {
+  const iStyle: Interpolation = {
     position: "absolute",
     fontSize: "1.2rem",
     top: "50%",

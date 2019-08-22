@@ -6,22 +6,34 @@ export const Skill: React.FC<ISkill> = React.memo(
   ({ skillName, fullStars, description, halfStars = 0, emptyStars = 0 }) => {
     const { colors, bp } = useTheme();
 
-    // @TODO - Apply useMemo here
-    const fullStarIcons: JSX.Element[] = [];
-    const halfStarIcons: JSX.Element[] = [];
-    const emptyStarIcons: JSX.Element[] = [];
+    const fullStarIcons: JSX.Element[] = React.useMemo(() => {
+      const tempArray = [];
 
-    for (let i = 1; i <= fullStars; i++) {
-      fullStarIcons.push(<i className="fas fa-star" key={"full-" + i} />);
-    }
-    for (let i = 1; i <= halfStars; i++) {
-      halfStarIcons.push(
-        <i className="fas fa-star-half-alt" key={"half-" + i} />
-      );
-    }
-    for (let i = 1; i <= emptyStars; i++) {
-      emptyStarIcons.push(<i className="far fa-star" key={"empty-" + i} />);
-    }
+      for (let i = 1; i <= fullStars; i++) {
+        tempArray.push(<i className="fas fa-star" key={"full-" + i} />);
+      }
+      return tempArray;
+    }, [fullStars]);
+
+    const halfStarIcons: JSX.Element[] = React.useMemo(() => {
+      const tempArray = [];
+
+      for (let i = 1; i <= halfStars; i++) {
+        tempArray.push(
+          <i className="fas fa-star-half-alt" key={"half-" + i} />
+        );
+      }
+      return tempArray;
+    }, [halfStars]);
+
+    const emptyStarIcons: JSX.Element[] = React.useMemo(() => {
+      const tempArray = [];
+
+      for (let i = 1; i <= emptyStars; i++) {
+        tempArray.push(<i className="far fa-star" key={"empty-" + i} />);
+      }
+      return tempArray;
+    }, [emptyStars]);
 
     return (
       <li

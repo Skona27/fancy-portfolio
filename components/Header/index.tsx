@@ -11,9 +11,7 @@ export const Header: React.FC<IHeader> = React.memo(
     return (
       <header
         css={{
-          position: "sticky",
-          top: "-5.75rem",
-          marginBottom: "2rem",
+          position: "relative",
           [bp.fromDesktop]: { position: "static", marginBottom: "3.5rem" }
         }}
       >

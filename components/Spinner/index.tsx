@@ -1,3 +1,4 @@
+// @TODO - make custom spinner, this one is huge
 import * as React from "react";
 import { PulseLoader } from "react-spinners";
 import { useTheme } from "../../hooks/Theme";

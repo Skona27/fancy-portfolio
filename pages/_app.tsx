@@ -4,6 +4,7 @@ import { Theme } from "../hooks/Theme";
 import { Header } from "../components/Header";
 import { Layout } from "../components/Layout";
 import { headerData } from "../data/header";
+import Head from "next/head";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }: AppContext) {
@@ -44,6 +45,10 @@ class MyApp extends App {
 
     return (
       <Container>
+        <Head>
+          <title>Jakub Skoneczny - Javascript Developer</title>
+        </Head>
+
         <Theme>
           <Layout>
             <Header {...headerData} />

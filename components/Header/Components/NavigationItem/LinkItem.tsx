@@ -6,8 +6,6 @@ export const LinkItem: React.FC<IActionComponent> = React.memo(
   ({ active, href, children }) => {
     const { colors, bp } = useTheme();
 
-    console.log(active);
-
     return (
       <a
         href={href}
@@ -31,8 +29,8 @@ export const LinkItem: React.FC<IActionComponent> = React.memo(
           padding: 2,
           transition: "borderColor .15s ease-in",
           ":hover": { borderColor: `${colors.pink} !important` },
-          [bp.max380]: { fontSize: "1.3rem" },
-          [bp.max360]: { fontSize: "1.14rem" },
+          [bp.max380]: { fontSize: "1.4rem" },
+          [bp.max360]: { fontSize: "1.2rem" },
           [bp.fromTablet]: { fontSize: "1.3rem" },
           [bp.fromTablet]: { fontSize: "1.2rem" }
         }}

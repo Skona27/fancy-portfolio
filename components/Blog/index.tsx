@@ -1,5 +1,5 @@
 import * as React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import { IPost } from "./types";
 import { Group } from "./Components";
 
@@ -14,8 +14,8 @@ export const Blog: React.FC<IProps> = React.memo(({ elements }) => {
     }
 
     const postsWithYear = elements.map(post => {
-      const year = moment(post.date).format("YYYY");
-      const dayMonth = moment(post.date).format("DD/MM");
+      const year = dayjs(post.date).format("YYYY");
+      const dayMonth = dayjs(post.date).format("DD/MM");
       return { ...post, year, dayMonth };
     });
 
