@@ -2,12 +2,12 @@ import React from "react";
 import { darken, lighten } from "polished";
 import { useTheme } from "../../../hooks/Theme";
 import { NavigationItem } from "./NavigationItem";
-import { INavigationItem } from "../types";
+import { IAction } from "../types";
 import { WithRouterProps } from "next/dist/client/with-router";
 import { withRouter } from "next/router";
 
 interface IProps {
-  elements: INavigationItem[];
+  elements: IAction[];
 }
 
 const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
@@ -72,6 +72,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
           {elements.map(link => (
             <NavigationItem
               href={link.href}
+              type={link.type}
               active={isElementActive(link.href)}
               key={link.href}
             >

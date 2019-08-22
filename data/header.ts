@@ -10,19 +10,18 @@ export const headerData: IHeader = {
   elements: [
     {
       href: "/",
-      title: "o mnie"
+      title: "o mnie",
+      type: "BUTTON"
     },
     {
-      href: "/realizacje",
-      title: "realizacje"
-    },
-    {
-      href: "/projekty",
-      title: "projekty"
+      href: "https://jskoneczny.pl/",
+      title: "portfolio",
+      type: "LINK"
     },
     {
       href: "/blog",
-      title: "blog"
+      title: "blog",
+      type: "BUTTON"
     }
   ]
 };
