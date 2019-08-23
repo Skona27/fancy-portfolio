@@ -1,9 +1,13 @@
 import * as React from "react";
 import Error from "./_error";
-import { Blog as BlogComponent } from "../components/Blog";
 import { getAllPosts } from "../api/blog";
 import { IPost } from "../components/Blog/types";
 import { Spinner } from "../components/Spinner";
+import dynamic from "next/dynamic";
+
+const BlogComponent = dynamic<{ elements: IPost[] | null }>(() =>
+  import("../components/Blog").then(module => module.Blog)
+);
 
 interface IResponse {
   postsFromServer: IPost[] | null;
