@@ -1,4 +1,5 @@
 const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
+const withOffline = require("next-offline");
 
 const customConfig = {
   analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
@@ -16,5 +17,5 @@ const customConfig = {
 };
 
 module.exports = defaultConfig => {
-  return withBundleAnalyzer({ ...defaultConfig, ...customConfig });
+  return withBundleAnalyzer(withOffline({ ...defaultConfig, ...customConfig }));
 };

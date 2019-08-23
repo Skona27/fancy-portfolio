@@ -1,5 +1,7 @@
 const express = require("express");
 const next = require("next");
+const { parse } = require("url");
+const { join } = require("path");
 
 const dev = process.env.NODE_ENV !== "production";
 const port = process.env.PORT | 3000;
@@ -18,6 +20,17 @@ app
     });
 
     server.get("*", (req, res) => {
+      const parsedUrl = parse(req.url, true);
+      const { pathname } = parsedUrl;
+
+      if (pathname === "/service-worker.js") {
+        const filePath = join(__dirname, ".next", pathname);
+
+        console.log(filePath);
+
+        return app.serveStatic(req, res, filePath);
+      }
+
       return handle(req, res);
     });
 

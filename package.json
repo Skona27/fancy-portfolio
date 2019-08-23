@@ -23,6 +23,7 @@
     "dayjs": "1.8.15",
     "express": "4.17.1",
     "next": "9.0.4",
+    "next-offline": "^4.0.5",
     "nprogress": "0.2.0",
     "polished": "3.4.1",
     "react": "16.9.0",

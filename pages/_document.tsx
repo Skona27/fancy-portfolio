@@ -15,7 +15,7 @@ class MyDocument extends Document {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="yoyo" />
-          <meta name="theme-color" content="#e84f7a"></meta>
+          <meta name="theme-color" content="#f54e7d"></meta>
 
           <link rel="manifest" href="/static/manifest.json" />
         </Head>
