@@ -85,3 +85,5 @@ bundles
 
 # Other
 .idea/
+/pages/sandbox.tsx
+.coverage/

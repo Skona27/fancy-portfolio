@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export const Layout: React.FC<IProps> = React.memo(({ children }) => {
-  const { colors, bp } = useTheme();
+  const { colors, bp, variant } = useTheme();
 
   return (
     <div
@@ -21,10 +21,7 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         transition: ".1s all ease-in",
         [bp.max380]: { padding: "4rem 1.5rem" },
         [bp.fromTablet]: { paddingTop: 0, padding: "4rem 3rem" },
-        "code, pre": {
-          backgroundColor: colors.secondary,
-          color: colors.primary
-        },
+        pre: { backgroundColor: variant === "light" ? "#383838" : "#484848" },
         a: {
           color: colors.pink,
           borderColor: colors.pink,

@@ -18,6 +18,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#f54e7d"></meta>
 
           <link rel="manifest" href="/static/manifest.json" />
+          <link href="/static/prism.css" rel="stylesheet" />
         </Head>
 
         <Global
@@ -115,27 +116,9 @@ class MyDocument extends Document {
               }
             }
 
-            code,
             pre {
-              font-weight: 400;
-              font-size: 1.15rem;
-              ${breakpoints.fromMobile} {
-                font-size: 1rem;
-              }
-              ${breakpoints.fromTablet} {
-                font-size: 0.875rem;
-              }
-            }
-
-            code {
-              padding: 2px 4px;
-              vertical-align: text-bottom;
-            }
-
-            pre {
-              padding: 1rem;
-              margin: 1rem 0;
-              font-size: 1.1rem;
+              border-radius: 0.3em;
+              transition: background-color 0.1s ease-in;
             }
 
             ul {
@@ -188,6 +171,9 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          <script src="/static/prism.js"></script>
+
           <script
             defer
             src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
