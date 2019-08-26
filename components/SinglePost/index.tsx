@@ -6,11 +6,18 @@ import { useTheme } from "../../hooks/Theme";
 export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
   const { bp } = useTheme();
 
+  React.useEffect(() => {
+    // @ts-ignore
+    Prism.highlightAll();
+  });
+
   return (
     <>
       <article>
         <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: content.replace(/\\n/g, "\n") }}
+        />
       </article>
 
       <div

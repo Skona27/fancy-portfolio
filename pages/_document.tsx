@@ -119,6 +119,7 @@ class MyDocument extends Document {
             pre {
               border-radius: 0.3em;
               transition: background-color 0.1s ease-in;
+              margin-top: 1rem !important;
             }
 
             ul {
