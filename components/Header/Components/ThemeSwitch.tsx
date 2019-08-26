@@ -21,7 +21,7 @@ export const ThemeSwitch = React.memo(() => {
     }
 
     setIsChecked(!isChecked);
-  }, [isChecked]);
+  }, [isChecked, dispatch]);
 
   const iStyle: Interpolation = {
     position: "absolute",

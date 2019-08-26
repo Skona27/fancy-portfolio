@@ -64,6 +64,7 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
     };
 
     fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postID]);
 
   const isContentReady = !isError && !isLoading && post && !isLoaderDelayed;

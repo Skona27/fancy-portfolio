@@ -24,6 +24,7 @@ module.exports = {
     jest: true
   },
   rules: {
+    "no-irregular-whitespace": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/label-has-for": "off",

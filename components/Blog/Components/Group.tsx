@@ -28,7 +28,7 @@ export const Group: React.FC<IPostGroup> = React.memo(({ year, elements }) => {
         }}
       >
         {elements.map((post, ind) => (
-          <Post key={`post-${ind}`} {...post as IPostWithDate} />
+          <Post key={`post-${ind}`} {...(post as IPostWithDate)} />
         ))}
       </ul>
     </section>

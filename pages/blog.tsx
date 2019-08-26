@@ -61,6 +61,7 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
     };
 
     fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isContentReady = !isError && !isLoading && posts && !isLoaderDelayed;
