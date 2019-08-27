@@ -131,6 +131,12 @@ class MyDocument extends Document {
             }
             img {
               width: 100%;
+              margin-top: 0.5rem;
+            }
+
+            iframe {
+              margin-top: 0.5rem;
+              width: 100%;
             }
 
             a {
