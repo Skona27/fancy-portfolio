@@ -30,7 +30,7 @@ export const skillsSections: ISkillSection[] = [
           {
             skillName: "React",
             description:
-              "Znajomość CRA, Gatbsy i Next.JS, CSS modules, css-in-js, React Hooks, Component Lifecycle Methods, Context, Portals, zaawansowane techniki React, Typescript",
+              "Znajomość CRA, Gatbsy i Next.JS, CSS modules, css-in-js, React Hooks, Component Lifecycle Methods, Context, zaawansowane techniki React, React & Typescript",
             fullStars: 3,
             halfStars: 1,
             emptyStars: 1

@@ -4,9 +4,8 @@ export const experienceItems: IExperienceItem[] = [
   {
     duration: "03-2019 - obecnie",
     companyName: "Orange Polska",
-    positionName: "React Developer w Zespole Portal",
-    description:
-      "Prace nad nową stroną główną orange.pl, rozwój istniejących aplikacji.",
+    positionName: "Javascript Developer w Zespole Portal",
+    description: "Prace nad nową stroną główną Orange.",
     techStack: "React, Next.JS, JavaScript, HTML, CSS"
   },
   {
@@ -22,7 +21,7 @@ export const experienceItems: IExperienceItem[] = [
     companyName: "IKSEL Studio Reklamy",
     positionName: "Junior Full-Stack Web Developer",
     description:
-      "Tworzenie kompleksowych stron i aplikacji internetowych dla klientów, utrzymanie obecnych serwisów itnernetowych.",
+      "Tworzenie kompleksowych stron i aplikacji internetowych dla klientów, utrzymanie obecnych serwisów internetowych.",
     techStack: "HTML, CSS, JavaScript, NodeJS, MongoDB"
   }
 ];

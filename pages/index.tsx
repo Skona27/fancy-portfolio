@@ -18,10 +18,10 @@ const Home = React.memo(() => {
           css={{ color: colors.pink, marginLeft: 7, marginRight: 10 }}
           className="fas fa-heart"
         />
-        Programowaniem zajmuję się od dawien dawna i jest to moje hobby co
-        sprawia, że praca to dla mnie czysta przyjemność. W wolnym czasie gram
-        na gitarze i czytam ciekawostki o kosmosie i gwiazdach. Czasami zdarza
-        mi się zagrać w pokera lub gry planszowe ze znajomymi.
+        Programowaniem zajmuję się od dawien dawna. Programowanie to moje hobby,
+        co sprawia że praca to dla mnie czysta przyjemność. W wolnym czasie gram
+        na gitarze, oglądam filmy i czytam ciekawostki o kosmosie i gwiazdach.
+        Czasami zdarza mi się zagrać w pokera lub gry planszowe ze znajomymi.
       </p>
 
       <Skills skillsSections={skillsSections} />
