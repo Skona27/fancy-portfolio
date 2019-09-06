@@ -13,6 +13,12 @@ class MyDocument extends Document {
     return (
       <html lang="pl">
         <Head>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-77710570-3"
+          ></script>
+          <script src="/static/gtag.js" />
+
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="yoyo" />
           <meta name="theme-color" content="#f54e7d"></meta>
