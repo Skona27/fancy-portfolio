@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <script src="/static/gtag.js" />
 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="description" content="yoyo" />
+          <meta name="description" content="" />
           <meta name="theme-color" content="#f54e7d"></meta>
 
           <link rel="manifest" href="/static/manifest.json" />
