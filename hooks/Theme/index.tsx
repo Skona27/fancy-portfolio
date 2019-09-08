@@ -2,12 +2,9 @@ import React, { ReactElement } from "react";
 import { themeVariants, breakpoints, IThemeVariant } from "../../ui";
 import { ITheme, IAction } from "./types";
 
-const hours = new Date().getHours();
-const isDay = hours > 7 && hours < 21;
-
 const theme: ITheme = {
-  variant: isDay ? "light" : "dark",
-  colors: isDay ? themeVariants.light : themeVariants.dark,
+  variant: "light",
+  colors: themeVariants.light,
   bp: breakpoints,
   dispatch: () => {}
 };
@@ -34,23 +31,18 @@ export const useTheme = () => {
 export const Theme: React.FC<{ children: ReactElement }> = React.memo(
   ({ children }) => {
     const [state, dispatch] = React.useReducer(themeReducer, theme);
+    const [variant, setVariant] = React.useState<IThemeVariant>("light");
 
     React.useEffect(() => {
-      const currentVariant = sessionStorage.getItem(
-        "themeVariant"
-      ) as IThemeVariant;
-
-      if (currentVariant === "light") {
-        dispatch({ type: "setLightTheme" });
-      }
-
-      if (currentVariant === "dark") {
-        dispatch({ type: "setDarkTheme" });
-      }
-    }, []);
+      const currentVariant: IThemeVariant =
+        sessionStorage.getItem("themeVariant") !== "dark" ? "light" : "dark";
+      setVariant(currentVariant);
+    }, [state]);
 
     return (
-      <ThemeContext.Provider value={{ ...state, dispatch }}>
+      <ThemeContext.Provider
+        value={{ ...state, colors: themeVariants[variant], variant, dispatch }}
+      >
         {children}
       </ThemeContext.Provider>
     );

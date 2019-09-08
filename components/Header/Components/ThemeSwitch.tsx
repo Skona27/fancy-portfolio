@@ -5,13 +5,11 @@ import { Interpolation } from "@emotion/core";
 
 export const ThemeSwitch = React.memo(() => {
   const { colors, bp, dispatch, variant } = useTheme();
-  const [isChecked, setIsChecked] = React.useState(variant === "light");
+  const [isChecked, setIsChecked] = React.useState(false);
 
   React.useEffect(() => {
     if (variant === "dark") {
       setIsChecked(true);
-    } else {
-      setIsChecked(false);
     }
   }, [variant]);
 
