@@ -30,6 +30,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
       <nav
         ref={navigationRef}
         css={{
+          marginTop: 5,
           position: "relative",
           zIndex: 1,
           backgroundColor: colors.primary,
