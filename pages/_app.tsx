@@ -1,21 +1,13 @@
 import React from "react";
-import App, { Container, AppContext } from "next/app";
+import App from "next/app";
+import Head from "next/head";
+
 import { Theme } from "../hooks/Theme";
 import { Header } from "../components/Header";
 import { Layout } from "../components/Layout";
 import { headerData } from "../data/header";
-import Head from "next/head";
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }: AppContext) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    return { pageProps };
-  }
-
   // @TODO - React event
   onTabPress = (event: KeyboardEvent) => {
     if (event.key === "Tab") {
@@ -44,7 +36,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+      <>
         <Head>
           <title>Jakub Skoneczny - Javascript Developer</title>
         </Head>
@@ -55,7 +47,7 @@ class MyApp extends App {
             <Component {...pageProps} />
           </Layout>
         </Theme>
-      </Container>
+      </>
     );
   }
 }

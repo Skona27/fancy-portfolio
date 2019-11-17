@@ -17,14 +17,14 @@ class MyDocument extends Document {
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-77710570-3"
           ></script>
-          <script src="/static/gtag.js" />
+          <script src="/gtag.js" />
 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="" />
           <meta name="theme-color" content="#f54e7d"></meta>
 
-          <link rel="manifest" href="/static/manifest.json" />
-          <link href="/static/prism.css" rel="stylesheet" />
+          <link rel="manifest" href="/manifest.json" />
+          <link href="/prism.css" rel="stylesheet" />
         </Head>
 
         <Global
@@ -185,7 +185,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
 
-          <script src="/static/prism.js"></script>
+          <script defer src="/prism.js"></script>
 
           <script
             defer
