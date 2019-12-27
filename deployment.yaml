@@ -1,0 +1,56 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fancy-portfolio-as
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: fancy-portfolio-dp
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: "Resource"
+      resource:
+        name: "cpu"
+        targetAverageUtilization: 50
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fancy-portfolio-dp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fancy-portfolio
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: fancy-portfolio
+    spec:
+      containers:
+        - image: gcr.io/jakub-skoneczny-portfolio-pwa/fancy-portfolio:1.0.0
+          imagePullPolicy: Always
+          name: fancy-portfolio
+          ports:
+            - containerPort: 3003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fancy-portfolio-lb
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3003
+  selector:
+    app: fancy-portfolio
