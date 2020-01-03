@@ -36,7 +36,7 @@ spec:
         app: fancy-portfolio
     spec:
       containers:
-        - image: gcr.io/jakub-skoneczny-portfolio-pwa/fancy-portfolio:1.0.0
+        - image: gcr.io/jakub-skoneczny-portfolio-pwa/fancy-portfolio:1.1.0
           imagePullPolicy: Always
           name: fancy-portfolio
           ports:
@@ -60,7 +60,7 @@ kind: Ingress
 metadata:
   name: fancy-portfolio-ingress
   annotations:
-    networking.gke.io/managed-certificates: fancy-portfolio-certificate
+    networking.gke.io/managed-certificates: fancy-portfolio-certificate3
 spec:
   backend:
     serviceName: fancy-portfolio-service
@@ -69,7 +69,7 @@ spec:
 apiVersion: networking.gke.io/v1beta1
 kind: ManagedCertificate
 metadata:
-  name: fancy-portfolio-certificate
+  name: fancy-portfolio-certificate3
 spec:
   domains:
     - blog.jskoneczny.pl
