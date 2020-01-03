@@ -30,7 +30,7 @@ class MyDocument extends Document {
         <Global
           styles={css`
             * {
-              @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&subset=latin-ext");
+              @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=auto&subset=latin-ext");
               margin: 0;
               padding: 0;
               box-sizing: border-box;
@@ -189,7 +189,7 @@ class MyDocument extends Document {
 
           <script
             defer
-            src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/js/all.min.js"
             integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
             crossOrigin="anonymous"
           />

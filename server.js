@@ -25,9 +25,6 @@ app
 
       if (pathname === "/service-worker.js") {
         const filePath = join(__dirname, ".next", pathname);
-
-        console.log(filePath);
-
         return app.serveStatic(req, res, filePath);
       }
 

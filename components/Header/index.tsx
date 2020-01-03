@@ -3,6 +3,7 @@ import { useTheme } from "../../hooks/Theme";
 import { Brand, Socials, ThemeSwitch } from "./Components";
 import Navigation from "./Components/Navigation";
 import { IHeader } from "./types";
+import { Dynamic } from "../Dynamic";
 
 export const Header: React.FC<IHeader> = React.memo(
   ({ image, title, subtitle, elements }) => {
@@ -27,7 +28,10 @@ export const Header: React.FC<IHeader> = React.memo(
         </div>
 
         <Navigation elements={elements} />
-        <ThemeSwitch />
+
+        <Dynamic>
+          <ThemeSwitch />
+        </Dynamic>
       </header>
     );
   }
