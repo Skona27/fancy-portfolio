@@ -23,7 +23,7 @@ export const Socials = React.memo(() => {
           aria-label="Profil Github"
           rel="noreferrer"
         >
-          <i className="fab fa-github" />
+          <i className="icon icon-github" />
         </Icon>
 
         <Icon
@@ -32,14 +32,14 @@ export const Socials = React.memo(() => {
           aria-label="Profil LinkedIn"
           rel="noreferrer"
         >
-          <i className="fab fa-linkedin-in" />
+          <i className="icon icon-linkedin2" />
         </Icon>
 
         <Icon
           href="mailto:skoneczny.j@gmail.com"
           aria-label="Skontaktuj się ze mną"
         >
-          <i className="far fa-envelope" />
+          <i className="icon icon-envelope-o" />
         </Icon>
       </ul>
     </nav>

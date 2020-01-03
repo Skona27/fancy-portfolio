@@ -30,7 +30,7 @@ export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
       >
         <Link href="/blog">
           <a>
-            <i className="fas fa-arrow-left" />
+            <i className="icon icon-arrow-left2" />
             <span css={{ marginLeft: ".7rem" }}>Wszystkie posty</span>
           </a>
         </Link>

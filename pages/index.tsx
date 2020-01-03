@@ -15,8 +15,13 @@ const Home = React.memo(() => {
         Cześć! Nazywam się <strong>Jakub Skoneczny</strong> i jestem{" "}
         <em>Javascript Developerem!</em>
         <i
-          css={{ color: colors.pink, marginLeft: 7, marginRight: 10 }}
-          className="fas fa-heart"
+          css={{
+            color: colors.pink,
+            marginLeft: 7,
+            marginRight: 10,
+            display: "inline-block"
+          }}
+          className="icon icon-heart"
         />
         Programowaniem zajmuję się od dawien dawna. Programowanie to moje hobby,
         co sprawia że praca to dla mnie czysta przyjemność. W wolnym czasie gram

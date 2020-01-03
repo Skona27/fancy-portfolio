@@ -24,6 +24,8 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#f54e7d"></meta>
 
           <link rel="manifest" href="/static/manifest.json" />
+
+          <link href="/static/fonts/style.css" rel="stylesheet" />
           <link href="/static/prism.css" rel="stylesheet" />
         </Head>
 
@@ -186,13 +188,6 @@ class MyDocument extends Document {
           <NextScript />
 
           <script defer src="/static/prism.js"></script>
-
-          <script
-            defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/js/all.min.js"
-            integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
-            crossOrigin="anonymous"
-          />
         </body>
       </html>
     );

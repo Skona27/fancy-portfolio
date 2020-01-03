@@ -10,7 +10,7 @@ export const Skill: React.FC<ISkill> = React.memo(
       const tempArray = [];
 
       for (let i = 1; i <= fullStars; i++) {
-        tempArray.push(<i className="fas fa-star" key={"full-" + i} />);
+        tempArray.push(<i className="icon icon-star-full" key={"full-" + i} />);
       }
       return tempArray;
     }, [fullStars]);
@@ -19,9 +19,7 @@ export const Skill: React.FC<ISkill> = React.memo(
       const tempArray = [];
 
       for (let i = 1; i <= halfStars; i++) {
-        tempArray.push(
-          <i className="fas fa-star-half-alt" key={"half-" + i} />
-        );
+        tempArray.push(<i className="icon icon-star-half" key={"half-" + i} />);
       }
       return tempArray;
     }, [halfStars]);
@@ -30,7 +28,9 @@ export const Skill: React.FC<ISkill> = React.memo(
       const tempArray = [];
 
       for (let i = 1; i <= emptyStars; i++) {
-        tempArray.push(<i className="far fa-star" key={"empty-" + i} />);
+        tempArray.push(
+          <i className="icon icon-star-empty" key={"empty-" + i} />
+        );
       }
       return tempArray;
     }, [emptyStars]);
@@ -57,7 +57,7 @@ export const Skill: React.FC<ISkill> = React.memo(
               color: colors.pink,
               display: "inline",
               marginLeft: 10,
-              svg: { margin: "0 1px" },
+              i: { margin: "0 1px", fontSize: 22 },
               [bp.fromTablet]: { fontSize: 20 }
             }}
           >

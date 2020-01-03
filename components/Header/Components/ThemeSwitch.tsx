@@ -41,6 +41,7 @@ export const ThemeSwitch = React.memo(() => {
         display: "flex",
         alignItems: "center",
         padding: "1.75rem 3rem",
+        zIndex: 1000,
         [bp.max380]: { transform: "translate(15%, -75%)" },
         [bp.fromMobile]: { transform: "translate(20%,-80%)" },
         [bp.fromTablet]: {
@@ -55,13 +56,13 @@ export const ThemeSwitch = React.memo(() => {
           position: "relative",
           width: 4,
           height: 48,
-          ".fa-moon": { opacity: isChecked ? 1 : 0 },
-          ".fa-sun": { opacity: isChecked ? 0 : 1 }
+          ".icon-moon-o": { opacity: isChecked ? 1 : 0 },
+          ".icon-wb_sunny": { opacity: isChecked ? 0 : 1 }
         }}
       >
-        <i className="fas fa-moon" css={iStyle} />
+        <i className="icon icon-moon-o" css={iStyle} />
 
-        <i className="fas fa-sun" css={iStyle} />
+        <i className="icon icon-wb_sunny" css={iStyle} />
       </div>
 
       <label
