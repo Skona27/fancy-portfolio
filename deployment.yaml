@@ -36,7 +36,7 @@ spec:
         app: fancy-portfolio
     spec:
       containers:
-        - image: gcr.io/jakub-skoneczny-portfolio-pwa/fancy-portfolio:1.1.0
+        - image: gcr.io/jakub-skoneczny-portfolio-pwa/fancy-portfolio:1.2.0
           imagePullPolicy: Always
           name: fancy-portfolio
           ports:
