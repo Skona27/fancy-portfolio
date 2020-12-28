@@ -6,7 +6,14 @@ export const experienceItems: IExperienceItem[] = [
     companyName: "Orange Polska",
     positionName: "Javascript Developer w Zespole Portal",
     description: "Prace nad nową stroną główną Orange.",
-    techStack: "React, Next.JS, JavaScript, HTML, CSS"
+    techStack: "React, Next.JS, JavaScript, Typescript, HTML, CSS"
+  },
+  {
+    duration: "01-2020 - 05-2020",
+    companyName: "XD2Sketch",
+    positionName: "Senior Frontend Developer",
+    description: "Prace nad nowym serwisem i konwerterem projektów graficznych",
+    techStack: "React, Next.JS, JavaScript, Typescript, NodeJS, HTML, CSS"
   },
   {
     duration: "07-2018 - 09.2018",

@@ -23,17 +23,18 @@ export const skillsSections: ISkillSection[] = [
           {
             skillName: "JavaScript",
             description:
-              "Manipulacja elementami DOM, znajomość technik ES6 / 7 i ES Next, AJAX, OOP, wizualizacja danych z D3, znajomość WebGL i Three.JS, SPA, PWA, testowanie z Mocha i Jest",
+              "Manipulacja elementami DOM, znajomość technik ES6 / 7 i ES Next, AJAX, OOP, wizualizacja danych z D3, znajomość WebGL i Three.JS, SPA, PWA, testowanie z Jest",
             fullStars: 4,
-            emptyStars: 1
+            halfStars: 1,
+            emptyStars: 0
           },
           {
             skillName: "React",
             description:
-              "Znajomość CRA, Gatbsy i Next.JS, CSS modules, css-in-js, React Hooks, Component Lifecycle Methods, Context, zaawansowane techniki React, React & Typescript",
-            fullStars: 3,
+              "Znajomość CRA i Next.JS, CSS modules, css-in-js (emotion), React Hooks, Component Lifecycle Methods, Context, zaawansowane techniki React, React & Typescript",
+            fullStars: 4,
             halfStars: 1,
-            emptyStars: 1
+            emptyStars: 0
           }
         ]
       },
@@ -43,7 +44,7 @@ export const skillsSections: ISkillSection[] = [
           {
             skillName: "NodeJS",
             description:
-              "Znajomość Express, Koa i NestJS, komunikacja z bazami SQL i MongoDB, znajomość TypeORM, budowanie REST API i GraphQL API, autoryzacja JWT, testowanie z Jest i Mocha",
+              "Znajomość Express, Koa i NestJS, komunikacja z bazami SQL i MongoDB, znajomość TypeORM i Prisma, budowanie REST API i GraphQL API, autoryzacja JWT, testowanie z Jest",
             fullStars: 3,
             halfStars: 1,
             emptyStars: 1
@@ -60,8 +61,8 @@ export const skillsSections: ISkillSection[] = [
             description:
               "CRUD, Grupowanie danych, sortowanie danych, Relacje pomiędzy danymi",
             fullStars: 3,
-            halfStars: 1,
-            emptyStars: 1
+            halfStars: 0,
+            emptyStars: 2
           },
           { skillName: "MongoDB", fullStars: 2, emptyStars: 3 }
         ]
@@ -84,7 +85,7 @@ export const skillsSections: ISkillSection[] = [
           {
             skillName: "UI / UX",
             fullStars: 2,
-            halfStars: 1,
+            halfStars: 0,
             emptyStars: 2,
             description: "Prototypowanie, znajomość programów Adobe XD i Figma"
           },
