@@ -1,4 +1,6 @@
 import * as React from "react";
+import Head from "next/head";
+
 import Error from "./_error";
 import { getAllPosts } from "../api/blog";
 import { IPost } from "../components/Blog/types";
@@ -52,6 +54,7 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
       try {
         setIsError(false);
         const mappedPosts = await getAllPosts();
+
         setPosts(mappedPosts);
         sessionStorage.setItem("posts", JSON.stringify(mappedPosts));
         setIsLoading(false);
@@ -67,10 +70,16 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
   const isContentReady = !isError && !isLoading && posts && !isLoaderDelayed;
 
   return (
-    <main>
-      {isError && <Error />}
-      {isContentReady ? <BlogComponent elements={posts} /> : <Spinner />}
-    </main>
+    <>
+      <Head>
+        <title>Moje wpisy | Jakub Skoneczny - Javascript Developer</title>
+      </Head>
+
+      <main>
+        {isError && <Error />}
+        {isContentReady ? <BlogComponent elements={posts} /> : <Spinner />}
+      </main>
+    </>
   );
 };
 

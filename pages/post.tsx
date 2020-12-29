@@ -1,4 +1,5 @@
 import * as React from "react";
+import Head from "next/head";
 import { IPost } from "../components/Blog/types";
 import Error from "../pages/_error";
 import { Spinner } from "../components/Spinner";
@@ -70,10 +71,21 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
   const isContentReady = !isError && !isLoading && post && !isLoaderDelayed;
 
   return (
-    <main>
-      {isError && <Error />}
-      {isContentReady && post ? <SinglePost {...post} /> : <Spinner />}
-    </main>
+    <>
+      <Head>
+        <title>
+          {post?.title} {post ? "|" : undefined} Jakub Skoneczny - Javascript
+          Developer
+        </title>
+
+        <meta name="author" content="Jakub Skoneczny" />
+      </Head>
+
+      <main>
+        {isError && <Error />}
+        {isContentReady && post ? <SinglePost {...post} /> : <Spinner />}
+      </main>
+    </>
   );
 };
 

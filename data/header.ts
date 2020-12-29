@@ -22,6 +22,11 @@ export const headerData: IHeader = {
       href: "/blog",
       title: "blog",
       type: "BUTTON"
+    },
+    {
+      href: "/materialy",
+      title: "materiały do nauki",
+      type: "BUTTON"
     }
   ]
 };

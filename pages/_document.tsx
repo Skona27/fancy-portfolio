@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Global, css, jsx } from "@emotion/core";
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Main, Html, NextScript } from "next/document";
 import { breakpoints } from "../ui";
 
 class MyDocument extends Document {
@@ -11,7 +11,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <html lang="pl">
+      <Html lang="pl">
         <Head>
           <script
             async
@@ -19,7 +19,6 @@ class MyDocument extends Document {
           ></script>
           <script src="/static/gtag.js" />
 
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="" />
           <meta name="theme-color" content="#f54e7d"></meta>
 
@@ -189,7 +188,7 @@ class MyDocument extends Document {
 
           <script defer src="/static/prism.js"></script>
         </body>
-      </html>
+      </Html>
     );
   }
 }

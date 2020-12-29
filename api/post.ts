@@ -1,17 +1,10 @@
-import { api } from "./index";
 import { IPost } from "../components/Blog/types";
+import { client } from "./client";
 
-export const getSinglePost = async (id: string): Promise<IPost> => {
-  // Dane z Firebase przychodzą w dziwnym JSON-nie
-  // Próbujemy przemapować na YOLO, jak będzie źle to rzucamy błąd!
+export const getSinglePost = async (idOrSlug: string): Promise<IPost> => {
   try {
-    const result = await api.get(`/posts/${id}`);
-    return {
-      id: result.data.name.split("/posts/")[1],
-      title: result.data.fields.title.stringValue,
-      date: result.data.fields.date.timestampValue,
-      content: result.data.fields.content.stringValue
-    };
+    const result = await client(`/api/posts/${idOrSlug}`);
+    return result.json();
   } catch (err) {
     throw new Error();
   }

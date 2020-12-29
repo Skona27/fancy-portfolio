@@ -3,8 +3,11 @@ const next = require("next");
 const { parse } = require("url");
 const { join } = require("path");
 
-const dev = process.env.NODE_ENV !== "production";
-const port = process.env.PORT | 3000;
+const config = require("./config");
+
+const dev = config.NODE_ENV !== "production";
+const port = config.PORT;
+
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
@@ -17,6 +20,10 @@ app
       const actualPage = "/post";
       const queryParams = { id: req.params.id };
       app.render(req, res, actualPage, queryParams);
+    });
+
+    server.post("*", (req, res) => {
+      return handle(req, res);
     });
 
     server.get("*", (req, res) => {

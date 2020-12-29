@@ -38,7 +38,7 @@ class MyApp extends App {
     return (
       <>
         <Head>
-          <title>Jakub Skoneczny - Javascript Developer</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
         <Theme>

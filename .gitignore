@@ -87,3 +87,6 @@ bundles
 .idea/
 /pages/sandbox.tsx
 .coverage/
+
+# Firebase keys
+keys.json

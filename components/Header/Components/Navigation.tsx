@@ -51,10 +51,10 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
             marginLeft: 0,
             position: "relative",
             li: {
-              ":not(:first-of-type)": {
-                marginLeft: 20,
-                [bp.fromTablet]: { marginLeft: 30 },
-                [bp.fromDesktop]: { marginLeft: "2rem" }
+              ":not(:last-of-type)": {
+                marginRight: 20,
+                [bp.fromTablet]: { marginRight: 30 },
+                [bp.fromDesktop]: { marginRight: "2rem" }
               }
             }
           }}

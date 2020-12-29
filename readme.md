@@ -1,7 +1,7 @@
 # fancy-portfolio
 
 Portfolio for Jakub Skoneczny, best website in the f\*\*\* world.
-[dev.jskoneczny.pl](http://dev.jskoneczny.pl)
+[blog.jskoneczny.pl](http://blog.jskoneczny.pl)
 
 ## Development
 
