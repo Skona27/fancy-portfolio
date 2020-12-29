@@ -8,8 +8,11 @@ export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
 
   React.useEffect(() => {
     // @ts-ignore
-    Prism.highlightAll();
-  });
+    if (typeof Prism !== undefined) {
+      // @ts-ignore
+      Prism.highlightAll();
+    }
+  }, []);
 
   return (
     <>
