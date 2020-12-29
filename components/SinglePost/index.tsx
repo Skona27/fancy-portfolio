@@ -12,7 +12,7 @@ export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
       // @ts-ignore
       Prism.highlightAll();
     }
-  }, []);
+  });
 
   return (
     <>

@@ -13,11 +13,9 @@ class MyDocument extends Document {
     return (
       <Html lang="pl">
         <Head>
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-77710570-3"
-          ></script>
+          <script src="https://www.googletagmanager.com/gtag/js?id=UA-77710570-3" />
           <script src="/static/gtag.js" />
+          <script src="/static/prism.js" />
 
           <meta name="description" content="" />
           <meta name="theme-color" content="#f54e7d"></meta>
@@ -185,8 +183,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-
-          <script defer src="/static/prism.js"></script>
         </body>
       </Html>
     );
