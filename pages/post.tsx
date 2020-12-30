@@ -9,7 +9,7 @@ import { withRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 const SinglePost = dynamic<IPost>(() =>
-  import("../components/SinglePost").then(module => module.SinglePost)
+  import("../components/SinglePost").then((module) => module.SinglePost)
 );
 
 interface IResponse {
@@ -22,7 +22,7 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
   router,
   postFromServer,
   postIDFromServer,
-  error
+  error,
 }) => {
   const [postID, setPostID] = React.useState(postIDFromServer);
   const [post, setPost] = React.useState(postFromServer);
@@ -94,7 +94,7 @@ Post.getInitialProps = async ({ req, query }) => {
   const response: IResponse = {
     postFromServer: null,
     postIDFromServer: undefined,
-    error: false
+    error: false,
   };
 
   if (req) {

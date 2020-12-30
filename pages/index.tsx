@@ -26,7 +26,7 @@ const Home = React.memo(() => {
               color: colors.pink,
               marginLeft: 7,
               marginRight: 10,
-              display: "inline-block"
+              display: "inline-block",
             }}
             className="icon icon-heart"
           />

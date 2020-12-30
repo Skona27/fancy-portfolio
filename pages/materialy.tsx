@@ -30,7 +30,7 @@ const Materialy = React.memo(() => {
         <br />
 
         <form
-          onSubmit={event => {
+          onSubmit={(event) => {
             event.preventDefault();
             client("/api/newsletter", { method: "POST", body: email });
             setSubmitted(true);
@@ -40,7 +40,7 @@ const Materialy = React.memo(() => {
         >
           <input
             value={email}
-            onChange={event => {
+            onChange={(event) => {
               setEmail(event.target.value);
             }}
             css={{
@@ -57,11 +57,11 @@ const Materialy = React.memo(() => {
               [bp.fromTablet]: {
                 width: "auto",
                 minWidth: 370,
-                marginRight: 30
+                marginRight: 30,
               },
               "::placeholder": {
-                color: colors.secondary
-              }
+                color: colors.secondary,
+              },
             }}
             type="email"
             placeholder="Wpisz swój email"
@@ -70,7 +70,7 @@ const Materialy = React.memo(() => {
             css={{
               marginTop: 20,
               marginLeft: "calc(100% - 10rem)",
-              [bp.fromTablet]: { marginTop: 0, marginLeft: 0 }
+              [bp.fromTablet]: { marginTop: 0, marginLeft: 0 },
             }}
             active
           >

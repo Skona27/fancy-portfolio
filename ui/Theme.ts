@@ -16,7 +16,7 @@ export const breakpoints: IBreakpoints = {
   max380: "@media (max-width: 380px)",
   fromMobile: "@media (min-width: 450px)",
   fromTablet: "@media (min-width: 600px)",
-  fromDesktop: "@media (min-width: 950px)"
+  fromDesktop: "@media (min-width: 950px)",
 };
 
 export const themeVariants: IThemeVariants = {
@@ -24,12 +24,12 @@ export const themeVariants: IThemeVariants = {
     primary: "#fafafa",
     secondary: "#444",
     pink: "#e84f7a",
-    pink2: "#bd0a31"
+    pink2: "#bd0a31",
   },
   dark: {
     primary: "#2d2b2b",
     secondary: "#e4e4e4",
     pink: "#f54e7d",
-    pink2: "#ff9595"
-  }
+    pink2: "#ff9595",
+  },
 };

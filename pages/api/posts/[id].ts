@@ -14,7 +14,7 @@ export default async function handler(
     let post = postById.data();
 
     if (!post) {
-      postsBySlug.forEach(postBySlug => {
+      postsBySlug.forEach((postBySlug) => {
         post = postBySlug.data();
       });
     }

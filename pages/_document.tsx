@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { Global, css, jsx } from "@emotion/core";
+import * as React from "react";
+import { Global, css } from "@emotion/core";
 import Document, { Head, Main, Html, NextScript } from "next/document";
 import { breakpoints } from "../ui";
 

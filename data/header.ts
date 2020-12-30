@@ -5,28 +5,28 @@ export const headerData: IHeader = {
   subtitle: "javascript developer",
   image: {
     url: "https://blog.jskoneczny.pl/static/img/profile-photo.jpg",
-    alt: "Moje zdjęcie profilowe"
+    alt: "Moje zdjęcie profilowe",
   },
   elements: [
     {
       href: "/",
       title: "o mnie",
-      type: "BUTTON"
+      type: "BUTTON",
     },
     {
       href: "https://jskoneczny.pl/",
       title: "portfolio",
-      type: "LINK"
+      type: "LINK",
     },
     {
       href: "/blog",
       title: "blog",
-      type: "BUTTON"
+      type: "BUTTON",
     },
     {
       href: "/materialy",
       title: "materiały do nauki",
-      type: "BUTTON"
-    }
-  ]
+      type: "BUTTON",
+    },
+  ],
 };

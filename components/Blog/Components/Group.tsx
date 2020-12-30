@@ -16,7 +16,7 @@ export const Group: React.FC<IPostGroup> = React.memo(({ year, elements }) => {
         css={{
           fontSize: "2rem",
           [bp.fromTablet]: { fontSize: "1.75rem" },
-          [bp.fromMobile]: { fontSize: "1.5rem" }
+          [bp.fromMobile]: { fontSize: "1.5rem" },
         }}
       >
         {year}
@@ -24,7 +24,7 @@ export const Group: React.FC<IPostGroup> = React.memo(({ year, elements }) => {
 
       <ul
         css={{
-          marginLeft: 20
+          marginLeft: 20,
         }}
       >
         {elements.map((post, ind) => (

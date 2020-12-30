@@ -2,6 +2,7 @@ const express = require("express");
 const next = require("next");
 const { parse } = require("url");
 const { join } = require("path");
+const fs = require("fs");
 
 const config = require("./config");
 
@@ -10,6 +11,9 @@ const port = config.PORT;
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
+
+const serviceWorkerPath = join(__dirname, ".next", "/service-worker.js");
+const serviceWorker = fs.readFileSync(serviceWorkerPath);
 
 app
   .prepare()
@@ -22,30 +26,31 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.post("*", (req, res) => {
-      return handle(req, res);
-    });
-
     server.get("*", (req, res) => {
       const parsedUrl = parse(req.url, true);
       const { pathname } = parsedUrl;
 
       if (pathname === "/service-worker.js") {
-        const filePath = join(__dirname, ".next", pathname);
-        return app.serveStatic(req, res, filePath);
+        res.contentType("application/javascript");
+        res.send(serviceWorker);
+        return;
       }
 
       return handle(req, res);
     });
 
-    server.listen(port, err => {
+    server.post("*", (req, res) => {
+      return handle(req, res);
+    });
+
+    server.listen(port, (err) => {
       if (err) {
         throw err;
       }
       console.log(`> Ready on http://localhost:${port}`);
     });
   })
-  .catch(ex => {
+  .catch((ex) => {
     console.error(ex.stack);
     process.exit(1);
   });

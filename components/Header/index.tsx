@@ -13,14 +13,14 @@ export const Header: React.FC<IHeader> = React.memo(
       <header
         css={{
           position: "relative",
-          [bp.fromDesktop]: { position: "static", marginBottom: "3.5rem" }
+          [bp.fromDesktop]: { position: "static", marginBottom: "3.5rem" },
         }}
       >
         <div
           css={{
             display: "flex",
             alignItems: "center",
-            height: "5rem"
+            height: "5rem",
           }}
         >
           <Brand title={title} subtitle={subtitle} image={image} />

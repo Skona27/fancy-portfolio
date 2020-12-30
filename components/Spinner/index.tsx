@@ -14,7 +14,7 @@ export const Spinner = React.memo(() => {
         justifyContent: "center",
         marginTop: "4.25rem",
         [bp.fromTablet]: { marginTop: "4.5rem" },
-        [bp.fromDesktop]: { marginTop: "6rem" }
+        [bp.fromDesktop]: { marginTop: "6rem" },
       }}
     >
       <PulseLoader color={colors.pink} margin="8px" size={18} />

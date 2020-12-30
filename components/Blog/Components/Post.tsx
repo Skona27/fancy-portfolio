@@ -16,12 +16,12 @@ export const Post: React.FC<IProps> = React.memo(
         css={{
           color: colors.pink,
           margin: ".6rem 0",
-          [bp.fromTablet]: { margin: ".3rem 0" }
+          [bp.fromTablet]: { margin: ".3rem 0" },
         }}
       >
         <article css={{ color: colors.secondary }}>
-          <Link href={`/post?id=${slug || id}`} as={`/post/${slug || id}`}>
-            <a style={{ color: colors.secondary }} css={{ border: "none" }}>
+          <Link href={`/post/${slug || id}`} passHref>
+            <a style={{ color: colors.secondary, border: "none" }}>
               <h3
                 css={{
                   display: "inline",
@@ -31,7 +31,7 @@ export const Post: React.FC<IProps> = React.memo(
                   cursor: "pointer",
                   padding: 2,
                   marginRight: 20,
-                  ":hover": { borderColor: colors.pink }
+                  ":hover": { borderColor: colors.pink },
                 }}
               >
                 {title}

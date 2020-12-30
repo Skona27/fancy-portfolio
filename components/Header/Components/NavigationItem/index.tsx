@@ -10,7 +10,7 @@ const actionComponentMap: Record<
   React.FunctionComponent<IActionComponent>
 > = {
   BUTTON: ButtonItem,
-  LINK: LinkItem
+  LINK: LinkItem,
 };
 
 export const NavigationItem: React.FC<INavigationItem> = React.memo(

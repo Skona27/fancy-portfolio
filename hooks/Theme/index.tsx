@@ -6,7 +6,7 @@ const theme: ITheme = {
   variant: "light",
   colors: themeVariants.light,
   bp: breakpoints,
-  dispatch: () => {}
+  dispatch: () => {},
 };
 
 const themeReducer = (state: ITheme, action: IAction): ITheme => {

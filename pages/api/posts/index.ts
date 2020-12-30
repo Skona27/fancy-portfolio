@@ -14,7 +14,7 @@ export default async function handler(
 
     const posts: IPost[] = [];
 
-    postsCollection.forEach(post => {
+    postsCollection.forEach((post) => {
       const data = post.data();
       posts.push({ ...data, date: data.date.toDate() } as IPost);
     });

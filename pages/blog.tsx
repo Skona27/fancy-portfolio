@@ -8,7 +8,7 @@ import { Spinner } from "../components/Spinner";
 import dynamic from "next/dynamic";
 
 const BlogComponent = dynamic<{ elements: IPost[] | null }>(() =>
-  import("../components/Blog").then(module => module.Blog)
+  import("../components/Blog").then((module) => module.Blog)
 );
 
 interface IResponse {

@@ -6,22 +6,22 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
   },
   settings: {
     react: {
       pragma: "React",
-      version: "detect"
-    }
+      version: "detect",
+    },
   },
   env: {
     browser: true,
     jasmine: true,
-    jest: true
+    jest: true,
   },
   rules: {
     "no-irregular-whitespace": "off",
@@ -36,14 +36,13 @@ module.exports = {
     "jsx-a11y/interactive-supports-focus": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
-    "@typescript-eslint/interface-name-prefix": ["error", "always"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-use-before-define": [
       "error",
-      { functions: false, classes: true, variables: false }
+      { functions: false, classes: true, variables: false },
     ],
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
@@ -82,7 +81,10 @@ module.exports = {
     "react/jsx-key": [1, { checkFragmentShorthand: false }],
     "no-unused-expressions": [
       "error",
-      { allowShortCircuit: true, allowTernary: true }
-    ]
-  }
+      { allowShortCircuit: true, allowTernary: true },
+    ],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+  },
 };

@@ -25,7 +25,7 @@ export const Button: React.FC<{ active?: boolean }> = React.memo(
           [bp.max380]: { fontSize: "1.4rem" },
           [bp.max360]: { fontSize: "1.2rem" },
           [bp.fromTablet]: { fontSize: "1.3rem" },
-          [bp.fromTablet]: { fontSize: "1.2rem" }
+          [bp.fromTablet]: { fontSize: "1.2rem" },
         }}
         tabIndex={0}
         {...rest}

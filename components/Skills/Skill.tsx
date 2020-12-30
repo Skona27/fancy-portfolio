@@ -39,14 +39,14 @@ export const Skill: React.FC<ISkill> = React.memo(
       <li
         css={{
           padding: "3px 0",
-          [bp.fromTablet]: { padding: 0 }
+          [bp.fromTablet]: { padding: 0 },
         }}
       >
         <div
           css={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "baseline"
+            alignItems: "baseline",
           }}
         >
           <em>{skillName}</em>
@@ -58,7 +58,7 @@ export const Skill: React.FC<ISkill> = React.memo(
               display: "inline",
               marginLeft: 10,
               i: { margin: "0 1px", fontSize: 22 },
-              [bp.fromTablet]: { fontSize: 20 }
+              [bp.fromTablet]: { fontSize: 20 },
             }}
           >
             {fullStarIcons}

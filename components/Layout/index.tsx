@@ -27,8 +27,8 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
           borderColor: colors.pink,
           outlineColor: colors.pink2,
           transition: "all .1s ease-in",
-          ":hover, :focus": { color: colors.pink2, borderColor: colors.pink2 }
-        }
+          ":hover, :focus": { color: colors.pink2, borderColor: colors.pink2 },
+        },
       }}
     >
       <ProgressBar />
@@ -36,7 +36,7 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         css={{
           maxWidth: "50rem",
           minHeight: "calc(100vh - 8rem)",
-          margin: "auto"
+          margin: "auto",
         }}
       >
         {children}

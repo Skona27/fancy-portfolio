@@ -39,7 +39,7 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
           paddingTop: "2.5rem",
           paddingBottom: "1.75rem",
           transition: "background-color .1s ease-in",
-          [bp.fromDesktop]: { paddingTop: "4rem", paddingBottom: 0 }
+          [bp.fromDesktop]: { paddingTop: "4rem", paddingBottom: 0 },
         }}
       >
         <ul
@@ -54,12 +54,12 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
               ":not(:last-of-type)": {
                 marginRight: 20,
                 [bp.fromTablet]: { marginRight: 30 },
-                [bp.fromDesktop]: { marginRight: "2rem" }
-              }
-            }
+                [bp.fromDesktop]: { marginRight: "2rem" },
+              },
+            },
           }}
         >
-          {elements.map(link => (
+          {elements.map((link) => (
             <NavigationItem
               href={link.href}
               type={link.type}

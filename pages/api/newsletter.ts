@@ -19,14 +19,11 @@ export default async function handler(
       return;
     }
 
-    await firestore
-      .collection("emails")
-      .doc(email)
-      .set({
-        value: req.body,
-        active: true,
-        date: new Date()
-      });
+    await firestore.collection("emails").doc(email).set({
+      value: req.body,
+      active: true,
+      date: new Date(),
+    });
 
     res.status(201);
     res.end("OK");

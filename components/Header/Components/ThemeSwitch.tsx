@@ -28,7 +28,7 @@ export const ThemeSwitch = React.memo(() => {
     fontSize: "1.2rem",
     top: "50%",
     transform: "translateY(-50%)",
-    transition: "opacity .1s ease-in"
+    transition: "opacity .1s ease-in",
   };
 
   return (
@@ -46,9 +46,9 @@ export const ThemeSwitch = React.memo(() => {
         [bp.fromMobile]: { transform: "translate(20%,-80%)" },
         [bp.fromTablet]: {
           padding: "1.5rem 3rem",
-          transform: "translate(30%, -75%)"
+          transform: "translate(30%, -75%)",
         },
-        [bp.fromDesktop]: { position: "fixed", transform: "translate(0)" }
+        [bp.fromDesktop]: { position: "fixed", transform: "translate(0)" },
       }}
     >
       <div
@@ -57,7 +57,7 @@ export const ThemeSwitch = React.memo(() => {
           width: 4,
           height: 48,
           ".icon-moon-o": { opacity: isChecked ? 1 : 0 },
-          ".icon-wb_sunny": { opacity: isChecked ? 0 : 1 }
+          ".icon-wb_sunny": { opacity: isChecked ? 0 : 1 },
         }}
       >
         <i className="icon icon-moon-o" css={iStyle} />
@@ -82,7 +82,7 @@ export const ThemeSwitch = React.memo(() => {
         css={{
           transform: "translate(50%)",
           span: { color: colors.pink },
-          [bp.fromTablet]: { transform: "translate(25%)" }
+          [bp.fromTablet]: { transform: "translate(25%)" },
         }}
       />
     </div>

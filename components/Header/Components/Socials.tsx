@@ -14,7 +14,7 @@ export const Socials = React.memo(() => {
           justifyContent: "space-between",
           width: "7.5rem",
           fontSize: "1.3rem",
-          [bp.fromTablet]: { width: "7rem" }
+          [bp.fromTablet]: { width: "7rem" },
         }}
       >
         <Icon
