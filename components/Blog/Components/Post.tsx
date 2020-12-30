@@ -20,7 +20,7 @@ export const Post: React.FC<IProps> = React.memo(
         }}
       >
         <article css={{ color: colors.secondary }}>
-          <Link href={`/post/${slug || id}`} passHref>
+          <Link href={`/post?id=${slug || id}`} as={`/post/${slug || id}`}>
             <a style={{ color: colors.secondary, border: "none" }}>
               <h3
                 css={{
@@ -38,7 +38,6 @@ export const Post: React.FC<IProps> = React.memo(
               </h3>
             </a>
           </Link>
-
           <span css={{ fontSize: ".875rem", letterSpacing: 1 }}>
             {dayMonth}
           </span>
