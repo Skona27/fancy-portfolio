@@ -52,6 +52,7 @@ const i18nConfig = {
   i18n: {
     locales: ["en-US", "pl"],
     defaultLocale: "en-US",
+    localeDetection: false,
   },
 };
 

@@ -9,6 +9,7 @@ export const Socials = React.memo(() => {
     <nav css={{ marginLeft: "auto" }}>
       <ul
         css={{
+          marginLeft: 0,
           listStyle: "none",
           display: "flex",
           justifyContent: "space-between",
