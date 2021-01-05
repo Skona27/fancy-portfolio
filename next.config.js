@@ -48,8 +48,32 @@ const offlineConfig = {
   },
 };
 
+const i18nConfig = {
+  i18n: {
+    locales: ["en-US", "pl"],
+    defaultLocale: "en-US",
+  },
+};
+
+const rewritesConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/resources",
+        destination: "/materialy",
+      },
+    ];
+  },
+};
+
 module.exports = (defaultConfig) => {
   return withBundleAnalyzer(
-    withOffline({ ...defaultConfig, ...customConfig, ...offlineConfig })
+    withOffline({
+      ...defaultConfig,
+      ...customConfig,
+      ...offlineConfig,
+      ...i18nConfig,
+      ...rewritesConfig,
+    })
   );
 };

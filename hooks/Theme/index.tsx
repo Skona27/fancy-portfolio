@@ -28,25 +28,25 @@ export const useTheme = () => {
   return React.useContext(ThemeContext);
 };
 
-export const Theme: React.FC<{ children: ReactElement }> = React.memo(
-  ({ children }) => {
-    const [state, dispatch] = React.useReducer(themeReducer, theme);
-    const [variant, setVariant] = React.useState<IThemeVariant>("light");
+export const Theme: React.FC<{
+  children: ReactElement | ReactElement[];
+}> = React.memo(({ children }) => {
+  const [state, dispatch] = React.useReducer(themeReducer, theme);
+  const [variant, setVariant] = React.useState<IThemeVariant>("light");
 
-    React.useEffect(() => {
-      const currentVariant: IThemeVariant =
-        sessionStorage.getItem("themeVariant") !== "dark" ? "light" : "dark";
-      setVariant(currentVariant);
-    }, [state]);
+  React.useEffect(() => {
+    const currentVariant: IThemeVariant =
+      sessionStorage.getItem("themeVariant") !== "dark" ? "light" : "dark";
+    setVariant(currentVariant);
+  }, [state]);
 
-    return (
-      <ThemeContext.Provider
-        value={{ ...state, colors: themeVariants[variant], variant, dispatch }}
-      >
-        {children}
-      </ThemeContext.Provider>
-    );
-  }
-);
+  return (
+    <ThemeContext.Provider
+      value={{ ...state, colors: themeVariants[variant], variant, dispatch }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
+});
 
 Theme.displayName = "Theme";

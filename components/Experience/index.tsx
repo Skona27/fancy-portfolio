@@ -3,18 +3,20 @@ import { ExperienceItem } from "./ExperienceItem";
 import { IExperienceItem } from "./types";
 
 interface IProps {
-  experienceItems: IExperienceItem[];
+  subtitle: string;
+  text: string;
+  items: IExperienceItem[];
 }
 
 export const Experience: React.FC<IProps> = React.memo(
-  ({ experienceItems }) => {
+  ({ items, text, subtitle }) => {
     return (
       <section>
-        <h2>Doświadczenie</h2>
-        <p>Poniżej znajduje się moje doświadczenie zawodowe.</p>
+        <h2>{subtitle}</h2>
+        <p>{text}</p>
 
         <ul>
-          {experienceItems.map((experienceItem, index) => (
+          {items.map((experienceItem, index) => (
             <ExperienceItem key={"experience-" + index} {...experienceItem} />
           ))}
         </ul>

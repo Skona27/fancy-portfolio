@@ -1,31 +1,49 @@
+/* eslint-disable react/jsx-no-target-blank */
 import * as React from "react";
 import Head from "next/head";
 
 import { Button } from "../components/Button";
 import { useTheme } from "../hooks/Theme";
 import { client } from "../api/client";
+import { useLang } from "../hooks/useLang";
+import { materialy } from "../data/materialy";
 
 const Materialy = React.memo(() => {
   const { bp, colors } = useTheme();
   const [email, setEmail] = React.useState("");
   const [submitted, setSubmitted] = React.useState(false);
 
+  const lang = useLang();
+  const data = materialy[lang];
+
   return (
     <>
       <Head>
-        <title>
-          Materiały do nauki | Jakub Skoneczny - Javascript Developer
-        </title>
+        <title>{data.title}</title>
       </Head>
 
       <main>
-        <h1>Chcesz być na bieżąco?</h1>
+        <h1>{data.heading1}</h1>
+        <ul css={{ listStyleType: "none", marginLeft: 0 }}>
+          {data.courses.map((course) => (
+            <li key={course.title}>
+              <div>
+                <a
+                  target="_blank"
+                  href={course.url}
+                  css={{ fontSize: "1.25rem" }}
+                >
+                  {course.title}
+                </a>
+                <p css={{ marginTop: "0.5rem" }}>{course.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-        <p>
-          Zapisz się do <strong>newslettera</strong>, żeby zdobywać darmowe
-          materiały edukacyjne i mieć dostęp do najświeższych nowinek z branży
-          😃 Bez spamu! Będziesz mógł się wypisać w każdej chwili.
-        </p>
+        <h2>{data.heading2}</h2>
+
+        <p>{data.text}</p>
 
         <br />
 
@@ -64,7 +82,7 @@ const Materialy = React.memo(() => {
               },
             }}
             type="email"
-            placeholder="Wpisz swój email"
+            placeholder={data.placeholder}
           />
           <Button
             css={{
@@ -74,14 +92,12 @@ const Materialy = React.memo(() => {
             }}
             active
           >
-            Zapisz się!
+            {data.submitButton}
           </Button>
         </form>
 
         {submitted && (
-          <strong css={{ color: colors.pink }}>
-            Dziękujemy za zapisanie się do newslettera!
-          </strong>
+          <strong css={{ color: colors.pink }}>{data.submitSuccess}</strong>
         )}
       </main>
     </>

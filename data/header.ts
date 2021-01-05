@@ -1,32 +1,65 @@
 import { IHeader } from "../components/Header/types";
+import { Languages } from "../hooks/useLang/types";
 
-export const headerData: IHeader = {
-  title: "Jakub Skoneczny",
-  subtitle: "javascript developer",
-  image: {
-    url: "https://blog.jskoneczny.pl/static/img/profile-photo.jpg",
-    alt: "Moje zdjęcie profilowe",
+export const header: Record<Languages, IHeader> = {
+  pl: {
+    title: "Jakub Skoneczny",
+    subtitle: "javascript developer",
+    image: {
+      url: "https://blog.jskoneczny.pl/static/img/profile-photo.jpg",
+      alt: "Moje zdjęcie profilowe",
+    },
+    elements: [
+      {
+        href: "/",
+        title: "o mnie",
+        type: "BUTTON",
+      },
+      {
+        href: "https://jskoneczny.pl/",
+        title: "portfolio",
+        type: "LINK",
+      },
+      {
+        href: "/blog",
+        title: "blog",
+        type: "BUTTON",
+      },
+      {
+        href: "/resources",
+        title: "materiały do nauki",
+        type: "BUTTON",
+      },
+    ],
   },
-  elements: [
-    {
-      href: "/",
-      title: "o mnie",
-      type: "BUTTON",
+  "en-US": {
+    title: "Jakub Skoneczny",
+    subtitle: "javascript developer",
+    image: {
+      url: "https://blog.jskoneczny.pl/static/img/profile-photo.jpg",
+      alt: "My profile photo",
     },
-    {
-      href: "https://jskoneczny.pl/",
-      title: "portfolio",
-      type: "LINK",
-    },
-    {
-      href: "/blog",
-      title: "blog",
-      type: "BUTTON",
-    },
-    {
-      href: "/materialy",
-      title: "materiały do nauki",
-      type: "BUTTON",
-    },
-  ],
+    elements: [
+      {
+        href: "/",
+        title: "about me",
+        type: "BUTTON",
+      },
+      {
+        href: "https://jskoneczny.pl/",
+        title: "portfolio",
+        type: "LINK",
+      },
+      {
+        href: "/blog",
+        title: "blog",
+        type: "BUTTON",
+      },
+      {
+        href: "/resources",
+        title: "resources",
+        type: "BUTTON",
+      },
+    ],
+  },
 };

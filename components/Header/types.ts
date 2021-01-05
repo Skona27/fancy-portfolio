@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Languages } from "../../hooks/useLang/types";
 
 export interface IHeader {
   title: string;
@@ -20,6 +21,7 @@ export interface INavigationItem {
   href: string;
   active: boolean;
   type: INavigationItemType;
+  locale?: Languages;
   children: string | ReactNode;
 }
 

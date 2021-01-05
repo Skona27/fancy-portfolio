@@ -23,7 +23,13 @@ const Navigation: React.FC<IProps & WithRouterProps> = React.memo(
       if (href === router.route) {
         return true;
       }
-      return !!(href === "/blog" && router.route === "/post");
+      if (href === "/blog") {
+        return router.route === "/post/[id]";
+      }
+      if (href === "/resources") {
+        return router.route === "/materialy";
+      }
+      return false;
     };
 
     return (

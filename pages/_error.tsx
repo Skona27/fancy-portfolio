@@ -1,30 +1,23 @@
 import React from "react";
 import Head from "next/head";
+import { useLang } from "../hooks/useLang";
+import { error } from "../data/error";
 
-class Error extends React.Component {
-  render() {
-    return (
-      <>
-        <Head>
-          <title>
-            Coś poszło nie tak | Jakub Skoneczny - Javascript Developer
-          </title>
-        </Head>
+export default function Error() {
+  const lang = useLang();
+  const data = error[lang];
 
-        <main>
-          <h1>Uuups! Chyba coś poszło nie tak...</h1>
-          <p>
-            Podana strona nie istnieje, albo wystąpił błąd na serwerze. Spróbuj
-            odświeżyć stronę za kilka sekund lub upewnij się, że wpisany przez
-            Ciebie adres jest prawidłowy.
-          </p>
-          <p>
-            Jeżeli błąd nadal występuje, skontaktuj się ze mną drogą mailową.
-          </p>
-        </main>
-      </>
-    );
-  }
+  return (
+    <>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
+
+      <main>
+        <h1>{data.heading}</h1>
+        <p>{data.text1}</p>
+        <p>{data.text2}</p>
+      </main>
+    </>
+  );
 }
-
-export default Error;

@@ -14,12 +14,12 @@ const actionComponentMap: Record<
 };
 
 export const NavigationItem: React.FC<INavigationItem> = React.memo(
-  ({ href, active, type, children }) => {
+  ({ href, active, type, locale, children }) => {
     const Component = actionComponentMap[type] || actionComponentMap["BUTTON"];
 
     return (
       <li>
-        <Component href={href} active={active}>
+        <Component href={href} active={active} locale={locale}>
           {children}
         </Component>
       </li>

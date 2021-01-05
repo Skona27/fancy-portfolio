@@ -20,12 +20,6 @@ app
   .then(() => {
     const server = express();
 
-    server.get("/post/:id", (req, res) => {
-      const actualPage = "/post";
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams);
-    });
-
     server.get("*", (req, res) => {
       const parsedUrl = parse(req.url, true);
       const { pathname } = parsedUrl;

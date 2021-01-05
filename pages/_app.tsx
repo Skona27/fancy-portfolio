@@ -5,7 +5,10 @@ import Head from "next/head";
 import { Theme } from "../hooks/Theme";
 import { Header } from "../components/Header";
 import { Layout } from "../components/Layout";
-import { headerData } from "../data/header";
+import { header } from "../data/header";
+import { defaultLang } from "../hooks/useLang";
+import { Languages } from "../hooks/useLang/types";
+import { Footer } from "../components/Footer";
 
 class MyApp extends App {
   // @TODO - React event
@@ -33,7 +36,8 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
+    const lang = (router.locale as Languages) || defaultLang;
 
     return (
       <>
@@ -43,9 +47,10 @@ class MyApp extends App {
 
         <Theme>
           <Layout>
-            <Header {...headerData} />
+            <Header {...header[lang]} />
             <Component {...pageProps} />
           </Layout>
+          <Footer />
         </Theme>
       </>
     );

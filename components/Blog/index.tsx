@@ -4,10 +4,11 @@ import { IPost } from "./types";
 import { Group } from "./Components";
 
 interface IProps {
+  heading: string;
   elements: IPost[] | null;
 }
 
-export const Blog: React.FC<IProps> = React.memo(({ elements }) => {
+export const Blog: React.FC<IProps> = React.memo(({ elements, heading }) => {
   const groupedPosts = React.useMemo(() => {
     if (!elements) {
       return;
@@ -37,7 +38,7 @@ export const Blog: React.FC<IProps> = React.memo(({ elements }) => {
 
   return (
     <>
-      <h1>Moje wpisy</h1>
+      <h1>{heading}</h1>
       {groupedPosts.map((group, ind) => (
         <Group
           key={`group-${ind}`}

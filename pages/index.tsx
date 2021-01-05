@@ -2,25 +2,29 @@ import * as React from "react";
 import Head from "next/head";
 
 import { useTheme } from "../hooks/Theme";
-import { skillsSections } from "../data/skills";
+import { skills } from "../data/skills";
 import { Experience } from "../components/Experience";
-import { experienceItems } from "../data/experience";
+import { experience } from "../data/experience";
 import { Skills } from "../components/Skills";
+import { aboutMe } from "../data/about-me";
+import { useLang } from "../hooks/useLang";
 
 const Home = React.memo(() => {
   const { colors } = useTheme();
+  const lang = useLang();
+  const data = aboutMe[lang];
+
   return (
     <>
       <Head>
-        <title>O mnie | Jakub Skoneczny - Javascript Developer</title>
+        <title>{data.title}</title>
       </Head>
 
       <main>
-        <h1>Kilka słów o mnie</h1>
+        <h1>{data.heading}</h1>
 
         <p>
-          Cześć! Nazywam się <strong>Jakub Skoneczny</strong> i jestem{" "}
-          <em>Javascript Developerem!</em>
+          {data.subtitle}
           <i
             css={{
               color: colors.pink,
@@ -30,15 +34,11 @@ const Home = React.memo(() => {
             }}
             className="icon icon-heart"
           />
-          Programowaniem zajmuję się od dawien dawna. Programowanie to moje
-          hobby, co sprawia że praca to dla mnie czysta przyjemność. W wolnym
-          czasie gram na gitarze, oglądam filmy i czytam ciekawostki o kosmosie
-          i gwiazdach. Czasami zdarza mi się zagrać w pokera lub gry planszowe
-          ze znajomymi.
+          {data.text}
         </p>
 
-        <Skills skillsSections={skillsSections} />
-        <Experience experienceItems={experienceItems} />
+        <Skills {...skills[lang]} />
+        <Experience {...experience[lang]} />
       </main>
     </>
   );

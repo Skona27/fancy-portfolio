@@ -26,9 +26,7 @@ export const Header: React.FC<IHeader> = React.memo(
           <Brand title={title} subtitle={subtitle} image={image} />
           <Socials />
         </div>
-
         <Navigation elements={elements} />
-
         <Dynamic>
           <ThemeSwitch />
         </Dynamic>

@@ -1,15 +1,15 @@
 import * as React from "react";
 import Head from "next/head";
-import { IPost } from "../components/Blog/types";
-import Error from "../pages/_error";
-import { Spinner } from "../components/Spinner";
-import { getSinglePost } from "../api/post";
+import { IPost } from "../../components/Blog/types";
+import Error from "../../pages/_error";
+import { Spinner } from "../../components/Spinner";
+import { getSinglePost } from "../../api/post";
 import { WithRouterProps } from "next/dist/client/with-router";
 import { withRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 const SinglePost = dynamic<IPost>(() =>
-  import("../components/SinglePost").then((module) => module.SinglePost)
+  import("../../components/SinglePost").then((module) => module.SinglePost)
 );
 
 interface IResponse {

@@ -18,9 +18,20 @@ export const Layout: React.FC<IProps> = React.memo(({ children }) => {
         background: colors.primary,
         padding: "4rem 2rem",
         paddingTop: "5.5rem",
+        paddingBottom: "1rem",
         transition: ".1s all ease-in",
-        [bp.max380]: { padding: "4rem 1.5rem" },
-        [bp.fromTablet]: { paddingTop: 0, padding: "4rem 3rem" },
+        [bp.max380]: {
+          padding: "4rem 1.5rem",
+          paddingBottom: "1rem",
+        },
+        [bp.fromTablet]: {
+          paddingTop: 0,
+          padding: "4rem 3rem",
+          paddingBottom: "2rem",
+        },
+        [bp.fromDesktop]: {
+          paddingBottom: "4rem",
+        },
         pre: { backgroundColor: variant === "light" ? "#383838" : "#484848" },
         a: {
           color: colors.pink,

@@ -6,9 +6,11 @@ import { getAllPosts } from "../api/blog";
 import { IPost } from "../components/Blog/types";
 import { Spinner } from "../components/Spinner";
 import dynamic from "next/dynamic";
+import { useLang } from "../hooks/useLang";
+import { blog } from "../data/blog";
 
-const BlogComponent = dynamic<{ elements: IPost[] | null }>(() =>
-  import("../components/Blog").then((module) => module.Blog)
+const BlogComponent = dynamic<{ elements: IPost[] | null; heading: string }>(
+  () => import("../components/Blog").then((module) => module.Blog)
 );
 
 interface IResponse {
@@ -25,6 +27,9 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
   const delayLoader = React.useCallback(() => {
     setTimeout(() => setIsLoaderDelayed(false), 300);
   }, []);
+
+  const lang = useLang();
+  const data = blog[lang];
 
   React.useEffect(() => {
     if (isError) {
@@ -72,12 +77,16 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
   return (
     <>
       <Head>
-        <title>Moje wpisy | Jakub Skoneczny - Javascript Developer</title>
+        <title>{data.title}</title>
       </Head>
 
       <main>
         {isError && <Error />}
-        {isContentReady ? <BlogComponent elements={posts} /> : <Spinner />}
+        {isContentReady ? (
+          <BlogComponent elements={posts} heading={data.heading} />
+        ) : (
+          <Spinner />
+        )}
       </main>
     </>
   );

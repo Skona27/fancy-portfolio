@@ -3,7 +3,7 @@ import { matchers } from "jest-emotion";
 import { render } from "@testing-library/react";
 import { Theme } from "../../../hooks/Theme";
 import { Header } from "..";
-import { headerData } from "../../../data/header";
+import { header } from "../../../data/header";
 
 expect.extend(matchers);
 
@@ -13,7 +13,7 @@ describe("Header", () => {
 
     const { container, getByText } = render(
       <Theme>
-        <Header {...headerData} title={title} />
+        <Header {...header["pl"]} title={title} />
       </Theme>
     );
 

@@ -3,7 +3,7 @@ import { useTheme } from "../../hooks/Theme";
 import { IExperienceItem } from "./types";
 
 export const ExperienceItem: React.FC<IExperienceItem> = React.memo(
-  ({ duration, companyName, positionName, description, techStack }) => {
+  ({ duration, companyName, positionName, description, techStack, live }) => {
     const { colors } = useTheme();
 
     return (
@@ -14,7 +14,15 @@ export const ExperienceItem: React.FC<IExperienceItem> = React.memo(
           </time>
 
           <span css={{ padding: "0 10px", verticalAlign: 1 }}>|</span>
-          <strong>{companyName}</strong>
+          <strong>
+            {live ? (
+              <a href={live} rel="noopener noreferrer" target="_blank">
+                {companyName}
+              </a>
+            ) : (
+              companyName
+            )}
+          </strong>
           <em css={{ display: "block", margin: "1px 0" }}>{positionName}</em>
 
           <p css={{ marginTop: 0, "&, *": { lineHeight: "26px" } }}>
@@ -22,7 +30,7 @@ export const ExperienceItem: React.FC<IExperienceItem> = React.memo(
 
             {techStack && (
               <span css={{ display: "inline-block" }}>
-                <span> Używane technologie: </span>
+                <span> Stack: </span>
                 <em>{techStack}</em>
               </span>
             )}

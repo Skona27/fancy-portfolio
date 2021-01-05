@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { useTheme } from "../../../../hooks/Theme";
 import React from "react";
 import { IActionComponent } from ".";
@@ -10,7 +11,7 @@ export const LinkItem: React.FC<IActionComponent> = React.memo(
       <a
         href={href}
         target="_blank"
-        rel="noopener noreferrer preload"
+        rel="noopener preload"
         css={{
           display: "block",
           textDecoration: "none",

@@ -2,13 +2,19 @@ import * as React from "react";
 import { useTheme } from "../../../hooks/Theme";
 import { IPost } from "../types";
 import Link from "next/link";
+import { Languages } from "../../../hooks/useLang/types";
 
 interface IProps extends IPost {
   dayMonth: string;
 }
 
+const langs: Record<Languages, string> = {
+  pl: "PL",
+  "en-US": "ENG",
+};
+
 export const Post: React.FC<IProps> = React.memo(
-  ({ id, title, dayMonth, slug }) => {
+  ({ id, title, dayMonth, slug, lang }) => {
     const { colors, bp } = useTheme();
 
     return (
@@ -20,7 +26,7 @@ export const Post: React.FC<IProps> = React.memo(
         }}
       >
         <article css={{ color: colors.secondary }}>
-          <Link href={`/post?id=${slug || id}`} as={`/post/${slug || id}`}>
+          <Link href={`/post/${slug || id}`}>
             <a style={{ color: colors.secondary, border: "none" }}>
               <h3
                 css={{
@@ -34,7 +40,7 @@ export const Post: React.FC<IProps> = React.memo(
                   ":hover": { borderColor: colors.pink },
                 }}
               >
-                {title}
+                [{langs[lang]}] - {title}
               </h3>
             </a>
           </Link>

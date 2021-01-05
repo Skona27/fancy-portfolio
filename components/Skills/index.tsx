@@ -3,23 +3,24 @@ import { SkillsSection } from "./SkillsSection";
 import { ISkillSection } from "./types";
 
 interface IProps {
-  skillsSections: ISkillSection[];
+  subtitle: string;
+  text: string;
+  skills: ISkillSection[];
 }
 
-export const Skills: React.FC<IProps> = React.memo(({ skillsSections }) => {
-  return (
-    <section>
-      <h2>Moje umiejętności</h2>
-      <p>
-        Poniżej znajduje się lista zdobytych przeze mnie umiejętności wraz z
-        krótkim opisem prezentującym moje rozeznanie w danej technologii.
-      </p>
+export const Skills: React.FC<IProps> = React.memo(
+  ({ skills, subtitle, text }) => {
+    return (
+      <section>
+        <h2>{subtitle}</h2>
+        <p>{text}</p>
 
-      {skillsSections.map((section, index) => (
-        <SkillsSection {...section} key={"skillSection-" + index} />
-      ))}
-    </section>
-  );
-});
+        {skills.map((section, index) => (
+          <SkillsSection {...section} key={"skillSection-" + index} />
+        ))}
+      </section>
+    );
+  }
+);
 
 Skills.displayName = "Skills";
