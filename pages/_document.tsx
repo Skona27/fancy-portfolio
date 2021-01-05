@@ -2,6 +2,7 @@ import * as React from "react";
 import { Global, css } from "@emotion/core";
 import Document, { Head, Main, Html, NextScript } from "next/document";
 import { breakpoints } from "../ui";
+import { defaultLang } from "../hooks/useLang";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -10,8 +11,11 @@ class MyDocument extends Document {
   }
 
   render() {
+    // @ts-ignore
+    const lang = this.props.locale || defaultLang;
+
     return (
-      <Html lang="pl">
+      <Html lang={lang}>
         <Head>
           <script src="https://www.googletagmanager.com/gtag/js?id=UA-77710570-3" />
           <script src="/static/gtag.js" />
