@@ -2,9 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { IPost } from "../Blog/types";
 import { useTheme } from "../../hooks/Theme";
+import { useLang } from "../../hooks/useLang";
 
 export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
   const { bp } = useTheme();
+  const lang = useLang();
 
   React.useEffect(() => {
     // @ts-ignore
@@ -34,7 +36,9 @@ export const SinglePost: React.FC<IPost> = React.memo(({ title, content }) => {
         <Link href="/blog">
           <a>
             <i className="icon icon-arrow-left2" />
-            <span css={{ marginLeft: ".7rem" }}>Wszystkie posty</span>
+            <span css={{ marginLeft: ".7rem" }}>
+              {lang === "pl" ? "Wszystkie posty" : "All posts"}
+            </span>
           </a>
         </Link>
       </div>
