@@ -181,7 +181,7 @@ export const skills: Record<Languages, Skills> = {
       {
         skillList: [
           {
-            title: "Inne",
+            title: "Others",
             skills: [
               { skillName: "Typescript", fullStars: 4, emptyStars: 1 },
               { skillName: "GIT", fullStars: 4, emptyStars: 1 },
