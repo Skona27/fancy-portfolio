@@ -35,7 +35,7 @@ export const aboutMe: Record<Languages, AboutMe> = {
     ),
     text: `
     I have been programming for a long time. Programming is my hobby, which makes my work a pleasure.
-    I play guitar, watch movies, and read interesting facts about space and stars in my spare.
+    I play guitar, watch movies, and read interesting facts about space and stars in my spare time.
     Sometimes I play poker or board games with friends.`,
   },
 };
