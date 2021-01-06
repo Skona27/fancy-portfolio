@@ -98,7 +98,7 @@ export const skills: Record<Languages, Skills> = {
                 skillName: "UI / UX",
                 fullStars: 2,
                 halfStars: 0,
-                emptyStars: 2,
+                emptyStars: 3,
                 description:
                   "Prototypowanie, znajomość programów Adobe XD i Figma",
               },
@@ -195,7 +195,7 @@ export const skills: Record<Languages, Skills> = {
                 skillName: "UI / UX",
                 fullStars: 2,
                 halfStars: 0,
-                emptyStars: 2,
+                emptyStars: 3,
                 description:
                   "Prototyping and sketching, basic knowledge of Adobe XD and Figma",
               },
