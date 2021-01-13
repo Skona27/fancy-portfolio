@@ -7,6 +7,8 @@ import { useTheme } from "../hooks/Theme";
 import { client } from "../api/client";
 import { useLang } from "../hooks/useLang";
 import { materialy } from "../data/materialy";
+import { resources } from "../data/resources";
+import { Resources } from "../components/Resources";
 
 const Materialy = React.memo(() => {
   const { bp, colors } = useTheme();
@@ -23,28 +25,8 @@ const Materialy = React.memo(() => {
       </Head>
 
       <main>
-        <h1>{data.heading1}</h1>
-        <ul css={{ listStyleType: "none", marginLeft: 0 }}>
-          {data.courses.map((course) => (
-            <li key={course.title}>
-              <div>
-                <a
-                  target="_blank"
-                  href={course.url}
-                  css={{ fontSize: "1.25rem" }}
-                >
-                  {course.title}
-                </a>
-                <p css={{ marginTop: "0.5rem" }}>{course.description}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-
         <h2>{data.heading2}</h2>
-
         <p>{data.text}</p>
-
         <br />
 
         <form
@@ -100,6 +82,26 @@ const Materialy = React.memo(() => {
         {submitted && (
           <strong css={{ color: colors.pink }}>{data.submitSuccess}</strong>
         )}
+
+        <h1>{data.heading1}</h1>
+        <ul css={{ listStyleType: "none", marginLeft: 0 }}>
+          {data.courses.map((course) => (
+            <li key={course.title} css={{ margin: "0.75rem 0" }}>
+              <div>
+                <a
+                  target="_blank"
+                  href={course.url}
+                  css={{ fontSize: "1.25rem" }}
+                >
+                  {course.title}
+                </a>
+                <p css={{ marginTop: "0.5rem" }}>{course.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <Resources resourceGroups={resources[lang]} />
       </main>
     </>
   );
