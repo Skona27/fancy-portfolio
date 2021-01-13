@@ -57,6 +57,7 @@ const Materialy = React.memo(() => {
           css={{ width: "100%", marginBottom: 20 }}
         >
           <input
+            required
             value={email}
             onChange={(event) => {
               setEmail(event.target.value);
