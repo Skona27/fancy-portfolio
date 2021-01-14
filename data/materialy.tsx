@@ -24,8 +24,9 @@ export const materialy: Record<Languages, AboutMe> = {
     text: (
       <>
         Zapisz się do <strong>newslettera</strong>, żeby zdobywać darmowe
-        materiały edukacyjne i mieć dostęp do najświeższych nowinek z branży 😃
-        Bez spamu! Będziesz mógł się wypisać w każdej chwili.
+        materiały edukacyjne oraz mieć dostęp do najświeższych nowinek z branży
+        i ciekawych artykułów 😃 Bez spamu! Będziesz mógł się wypisać w każdej
+        chwili.
       </>
     ),
     placeholder: "Wpisz swój email",
@@ -47,8 +48,8 @@ export const materialy: Record<Languages, AboutMe> = {
     text: (
       <>
         Subscribe to the <strong>newsletter</strong> to get free educational
-        materials and access the latest industry news 😃 No spam! You will be
-        able to unsubscribe at any time.
+        materials as well as access the latest industry news and the best
+        articles 😃 No spam! You will be able to unsubscribe at any time.
       </>
     ),
     placeholder: "Enter your email",
