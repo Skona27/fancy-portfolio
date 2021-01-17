@@ -21,11 +21,10 @@ class MyDocument extends Document {
           <script src="/static/gtag.js" />
           <script src="/static/prism.js" />
 
-          <meta name="description" content="" />
           <meta name="theme-color" content="#f54e7d"></meta>
 
+          <link rel="shortcut icon" href="/static/favicon.ico" />
           <link rel="manifest" href="/static/manifest.json" />
-
           <link href="/static/fonts/style.css" rel="stylesheet" />
           <link href="/static/prism.css" rel="stylesheet" />
         </Head>

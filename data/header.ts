@@ -30,6 +30,11 @@ export const header: Record<Languages, IHeader> = {
         title: "materiały do nauki",
         type: "BUTTON",
       },
+      {
+        href: "/newsletter",
+        title: "newsletter",
+        type: "BUTTON",
+      },
     ],
   },
   "en-US": {
@@ -58,6 +63,11 @@ export const header: Record<Languages, IHeader> = {
       {
         href: "/resources",
         title: "resources",
+        type: "BUTTON",
+      },
+      {
+        href: "/newsletter",
+        title: "newsletter",
         type: "BUTTON",
       },
     ],

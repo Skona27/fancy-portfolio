@@ -18,6 +18,7 @@ const Home = React.memo(() => {
     <>
       <Head>
         <title>{data.title}</title>
+        <meta name="description" content={`${data.subtitle}`} />
       </Head>
 
       <main>
