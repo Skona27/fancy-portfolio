@@ -1,12 +1,13 @@
 import { IHeader } from "../components/Header/types";
 import { Languages } from "../hooks/useLang/types";
+import { constants } from "./constants";
 
 export const header: Record<Languages, IHeader> = {
   pl: {
     title: "Jakub Skoneczny",
     subtitle: "javascript developer",
     image: {
-      url: "https://blog.jskoneczny.pl/static/img/profile-photo.jpg",
+      url: `${constants.baseUrl}/static/img/profile-photo.jpg`,
       alt: "Moje zdjęcie profilowe",
     },
     elements: [
@@ -41,7 +42,7 @@ export const header: Record<Languages, IHeader> = {
     title: "Jakub Skoneczny",
     subtitle: "javascript developer",
     image: {
-      url: "https://blog.jskoneczny.pl/static/img/profile-photo.jpg",
+      url: `${constants.baseUrl}/static/img/profile-photo.jpg`,
       alt: "My profile photo",
     },
     elements: [

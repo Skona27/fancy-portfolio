@@ -8,6 +8,7 @@ import { Spinner } from "../components/Spinner";
 import dynamic from "next/dynamic";
 import { useLang } from "../hooks/useLang";
 import { blog } from "../data/blog";
+import { constants } from "../data/constants";
 
 const BlogComponent = dynamic<{ elements: IPost[] | null; heading: string }>(
   () => import("../components/Blog").then((module) => module.Blog)
@@ -80,7 +81,7 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
         <title>{data.title}</title>
         <meta
           name="og:image"
-          content="https://blog.jskoneczny.pl/static/og/blog.png"
+          content={`${constants.baseUrl}/static/og/blog.png`}
         />
 
         {data.title && <meta property="og:title" content={data.title} />}

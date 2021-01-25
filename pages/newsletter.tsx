@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useLang } from "../hooks/useLang";
 import { newsletter } from "../data/newsletter";
 import { Newsletter } from "../components/Newsletter";
+import { constants } from "../data/constants";
 
 const NewsletterPage = React.memo(() => {
   const lang = useLang();
@@ -16,7 +17,7 @@ const NewsletterPage = React.memo(() => {
         <title>{data.title}</title>
         <meta
           name="og:image"
-          content="https://blog.jskoneczny.pl/static/og/newsletter.png"
+          content={`${constants.baseUrl}/static/og/newsletter.png`}
         />
 
         {data.title && <meta property="og:title" content={data.title} />}

@@ -1,10 +1,11 @@
-const express = require("express");
-const next = require("next");
-const { parse } = require("url");
-const { join } = require("path");
-const fs = require("fs");
+import express from "express";
+import next from "next";
+import { parse } from "url";
+import { join } from "path";
+import fs from "fs";
 
-const config = require("./config");
+import config from "./config";
+import { generateFeed } from "./lib/feed";
 
 const dev = config.NODE_ENV !== "production";
 const port = config.PORT;
@@ -19,6 +20,32 @@ app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.get("/feed/:type?", async (req, res) => {
+      const type = req.params.type;
+
+      const feed = await generateFeed();
+
+      const rss = feed.rss2();
+      const atom = feed.atom1();
+      const json = feed.json1();
+
+      if (type === "atom") {
+        res.contentType("application/atom+xml");
+        res.send(atom);
+        return;
+      }
+
+      if (type === "json") {
+        res.contentType("application/json");
+        res.send(json);
+        return;
+      }
+
+      res.contentType("application/rss+xml");
+      res.send(rss);
+      return;
+    });
 
     server.get("*", (req, res) => {
       const parsedUrl = parse(req.url, true);
@@ -37,10 +64,7 @@ app
       return handle(req, res);
     });
 
-    server.listen(port, (err) => {
-      if (err) {
-        throw err;
-      }
+    server.listen(port, () => {
       console.log(`> Ready on http://localhost:${port}`);
     });
   })

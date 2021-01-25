@@ -8,6 +8,7 @@ import { resources } from "../data/resources";
 import { newsletter } from "../data/newsletter";
 import { Resources } from "../components/Resources";
 import { Newsletter } from "../components/Newsletter";
+import { constants } from "../data/constants";
 
 const Materialy = React.memo(() => {
   const lang = useLang();
@@ -20,7 +21,7 @@ const Materialy = React.memo(() => {
         <title>{data.title}</title>
         <meta
           name="og:image"
-          content="https://blog.jskoneczny.pl/static/og/resources.png"
+          content={`${constants.baseUrl}/static/og/resources.png`}
         />
 
         {data.title && <meta property="og:title" content={data.title} />}

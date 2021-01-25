@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "esnext",
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "jsx": "preserve",
     "noEmit": true,

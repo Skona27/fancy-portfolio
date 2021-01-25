@@ -8,6 +8,7 @@ import { experience } from "../data/experience";
 import { Skills } from "../components/Skills";
 import { aboutMe } from "../data/about-me";
 import { useLang } from "../hooks/useLang";
+import { constants } from "../data/constants";
 
 const Home = React.memo(() => {
   const { colors } = useTheme();
@@ -22,7 +23,7 @@ const Home = React.memo(() => {
         <meta name="description" content={`${data.text}`} />
         <meta
           name="og:image"
-          content="https://blog.jskoneczny.pl/static/og/index.png"
+          content={`${constants.baseUrl}/static/og/index.png`}
         />
 
         {data.title && <meta property="og:title" content={data.title} />}

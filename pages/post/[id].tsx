@@ -7,6 +7,7 @@ import { getSinglePost } from "../../api/post";
 import { WithRouterProps } from "next/dist/client/with-router";
 import { withRouter } from "next/router";
 import dynamic from "next/dynamic";
+import { constants } from "../../data/constants";
 
 const SinglePost = dynamic<IPost>(() =>
   import("../../components/SinglePost").then((module) => module.SinglePost)
@@ -70,26 +71,23 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
 
   const isContentReady = !isError && !isLoading && post && !isLoaderDelayed;
 
-  const ogBaseUrl =
-    "https://og-image-app.skonecznyj.vercel.app/api/blog.jskoneczny.pl";
-
   const ogImageUrl = post
-    ? `${ogBaseUrl}?title=${post.title}&url=${router.asPath}`
+    ? `${constants.ogGeneratorUrl}?title=${post.title}&url=${router.asPath}`
     : undefined;
 
   return (
     <>
       <Head>
         <title>
-          {post?.title} {post ? "|" : undefined} Jakub Skoneczny - Javascript
+          {post?.title} {post ? "|" : undefined} {constants.author} - Javascript
           Developer
         </title>
 
-        <meta name="author" content="Jakub Skoneczny" />
+        <meta name="author" content={constants.author} />
         <meta property="og:type" content="article" />
         <meta
           property="og:url"
-          content={`https://blog.jskoneczny.pl${router.asPath}`}
+          content={`${constants.baseUrl}${router.asPath}`}
         />
 
         {ogImageUrl && <meta name="og:image" content={ogImageUrl} />}

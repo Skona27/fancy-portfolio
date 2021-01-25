@@ -1,4 +1,5 @@
 import React from "react";
+import { constants } from "../../../data/constants";
 import { useTheme } from "../../../hooks/Theme";
 import { Icon } from "./Icon";
 
@@ -20,7 +21,7 @@ export const Socials = React.memo(() => {
         }}
       >
         <Icon
-          href="https://github.com/Skona27"
+          href={constants.githubLink}
           target="_blank"
           aria-label="Profil Github"
           rel="noreferrer"
@@ -29,7 +30,7 @@ export const Socials = React.memo(() => {
         </Icon>
 
         <Icon
-          href="https://www.linkedin.com/in/jskoneczny/"
+          href={constants.linkedinLink}
           target="_blank"
           aria-label="Profil LinkedIn"
           rel="noreferrer"
@@ -39,7 +40,7 @@ export const Socials = React.memo(() => {
 
         {/* TODO: Use standard icon */}
         <Icon
-          href="https://twitter.com/SkonecznyJakub"
+          href={constants.twitterLink}
           target="_blank"
           aria-label="Profil Twitter"
           rel="noreferrer"
@@ -81,7 +82,7 @@ export const Socials = React.memo(() => {
           </svg>
         </Icon>
 
-        <Icon href="mailto:skoneczny.j@gmail.com" aria-label="Contact with me">
+        <Icon href={`mailto:${constants.email}`} aria-label="Contact with me">
           <i className="icon icon-envelope-o" />
         </Icon>
       </ul>
