@@ -20,7 +20,10 @@ const Home = React.memo(() => {
         <title>{data.title}</title>
 
         <meta name="description" content={`${data.text}`} />
-        <meta name="og:image" content="/static/og/index.png" />
+        <meta
+          name="og:image"
+          content="https://blog.jskoneczny.pl/static/og/index.png"
+        />
 
         {data.title && <meta property="og:title" content={data.title} />}
         {lang && <meta property="og:locale" content={lang} />}

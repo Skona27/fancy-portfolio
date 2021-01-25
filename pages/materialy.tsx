@@ -18,7 +18,10 @@ const Materialy = React.memo(() => {
     <>
       <Head>
         <title>{data.title}</title>
-        <meta name="og:image" content="/static/og/resources.png" />
+        <meta
+          name="og:image"
+          content="https://blog.jskoneczny.pl/static/og/resources.png"
+        />
 
         {data.title && <meta property="og:title" content={data.title} />}
         {lang && <meta property="og:locale" content={lang} />}

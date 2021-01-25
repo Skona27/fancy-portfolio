@@ -78,7 +78,10 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
     <>
       <Head>
         <title>{data.title}</title>
-        <meta name="og:image" content="/static/og/blog.png" />
+        <meta
+          name="og:image"
+          content="https://blog.jskoneczny.pl/static/og/blog.png"
+        />
 
         {data.title && <meta property="og:title" content={data.title} />}
         {lang && <meta property="og:locale" content={lang} />}
