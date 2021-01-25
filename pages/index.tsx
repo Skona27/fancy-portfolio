@@ -18,7 +18,12 @@ const Home = React.memo(() => {
     <>
       <Head>
         <title>{data.title}</title>
-        <meta name="description" content={`${data.subtitle}`} />
+
+        <meta name="description" content={`${data.text}`} />
+        <meta name="og:image" content="/static/og/index.png" />
+
+        {data.title && <meta property="og:title" content={data.title} />}
+        {lang && <meta property="og:locale" content={lang} />}
       </Head>
 
       <main>

@@ -70,6 +70,13 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
 
   const isContentReady = !isError && !isLoading && post && !isLoaderDelayed;
 
+  const ogBaseUrl =
+    "https://og-image-app.skonecznyj.vercel.app/api/blog.jskoneczny.pl";
+
+  const ogImageUrl = post
+    ? `${ogBaseUrl}?title=${post.title}&url=${router.asPath}`
+    : undefined;
+
   return (
     <>
       <Head>
@@ -79,6 +86,15 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
         </title>
 
         <meta name="author" content="Jakub Skoneczny" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`https://blog.jskoneczny.pl${router.asPath}`}
+        />
+
+        {ogImageUrl && <meta name="og:image" content={ogImageUrl} />}
+        {post?.title && <meta property="og:title" content={post.title} />}
+        {router.locale && <meta property="og:locale" content={router.locale} />}
       </Head>
 
       <main>

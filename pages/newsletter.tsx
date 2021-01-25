@@ -14,7 +14,10 @@ const NewsletterPage = React.memo(() => {
     <>
       <Head>
         <title>{data.title}</title>
-        <meta name="description" content={`${data.newsletter.text}`} />
+        <meta name="og:image" content="/static/og/newsletter.png" />
+
+        {data.title && <meta property="og:title" content={data.title} />}
+        {lang && <meta property="og:locale" content={lang} />}
       </Head>
 
       <main>
