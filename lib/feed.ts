@@ -39,22 +39,34 @@ export async function generateFeed() {
 
   postsCollection.forEach((post) => {
     const data = post.data();
+    const content = getFirstParagraph(data.content);
 
     const url = `${constants.baseUrl}/post/${data.slug}`;
     const image = `${constants.ogGeneratorUrl}?title=${data.title}&url=/post/${data.slug}`;
 
     feed.addItem({
-      image,
       id: url,
       link: url,
+      content: content,
       author: [author],
       title: data.title,
       contributor: [author],
-      content: data.content,
+      image: encodeURI(image),
       date: data.date.toDate(),
       published: data.date.toDate(),
     });
   });
 
   return feed;
+}
+
+function getFirstParagraph(data: string) {
+  try {
+    const firstParagraphStart = data.split("<p>")[1];
+    const firstParagraphContent = firstParagraphStart.split("</p>")[0];
+
+    return `${firstParagraphContent.trim()}..`;
+  } catch (e) {
+    return "Content available on website";
+  }
 }
