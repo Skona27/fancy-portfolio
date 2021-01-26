@@ -13,6 +13,17 @@ export interface LinkResource {
   description?: string;
 }
 
+interface ResourcesPage {
+  title: string;
+  heading1: string;
+  courses: Array<{
+    title: string;
+    url: string;
+    description: string;
+  }>;
+  resources: ResourceGroup[];
+}
+
 const universalResources: LinkResource[] = [
   {
     type: "LINK",
@@ -84,19 +95,44 @@ const universalResources: LinkResource[] = [
   },
 ];
 
-export const resources: Record<Languages, ResourceGroup[]> = {
-  "en-US": [
-    {
-      type: "GROUP",
-      title: "Awesome articles",
-      children: [...universalResources],
-    },
-  ],
-  pl: [
-    {
-      type: "GROUP",
-      title: "Polecane artykuły",
-      children: [...universalResources],
-    },
-  ],
+export const resources: Record<Languages, ResourcesPage> = {
+  pl: {
+    title: "Materiały do nauki | Jakub Skoneczny - Javascript Developer",
+    heading1: "Moje kursy",
+    courses: [
+      {
+        title: "Introduction to State Machines with XState and React",
+        url:
+          "https://www.udemy.com/course/introduction-to-state-machines-with-xstate-and-react/",
+        description: `Dowiedz się jak tworzyć skomplikowane aplikacje i kompleksowo zarządzać stanem w aplikacjach React z wykorzystaniem maszyn stanowych i XState.`,
+      },
+    ],
+    resources: [
+      {
+        type: "GROUP",
+        title: "Polecane artykuły",
+        children: [...universalResources],
+      },
+    ],
+  },
+  "en-US": {
+    title: "Resources | Jakub Skoneczny - Javascript Developer",
+    heading1: "My courses",
+    courses: [
+      {
+        title: "Introduction to State Machines with XState and React",
+        url:
+          "https://www.udemy.com/course/introduction-to-state-machines-with-xstate-and-react/",
+        description: `Learn how to build complex web applications and manage state
+        with finite State Machines using Javascript and React.`,
+      },
+    ],
+    resources: [
+      {
+        type: "GROUP",
+        title: "Awesome articles",
+        children: [...universalResources],
+      },
+    ],
+  },
 };

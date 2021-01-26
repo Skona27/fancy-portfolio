@@ -7,7 +7,7 @@ import { getSinglePost } from "../../api/post";
 import { WithRouterProps } from "next/dist/client/with-router";
 import { withRouter } from "next/router";
 import dynamic from "next/dynamic";
-import { constants } from "../../data/constants";
+import { constants } from "../../config/client";
 
 const SinglePost = dynamic<IPost>(() =>
   import("../../components/SinglePost").then((module) => module.SinglePost)
@@ -71,28 +71,30 @@ const Post: React.FC<WithRouterProps & IResponse> = ({
 
   const isContentReady = !isError && !isLoading && post && !isLoaderDelayed;
 
+  const baseTitle = `${constants.author} - Javascript Developer`;
+  const title = post ? `${post.title} | ${baseTitle}` : baseTitle;
+
   const ogImageUrl = post
-    ? `${constants.ogGeneratorUrl}?title=${post.title}&url=${router.asPath}`
+    ? `${constants.ogGeneratorUrl}?title=${post.title}&url=/post/${post.slug}`
     : undefined;
 
   return (
     <>
       <Head>
-        <title>
-          {post?.title} {post ? "|" : undefined} {constants.author} - Javascript
-          Developer
-        </title>
-
-        <meta name="author" content={constants.author} />
+        <title>{title}</title>
         <meta property="og:type" content="article" />
-        <meta
-          property="og:url"
-          content={`${constants.baseUrl}${router.asPath}`}
-        />
-
-        {ogImageUrl && <meta name="og:image" content={ogImageUrl} />}
-        {post?.title && <meta property="og:title" content={post.title} />}
+        <meta name="author" content={constants.author} />
+        {post && (
+          <meta
+            property="og:url"
+            content={`${constants.baseUrl}/post/${post.slug}`}
+          />
+        )}
         {router.locale && <meta property="og:locale" content={router.locale} />}
+        {post && <meta property="og:title" content={post.title} />}
+        {ogImageUrl && <meta name="og:image" content={ogImageUrl} />}
+        {post && <meta name="twitter:title" content={post.title} />}
+        {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
       </Head>
 
       <main>

@@ -1,6 +1,6 @@
 import { Feed } from "feed";
 import { firestore } from "../firebase";
-import { constants } from "../data/constants";
+import { constants } from "../config/client";
 import { blog as blogData } from "../data/blog";
 
 export async function generateFeed() {
@@ -41,13 +41,16 @@ export async function generateFeed() {
     const data = post.data();
 
     const url = `${constants.baseUrl}/post/${data.slug}`;
+    const image = `${constants.ogGeneratorUrl}?title=${data.title}&url=/post/${data.slug}`;
 
     feed.addItem({
-      title: data.title,
+      image,
       id: url,
       link: url,
       author: [author],
+      title: data.title,
       contributor: [author],
+      content: data.content,
       date: data.date.toDate(),
       published: data.date.toDate(),
     });

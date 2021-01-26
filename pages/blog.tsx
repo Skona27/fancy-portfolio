@@ -8,7 +8,7 @@ import { Spinner } from "../components/Spinner";
 import dynamic from "next/dynamic";
 import { useLang } from "../hooks/useLang";
 import { blog } from "../data/blog";
-import { constants } from "../data/constants";
+import { constants } from "../config/client";
 
 const BlogComponent = dynamic<{ elements: IPost[] | null; heading: string }>(
   () => import("../components/Blog").then((module) => module.Blog)
@@ -79,13 +79,18 @@ const Blog: React.FC<IResponse> = ({ postsFromServer, error }) => {
     <>
       <Head>
         <title>{data.title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={lang} />
+        <meta property="og:title" content={data.title} />
+        <meta name="twitter:title" content={data.title} />
+        <meta
+          name="twitter:image"
+          content={`${constants.baseUrl}/static/og/blog.png`}
+        />
         <meta
           name="og:image"
           content={`${constants.baseUrl}/static/og/blog.png`}
         />
-
-        {data.title && <meta property="og:title" content={data.title} />}
-        {lang && <meta property="og:locale" content={lang} />}
       </Head>
 
       <main>

@@ -3,29 +3,33 @@ import * as React from "react";
 import Head from "next/head";
 
 import { useLang } from "../hooks/useLang";
-import { materialy } from "../data/materialy";
 import { resources } from "../data/resources";
 import { newsletter } from "../data/newsletter";
 import { Resources } from "../components/Resources";
 import { Newsletter } from "../components/Newsletter";
-import { constants } from "../data/constants";
+import { constants } from "../config/client";
 
 const Materialy = React.memo(() => {
   const lang = useLang();
-  const data = materialy[lang];
+  const data = resources[lang];
   const form = newsletter[lang];
 
   return (
     <>
       <Head>
         <title>{data.title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={lang} />
+        <meta property="og:title" content={data.title} />
+        <meta name="twitter:title" content={data.title} />
+        <meta
+          name="twitter:image"
+          content={`${constants.baseUrl}/static/og/resources.png`}
+        />
         <meta
           name="og:image"
           content={`${constants.baseUrl}/static/og/resources.png`}
         />
-
-        {data.title && <meta property="og:title" content={data.title} />}
-        {lang && <meta property="og:locale" content={lang} />}
       </Head>
 
       <main>
@@ -47,7 +51,7 @@ const Materialy = React.memo(() => {
           ))}
         </ul>
 
-        <Resources resourceGroups={resources[lang]} />
+        <Resources resourceGroups={data.resources} />
 
         <section>
           <Newsletter {...form.newsletter} />

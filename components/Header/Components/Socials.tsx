@@ -1,5 +1,5 @@
 import React from "react";
-import { constants } from "../../../data/constants";
+import { constants } from "../../../config/client";
 import { useTheme } from "../../../hooks/Theme";
 import { Icon } from "./Icon";
 

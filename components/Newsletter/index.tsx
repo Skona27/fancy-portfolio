@@ -8,7 +8,7 @@ export type NewsletterProps = {
   buttonText: string;
   submitText: string;
   heading: string;
-  text: React.ReactNode;
+  text: string;
   headingType?: "h1" | "h2";
 };
 
@@ -27,7 +27,7 @@ export function Newsletter({
   return (
     <>
       <HeadingType>{heading}</HeadingType>
-      <p>{text}</p>
+      <p dangerouslySetInnerHTML={{ __html: text }} />
 
       <br />
 

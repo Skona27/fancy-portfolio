@@ -4,7 +4,7 @@ import { parse } from "url";
 import { join } from "path";
 import fs from "fs";
 
-import config from "./config";
+import { config } from "./config/server";
 import { generateFeed } from "./lib/feed";
 
 const dev = config.NODE_ENV !== "production";

@@ -8,7 +8,7 @@ import { experience } from "../data/experience";
 import { Skills } from "../components/Skills";
 import { aboutMe } from "../data/about-me";
 import { useLang } from "../hooks/useLang";
-import { constants } from "../data/constants";
+import { constants } from "../config/client";
 
 const Home = React.memo(() => {
   const { colors } = useTheme();
@@ -19,22 +19,26 @@ const Home = React.memo(() => {
     <>
       <Head>
         <title>{data.title}</title>
-
         <meta name="description" content={`${data.text}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={lang} />
+        <meta property="og:title" content={data.title} />
+        <meta name="twitter:title" content={data.title} />
+        <meta
+          name="twitter:image"
+          content={`${constants.baseUrl}/static/og/index.png`}
+        />
         <meta
           name="og:image"
           content={`${constants.baseUrl}/static/og/index.png`}
         />
-
-        {data.title && <meta property="og:title" content={data.title} />}
-        {lang && <meta property="og:locale" content={lang} />}
       </Head>
 
       <main>
         <h1>{data.heading}</h1>
 
         <p>
-          {data.subtitle}
+          <span dangerouslySetInnerHTML={{ __html: data.subtitle }} />
           <i
             css={{
               color: colors.pink,

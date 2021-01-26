@@ -1,6 +1,6 @@
 import { IHeader } from "../components/Header/types";
 import { Languages } from "../hooks/useLang/types";
-import { constants } from "./constants";
+import { constants } from "../config/client";
 
 export const header: Record<Languages, IHeader> = {
   pl: {

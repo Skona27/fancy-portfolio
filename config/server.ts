@@ -1,9 +1,8 @@
-const dotenv = require("dotenv");
-
+import dotenv from "dotenv";
 dotenv.config();
 
-module.exports = {
+export const config = {
   PORT: process.env.PORT || 3000,
   NODE_ENV: process.env.NODE_ENV || "development",
-  SERVER_HOST: process.env.SERVER_HOST || ""
+  SERVER_HOST: process.env.SERVER_HOST || "",
 };
