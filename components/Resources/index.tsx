@@ -49,6 +49,13 @@ export function Resources({ resourceGroups }: Props) {
                       </div>
                     </li>
                   );
+                case "HR":
+                  return (
+                    <div css={{ marginTop: "1rem", marginBottom: "2rem" }}>
+                      <h3>{resource.title}</h3>
+                      <hr css={{ marginTop: "0.75rem" }} />
+                    </div>
+                  );
                 default:
                   return null;
               }
