@@ -37,16 +37,16 @@ export const skills: Record<Languages, Skills> = {
                 description:
                   "Manipulacja elementami DOM, znajomość technik ES6 / 7 i ES Next, AJAX, OOP, wizualizacja danych z D3, znajomość WebGL i Three.JS, SPA, PWA, testowanie z Jest",
                 fullStars: 4,
-                halfStars: 1,
-                emptyStars: 0,
+                halfStars: 0,
+                emptyStars: 1,
               },
               {
                 skillName: "React",
                 description:
-                  "Znajomość CRA i Next.JS, CSS modules, css-in-js (emotion), React Hooks, Component Lifecycle Methods, Context, zaawansowane techniki React, React & Typescript",
+                  "Znajomość React Hooks, Component Lifecycle Methods, Context, zaawansowane techniki React, React & Typescript. Wielki fan frameworka Next.JS.",
                 fullStars: 4,
-                halfStars: 1,
-                emptyStars: 0,
+                halfStars: 0,
+                emptyStars: 1,
               },
             ],
           },
@@ -56,7 +56,7 @@ export const skills: Record<Languages, Skills> = {
               {
                 skillName: "NodeJS",
                 description:
-                  "Znajomość Express, Koa i NestJS, komunikacja z bazami SQL i MongoDB, znajomość TypeORM i Prisma, budowanie REST API i GraphQL API, autoryzacja JWT, testowanie z Jest",
+                  "Projektowanie REST API i GraphQL API w frameworkach Express i NestJS, komunikacja z bazami SQL i MongoDB, znajomość TypeORM i Prisma, autoryzacja JWT, testowanie z Jest",
                 fullStars: 3,
                 halfStars: 1,
                 emptyStars: 1,
@@ -71,7 +71,7 @@ export const skills: Record<Languages, Skills> = {
               {
                 skillName: "SQL",
                 description:
-                  "CRUD, Grupowanie danych, sortowanie danych, Relacje pomiędzy danymi",
+                  "Operacje CRUD, Grupowanie danych, sortowanie danych, Relacje pomiędzy danymi",
                 fullStars: 3,
                 halfStars: 0,
                 emptyStars: 2,
@@ -95,12 +95,16 @@ export const skills: Record<Languages, Skills> = {
             title: "",
             skills: [
               {
-                skillName: "UI / UX",
+                skillName: "AWS",
                 fullStars: 2,
                 halfStars: 0,
                 emptyStars: 3,
-                description:
-                  "Prototypowanie, znajomość programów Adobe XD i Figma",
+              },
+              {
+                skillName: "Python",
+                fullStars: 2,
+                halfStars: 0,
+                emptyStars: 3,
               },
               { skillName: "Webpack", fullStars: 3, emptyStars: 2 },
             ],
@@ -136,16 +140,16 @@ export const skills: Record<Languages, Skills> = {
                 description:
                   "DOM manipulations, knowledge of ES6 / 7 and ES Next standards, AJAX, OOP, D3 visualizations, knowledge of WebGL and Three.JS, SPA, PWA, testing with Jest",
                 fullStars: 4,
-                halfStars: 1,
-                emptyStars: 0,
+                halfStars: 0,
+                emptyStars: 1,
               },
               {
                 skillName: "React",
                 description:
-                  "Knowledge of CRA and Next.JS, CSS modules, CSS-in-js (emotion), React Hooks, Component Lifecycle Methods, Context, advanced technics of React, React & Typescript",
+                  "Knowledge of React Hooks, Component Lifecycle Methods, Context, advanced technics of React, React with Typescript. Big fan of Next.JS framework.",
                 fullStars: 4,
-                halfStars: 1,
-                emptyStars: 0,
+                halfStars: 0,
+                emptyStars: 1,
               },
             ],
           },
@@ -168,7 +172,8 @@ export const skills: Record<Languages, Skills> = {
               },
               {
                 skillName: "SQL",
-                description: "CRUD, grouping data, sorting data, joining data",
+                description:
+                  "CRUD operations, grouping data, sorting data, joining data",
                 fullStars: 3,
                 halfStars: 0,
                 emptyStars: 2,
@@ -192,12 +197,16 @@ export const skills: Record<Languages, Skills> = {
             title: "",
             skills: [
               {
-                skillName: "UI / UX",
+                skillName: "AWS",
                 fullStars: 2,
                 halfStars: 0,
                 emptyStars: 3,
-                description:
-                  "Prototyping and sketching, basic knowledge of Adobe XD and Figma",
+              },
+              {
+                skillName: "Python",
+                fullStars: 2,
+                halfStars: 0,
+                emptyStars: 3,
               },
               { skillName: "Webpack", fullStars: 3, emptyStars: 2 },
             ],
