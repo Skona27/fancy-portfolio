@@ -15,7 +15,7 @@ export const aboutMe: Record<Languages, AboutMe> = {
     text: `Programowaniem zajmuję się od dawien dawna. Programowanie to moje
     hobby, co sprawia że praca to dla mnie czysta przyjemność. W wolnym
     czasie gram na gitarze, oglądam filmy i czytam ciekawostki o kosmosie
-    i gwiazdach. Czasami zdarza mi się zagrać w pokera lub gry planszowe
+    i gwiazdach. Czasami zdarza mi się zagrać w szachy lub gry planszowe
     ze znajomymi.`,
   },
   "en-US": {
@@ -25,6 +25,6 @@ export const aboutMe: Record<Languages, AboutMe> = {
     text: `
     I have been programming for a long time. Programming is my hobby, which makes my work a pleasure.
     I play guitar, watch movies, and read interesting facts about space and stars in my spare time.
-    Sometimes I play poker or board games with friends.`,
+    Sometimes I play chess or board games with friends.`,
   },
 };

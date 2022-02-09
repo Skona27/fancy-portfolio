@@ -13,7 +13,17 @@ export const experience: Record<Languages, Experience> = {
     text: "Poniżej znajduje się moje doświadczenie zawodowe.",
     items: [
       {
-        duration: "03-2019 - obecnie",
+        duration: "07-2021 - now",
+        companyName: "Netguru S.A.",
+        positionName: "Node.js Developer",
+        description:
+          "Projektowanie aplikacji i konsultant dla zewnętrznych Klientów",
+        techStack:
+          "Node.js, Nest.js, Express, Typescript, AWS, SQL, NoSQL, Docker",
+        live: "https://www.netguru.com/",
+      },
+      {
+        duration: "03-2019 - 06-2021",
         companyName: "Orange Polska",
         positionName: "Javascript Developer w Zespole Portal",
         description: "Prace nad nową stroną główną i sklepem Orange Polska",
@@ -50,7 +60,17 @@ export const experience: Record<Languages, Experience> = {
   "en-US": {
     items: [
       {
-        duration: "03-2019 - present",
+        duration: "07-2021 - now",
+        companyName: "Netguru S.A.",
+        positionName: "Node.js Developer",
+        description:
+          "Developing applications and consulting for external Clients",
+        techStack:
+          "Node.js, Nest.js, Express, Typescript, AWS, SQL, NoSQL, Docker",
+        live: "https://www.netguru.com/",
+      },
+      {
+        duration: "03-2019 - 06-2021",
         companyName: "Orange Polska",
         positionName: "Javascript Developer in Team Portal",
         description:
